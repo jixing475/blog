@@ -1,0 +1,50 @@
+---
+title: "Hello R Markdown"
+author: "Frida Gomam"
+date: 2015-07-23T21:13:14-05:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+fit <- lm(dist ~ speed, data = cars)
+fit
+```
+
+# Including Plots
+
+You can also embed plots. See Figure \@ref(fig:pie) for example:
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+library(tidyverse)
+iris %>%
+  group_by(Species) %>%
+  summarise(counts = n()) %>%
+  mutate(Species = fct_reorder(Species, counts)) %>% # arrange bar
+  #mutate(hilight = ifelse(Species == "virginica", TRUE, FALSE)) %>% 
+  ggplot(aes(x = Species, y = counts, fill = Species)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = counts), hjust = 1.6, color = "white", size = 5) +
+  coord_flip() +
+  theme_minimal(14) +
+  #scale_fill_manual(name = NULL,
+  #                  values = c("#B0B0B0D0", "#D55E00D0")) +
+  # scale_color_tableau() + scale_fill_tableau()+ # Color fill
+  labs(caption = "Figure 01.") +
+  theme(axis.text.x = element_text(angle = 0, hjust = 1),
+        legend.position = "bottom",
+        plot.caption=element_text(size=12,family = "Arial",face = "bold",
+                                  hjust=0, margin=margin(t=15)))
+
+```
