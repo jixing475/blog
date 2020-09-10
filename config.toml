@@ -12,7 +12,8 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://jixingblog.netlify.com/"
+#baseURL = "https://jixingblog.netlify.com/"
+baseURL = "/"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Student Zero"
@@ -89,6 +90,12 @@ canonifyurls = true
   name = "Stack Overflow"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-stack-overflow\"></i>"
   url = "https://stackoverflow.com/users/636472/kakawait"
+[[menu.links]]
+  weight = 7
+  identifier = "rbloggers"
+  name = "R-bloggers"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-book\"></i>"
+  url = "https://www.r-bloggers.com/"
 
 [[menu.misc]]
   weight = 1
@@ -229,5 +236,6 @@ baseName = "index"
 isPlainText = false
     
 [outputs]
-home = [ "HTML", "Atom" ]
+  home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
+  section = [ "HTML", "RSS" ]
 
