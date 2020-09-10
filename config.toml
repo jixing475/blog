@@ -222,20 +222,4 @@ canonifyurls = true
   # [params.footer]
   #   copyright = "<a href=\"https://github.com/kakawait\">kakawait</a>"
 
-# 📌  jixing add
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "^Thumbs\\.db$"]
-
-[mediaTypes]
-[mediaTypes."application/atom"]
-suffix = "xml"
-
-
-[outputFormats.Atom]
-mediaType = "application/atom"
-baseName = "index"
-isPlainText = false
-    
-[outputs]
-  home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
-  section = [ "HTML", "RSS" ]
 
