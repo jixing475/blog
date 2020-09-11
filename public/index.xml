@@ -6,10 +6,22 @@
     <description>Recent content on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How To Use Docker For Data Scientist</title>
+      <link>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</link>
+      <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</guid>
+      <description>
+
+
+</description>
+    </item>
     
     <item>
       <title>Hello R Markdown</title>

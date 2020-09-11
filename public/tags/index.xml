@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>plot</title>

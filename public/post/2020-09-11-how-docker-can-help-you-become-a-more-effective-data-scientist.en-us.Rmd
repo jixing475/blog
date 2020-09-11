@@ -1,0 +1,309 @@
+---
+title: How To Use Docker For Data Scientist
+author: ZERO
+date: '2020-09-11'
+slug: how-docker-can-help-you-become-a-more-effective-data-scientist.en-us
+categories:
+  - data science
+tags:
+  - docker
+keywords:
+  - tech
+thumbnailImage: https://tva1.sinaimg.cn/large/007S8ZIlgy1gilm7sa11sj310u0gzq7l.jpg
+thumbnailImagePosition: left
+---
+
+<!--more-->
+
+
+在过去的几年中，我听到了很多有关Docker容器怎么厉害的声音。似乎我所有的软件工程朋友都在使用它们来开发应用程序。我想弄清楚这种技术如何能帮到我更有效的分析数据，但是我发现在线教程要么太详细:阐明了我永远不会用作数据科学家的功能，要么太肤浅了:没有给我足够的信息来帮助我理解如何有效快速使用Docker。
+
+这个快速入门，可以帮您不必了解所有关于 🐳 的信息，而是快速入门数据分析使用docker所需的知识。
+
+这篇文章写于2017年。大多数信息仍然是正确的，只在少数地方进行了注释。我仍然鼓励您阅读这篇文章。[detailed notes I have taken on Docker](https://notes.hamel.dev/docs/docker/Docker-In-Action.html)_ that I wrote recently._
+
+#  🐳 是何方神圣?
+
+您可以将Docker视为轻量级虚拟机，其中包含运行应用程序所需的一切依赖环境。 🐳容器可以捕获系统状态的快照，以便其他人可以快速重新创建您的计算环境。这就是您需要了解的所有信息，但是如果您想了解更多信息，可以前往[这里](https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b).
+
+# 为什么应该使用 🐳 ?
+
+  1. **可重复性**:作为专业的数据科学家，您的分析工作是否具有可重复性非常重要。可重复性不仅促进了同行评审，而且确保您构建的模型，应用程序或分析流程可以完美地运行，这使您的交付物更加强大并且能经受时间的考验。
+
+📌例如，如果您使用python构建模型，仅运行`pip-freeze`并将生成的`requirements.txt`文件发送给您的同事通常是不够的，因为这只会封装python特定的依赖关系-而通常存在`python`外部依赖关系，例如操作系统，编译器，驱动程序，配置文件或其他代码成功运行所必需的数据。即使您只需要共享python依赖关系就可以摆脱困境，将所有内容包装在Docker容器中也可以减轻其他人重新创建环境的负担，并使您的工作更易于访问。
+
+  2. **计算环境的可移植性**:作为一名数据科学家，尤其是在机器学习方面，能够快速更改您的计算环境会极大地提高您的生产力。数据科学工作通常始于原型设计，探索和研究，而这些工作并不一定马上需要专门的计算资源。这项工作通常发生在笔记本电脑或个人计算机上。
+
+但是，有个时刻会反复出现，不同的计算资源会极大地加快您的工作流程-例如，具有更多CPU或功能更强大的GPU的计算机，可用于诸如深度学习之类的事情。我看到许多数据科学家将自己限制在本地计算环境中，这是因为在远程计算机上工作需要重新创建本地环境, 而这个过程将非常痛苦。 Docker使移植环境（所有库，文件等）的过程非常容易。在Kaggle竞赛中，快速移植计算环境也是一项巨大的竞争优势，因为您可以以经济高效的方式利用AWS上的宝贵计算资源。
+
+最后，创建docker文件可让您移植许多您习惯的本地环境的内容，例如bash别名或vim插件。
+
+  3. **工程设计提升**:熟悉Docker可以使您将你的模型或分析部署为应用程序（例如，作为可以提供预测的REST API端点），使其他人可以访问您的工作。此外，作为数据科学工作流一部分，您可能需要与之交互的其他应用程序也可能存在于Docker容器中，(例如数据库或其他应用程序)。
+  
+#  🐳 术语
+
+在深入探讨 🐳 之前，熟悉Docker术语对后面的学习会有所帮助:
+
+  * **Image**: 是您要构建的蓝图。例如:带有`Nvidia`驱动程序和正在运行的`Jupyter Server`的`Ubuntu TensorFlow`。
+  * **Container**: 您可以运行同一蓝图(image)的多个副本。掌握image和container之间的差异非常重要，因为这是新手经常感到困惑的原因。如果image和container之间的区别不清楚，请停下来仔细阅读理解。
+  * **Dockerfile**: 创建图像的配方。 Dockerfile包含特殊的Docker语法。根据官方文档描述:`Dockerfile`是一个文本文档，其中包含用户在终端(shell)上调用以组装Image的所有命令。
+  * **Commit**: 像`git`一样，`Docker`容器提供版本控制。您可以随时通过提交更改将Docker容器的状态保存为新的`image`。
+  * **DockerHub/Image Registry**: 大家可以发布公共（或私人）docker image的地方，以促进协作和共享, 有点像git之余GitHub。
+  * **Layer**: 对现有image的修改，由`Dockerfile`中的指令表示。依次将图层应用于基础image以创建最终image。
+
+整个帖子的其余部分都讲使用这些术语，因此如果不记得或者混淆了了，请参考此列表！这些术语之间容易混淆，尤其是image和container之间的混淆-因此在阅读时请时刻保持警惕！
+
+#  🐳 安装
+
+您可以免费下载并安装`Docker Community Edition`。您可以按照说明进行操作[这里](https://www.docker.com/community-edition#/download).
+
+# 创建第一个 Docker image
+
+在创建 Docker 容器之前，创建定义 image 的 Dockerfile 会很有用。让我们慢慢地浏览下面的示例 Dockerfile。
+
+## FROM 语句
+    
+```{bash eval=FALSE, include=TRUE}
+    FROM ubuntu:16.04
+```
+
+**FROM** 语句封装了Docker中最神奇的部分。此语句指定要在其基础上构建的基础 image。
+
+在使用**FROM指定基本image后** Docker将在您的本地环境中查找名为 **ubuntu:16.04 **的image-如果找不到本地image，它将搜索您指定的Docker注册表，默认情况下为[DockerHub](https://hub.docker.com/explore/).
+
+这种分层机制很方便，因为您通常希望将程序安装在Linux操作系统（例如Ubuntu）上。您不必担心如何从头开始安装Ubuntu，而只需在正式的Ubuntu image之上构建即可！ Dockerhub上托管着各种各样的Docker image，包括提供了更多操作系统的Docker image，例如，如果您希望使用已安装Anaconda的容器，则可以在[official anaconda docker image](https://hub.docker.com/r/continuumio/anaconda3/)。最重要的是，您也可以随时发布自己构建的image，即使该image是通过在另一image之上分层来创建的！可能性是无穷无尽的。真是牛逼!!!
+
+在这个例子中，我们指定基本映像为ubuntu:16.04，它将查找DockerHub [repo called ubuntu](https://hub.docker.com/_/ubuntu/)。冒号后面的映像名称部分— 16.04是 **tag **，它使您可以指定要安装的基本image的版本。如果导航到[the Ubuntu DockerHub repo](https://hub.docker.com/_/ubuntu/)，您会注意到不同版本的Ubuntu对应于不同的标签:
+
+![Image for post](https://miro.medium.com/max/544/1*bGQguuXv3RyKXWLGi8Nxzg.png)
+
+截图于 [Ubuntu DockerHub repo](https://hub.docker.com/_/ubuntu/) .
+
+例如，在撰写本文时，ubuntu:16.04,  **ubuntu:xenial-20171201 **，ubuntu:xenial **和ubuntu:latest **均指的是Ubuntu 16.04版本。并且都是同一张图片的别名。此外，此存储库中提供的链接将您链接到用于为每个版本构建映像的相应Dockerfile。您不会总能在DockerHub存储库上找到Dockerfile，因为维护者可以选择将Dockerfile包括在它们如何制作的映像中。我发现查看了解这些Dockerfile很有用（但是请先完成本教程！）
+
+有一个标签值得特别提及-**:latest **标签。如果您未在**FROM **语句中指定标签，则此标签指定默认情况下将提取的内容, 也就是会提取最新的版本。例如，如果您的FROM语句如下所示：
+
+```{bash eval=FALSE, include=TRUE}
+    FROM ubuntu
+```   
+
+然后，您将最终得到ubuntu：16.04image。为什么？ —如果仔细看一下上面的屏幕截图，您会发现：latest标记与16.04相关联
+
+关于Docker映像的最后一点说明：从DockerHub中提取随机Docker image时要做一些判断。恶意作者创建的Docker映像可能包含恶意流氓软件。
+
+## LABEL 声明
+
+此语句将元数据添加到image， 这一步是非必须的。添加此内容是为了使其他人知道如何联系 image 的维护者，并且可以搜索我的其他Docker容器。
+
+```{bash eval=FALSE, include=TRUE}
+    LABEL maintainer="Hamel Husain <youremail>"
+```   
+
+
+## ENV 声明
+
+```{bash eval=FALSE, include=TRUE}
+    ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+```    
+    
+
+这使您可以轻松的更改(shell)环境变量。您可以在[此处](https://docs.docker.com/engine/reference/builder/#environment-replacement)了解更多信息.
+
+## RUN 语句
+
+构建Docker image所需的工作环境的一些依赖包。您可以运行 `apt-get` 和 `pip install` 之类的任意shell命令来安装所需的软件包和依赖项。
+
+```{bash eval=FALSE, include=TRUE}  
+    RUN apt-get update --fix-missing && apt-get install -y wget bzip2      
+        build-essential \  
+        ca-certificates \  
+        git-core \  
+          
+    ...
+```
+
+这种情况下，我将安装一些我喜欢的实用程序，例如curl，htop，byobu，安装anaconda，然后安装基本anaconda安装中未包含的其他库（滚动至完整的Dockerfile，以查看所有RUN语句）。
+
+**RUN**语句之后的命令与Docker无关，但它们是您自己安装这些软件包时将运行的普通linux命令，因此，如果您不熟悉其中的某些软件包或linux命令，请不要担心。另外, 当我第一次开始学习Docker时，我在Github或DockerHub上查看了其他作者的Dockerfile，并将需要的相关部分复制并粘贴到了自己的Dockerfile中, 这些依赖包一般是通用和必须的, 所以对 Linux 命令不熟悉也没有关系。
+
+您可能会注意到有关RUN语句的格式设置。每个库或软件包都按字母顺序整齐地缩进和排列，这样可以提高可读性。这是Dockerfile的普遍约定，所以我建议您学习并用到自己制作的Dockerfile，因为这样可以简化协作。
+
+## EXPOSE 语句 
+
+如果您尝试公开端口，例如，从容器内部或某种Web服务中提供Jupyter笔记本计算机，那么这个语句将很有用。 Docker的官方文档很好地解释了**EXPOSE **语句：
+
+> The `EXPOSE` instruction does not actually publish the port. It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published. To actually publish the port when running the container, use the `-p` flag on `docker run` to publish and map one or more ports, or the `-P` flag to publish all exposed ports and map them to to high-order ports.
+
+## VOLUME 语句
+
+```{bash eval=FALSE, include=TRUE}  
+    VOLUME /ds
+```
+
+该语句允许您在Docker容器和宿主机之间共享数据。 VOLUME语句允许您安装外部安装的盘文件。仅在运行容器时声明宿主机目录（因为您可能在不同计算机上运行此容器），而在定义image时则不用声明。目前，您仅指定要与宿主机共享的docker容器中的文件夹名称。
+
+Docker用户指南中是这样说的：
+
+> ***The host directory is declared at container run-time**: The host directory (the mountpoint) is, by its nature, host-dependent. This is to preserve image portability. since a given host directory can’t be guaranteed to be available on all hosts.For this reason, you can’t mount a host directory from within the Dockerfile. The `_VOLUME_` instruction does not support specifying a `_host-dir_`parameter. You must specify the mountpoint when you create or run the container.
+
+此外，这些卷用于将数据持久保存在容器的文件系统之外，如果您要使用了大量数据不希望使Docker image 膨胀，则这通常很有用。保存docker映像时，此`VOLUME`目录中的任何数据都不会保存为映像的一部分，但是该目录之外的数据将保存在容器中。
+
+## WORKDIR 语句
+
+```{bash eval=FALSE, include=TRUE}  
+    WORKDIR /ds
+```
+
+如果要在另一个命令中引用相对路径的特定文件，此语句将设置工作目录。例如，Dockerfile中的最后一条语句是
+
+```{bash eval=FALSE, include=TRUE}  
+    CMD ["./run_jupyter.sh"]
+```
+
+假设工作目录为 `/ds`
+
+## COPY 语句
+
+```{bash eval=FALSE, include=TRUE}  
+    COPY run_jupyter.sh /ds/run_jupyter.sh
+```
+
+该命令允许您在运行docker容器时将文件从宿主机中复制到docker容器中。一般用它来执行bash脚本并将有用的东西（例如`.bashrc`文件）导入到容器中。
+
+请注意，此处主机容器的路径未完全指定，用的是相对路径. 因为主机路径是相对于`container`运行时指定的`context directory`的（后面将说到这个）。
+
+在这里碰巧的是，当我运行此容器时，在上下文目录的根目录中有文件 _run_jupyter.sh_，所以原文件之前没有绝对路径。
+
+用户指南:
+
+> `COPY <src>... <dest>`
+> 
+> The `COPY` instruction copies new files, directories or remote file URLs from `<src>` and adds them to the filesystem of the image at the path `<dest>`.
+
+## CMD 语句
+
+Docker容器的设计理念是短暂的，并且只对你想要运行的应用程序保持足够长的运行时间。但是，对于数据科学，我们通常希望使这些容器保持运行，即使其中没有任何程序在运行。许多人仅通过运行bash shell（除非将其杀死就不会终止）来完成此任务。
+
+```{bash eval=FALSE, include=TRUE}  
+    CMD ["./run_jupyter.sh"]
+```
+
+在以上命令中，我正在运行实例化的Jupyter笔记本服务器Shell脚本。但是，如果您没有要运行的特定应用程序，但是希望容器运行而不退出，则可以使用以下命令(直接运行bash shell)：    
+```{bash eval=FALSE, include=TRUE}  
+    CMD ["/bin/bash"]
+```
+
+之所以起作用，是因为bash shell会直到您退出它才终止，所以容器会一直保持运行状态。
+
+用户指南:
+
+> There can only be one `CMD` instruction in a `Dockerfile`. If you list more than one `CMD` then only the last `CMD` will take effect.
+> 
+> **The main purpose of a **`**CMD**`** is to provide defaults for an executing container.** These defaults can include an executable, or they can omit the executable, in which case you must specify an `ENTRYPOINT` instruction as well.
+
+
+
+# 构建自己的Docker image
+
+😱，关于Dockerfile的信息也太多了吧。别担心，从这里开始，其他一切都非常简单。现在，我们已经以`DockerFile`的形式创建了配方，现在该构建镜像了。您可以通过以下命令完成此操作：
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimaokl06dj30j40aa0vg.jpg)
+
+这将构建一个docker image（不是容器，如果您已经不记得有什么区别了，请阅读本文开头的术语！），然后可以稍后运行。
+
+
+# 从Docker image创建并运行container
+
+现在，您已经可以使用所有这些魔法了。我们可以通过执行以下命令来启动此环境：
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimaunksckj30j40aamzk.jpg)
+
+运行此命令后，您的容器将启动并运行！由于以下命令，jupyter服务器将处于运行状态：
+
+```{bash eval=FALSE, include=TRUE}  
+    CMD ["./run_jupyter.sh"]
+```
+
+Dockerfile末尾的命令。现在，您可以在其服务的端口上访问jupyter笔记本
+
+在本示例中，应该可以使用密码 _tutorial_ 从[http://localhost:7745/](http://localhost:7654/)）访问该笔记本。如果要远程运行此Docker容器，则必须设置[local port forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) ，以便可以从浏览器访问jupyter服务器。
+
+
+# 与容器交互
+
+一旦容器启动并运行，这些命令将派上用场：
+
+  * **Attach a new terminal session to a container**. 如果您需要安装某些软件或使用shell 终端，这将很有用。
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gimb19n31fj30j40aawf6.jpg)
+
+  * **Save the state of your container as a new image**. 即使您最开始使用包含所有要安装库的Dockerfile进行构建的 imager，随着时间的流逝，您仍可以通过交互式添加更多库和包来更改容器的状态。将容器的状态另存为image，以后可以共享或在其上分层将很有用。您可以使用`docker commit` CLI命令来完成此操作：
+
+```{bash eval=FALSE, include=TRUE}  
+    docker commit <container_name> new_image_name:tag_name(optional)
+```
+
+例如，如果我想将名为 _container1_ 的容器的状态另存为名为 jixing/tutorial:v2 的image，则只需运行以下命令：
+
+```{bash eval=FALSE, include=TRUE}  
+docker commit container_1 jixing/tutorial:v2
+```
+
+您可能想知道为什么 _jixing/_ 会在image名称的前面, 因为这使我们以后更容易将此容器推送到DockerHub，因为jixing是我在DockerHub的用户名（稍后会详细介绍）。如果您在工作中使用Docker，则可能存在一个内部私有Docker存储库，您可以将其推送到Docker image中。
+
+  * **List running containers**. 当我忘记了当前正在运行的容器的名称时，我经常使用它。
+```{bash eval=FALSE, include=TRUE}      
+    docker ps -a -f status=running
+```
+
+如果运行上面的命令时不带 `status=running` 标志，那么您将看到系统上所有容器的列表（即使它们不再运行）。这对于跟踪旧容器很有用。
+
+  * **List all images**: 你所有本地保存的 image.
+  
+```{bash eval=FALSE, include=TRUE}      
+    docker images
+```
+
+  * **Push your image to DockerHub (or another registry)**: 如果您想与他人共享您的image，或方便地将image保存在云中，那么这个功能你一定非常喜欢。请注意，在执行此操作时不要共享任何私有信息（DockerHub上也有私有存储库）
+
+First create a DockerHub repository and name your image appropriately, [as described here](https://docs.docker.com/docker-hub/repos/). This will involve running the command **docker login** to first connect to your account on DockerHub or other registry. For example, to push an image to [this container](https://hub.docker.com/r/jixing/tutorial/), I first have to name my local image as jixing/tutorial (I can choose any tag name) For example, the CLI command:
+
+首先创建一个DockerHub存储库并适当命名您的image，[像这样](https://docs.docker.com/docker-hub/repos/)。这将涉及运行命令 `docker login` 以首先连接到您在DockerHub或其他注册表上的帐户。例如，要将image推送到[这个账户下](https://hub.docker.com/r/jixing/tutorial/)，我首先必须将本地图像命名为jixing/tutorial（我可以选择任何标签名称），例如，CLI命令：
+
+```{bash eval=FALSE, include=TRUE}     
+    docker push jixing/tutorial:v2
+```
+
+将带有标签** v2 **的上述docker镜像推送到[此仓库](https://hub.docker.com/r/jixing/tutorial/tags/)。应该注意的是，如果您公开发布image，**其他人可以简单地在你的 image之上添加层**，就像我们在本教程的ubuntu **image中添加了层一样。这对于寻求复制或扩展您的研究的其他人非常有用。
+
+
+# 见证奇迹的时刻来了
+
+Now that you know how to operate Docker, you can perform the following tasks:
+
+  * 与同事和朋友共享可重复的研究.
+  * 通过将代码根据临时需要移动到较大的计算环境中，从而赢得Kaggle竞赛而不会中断原来的工作.
+  * 在笔记本电脑上的docker容器内本地进行原型制作，然后将相同的计算无缝地移动到服务器，而不会费力，同时随身携带了许多您喜欢的有关本地环境的信息（别名，vim插件，bash脚本，自定义提示等）
+  * 使用[Nvidia-Docker（https://github.com/NVIDIA/nvidia-docker）快速实例化在GPU计算机上运行Tensorflow，Pytorch或其他深度学习库所需的所有依赖项（如果您从头开始构建这些环境将会非常痛苦）。有关更多信息，请参见下面的奖金部分
+  * 将模型发布为应用程序，例如，发布为服务docker容器中的预测的REST API。当您的应用程序经过Dockerized处理后，可以根据需要进行多次复制.
+
+
+# Nvidia-Docker
+
+首先，我学习Docker的最初动机是在单个GPU上构建深度学习模型的原型，并在需要更多功能时将计算移至AWS。我也参加了很棒的课程[Fast.AI by Jeremy Howard](http://www.fast.ai/)，并想与他人共享原型。
+
+但是，要正确封装所有依赖项，例如Nvidia GPU的驱动程序，您将需要使用[Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker) 而不是Docker。与使用普通的Docker相比，这需要更多的工作，但是一旦您了解Docker，就可以直接进行。
+
+## links
+
+本文仅涉及Docker的入门内容，docker还有很多很多事情可以做。我将专注于Docker对于数据科学家来说一些最常遇到的功能。以下是一些对我的Docker旅程有帮助的资源
+
+1. _EDIT 8/24/2020: Here are _[_some more detailed notes I recently made on Docker_](https://notes.hamel.dev/docs/docker/Docker-In-Action.html)._
+2. [Helpful Docker commands](https://zaiste.net/posts/removing_docker_containers/)
+3. [More helpful Docker commands](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+4. [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#run)
+5. [How to create and push to a repository on DockerHub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+6. [Docker - Notes](https://notes.hamel.dev/docs/docker/Docker-In-Action.html)
+7. [How Docker Can Help You Become A More Effective Data Scientist | by Hamel Husain | Towards Data Science](https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5)
+
+

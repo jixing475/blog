@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Student Zero</title>
+    <link>/tags/docker/</link>
+    <description>Recent content in docker on Student Zero</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How To Use Docker For Data Scientist</title>
+      <link>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</link>
+      <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+  </channel>
+</rss>
