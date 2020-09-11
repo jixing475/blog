@@ -1,5 +1,5 @@
 ---
-title: How To Use Docker For Data Scientist
+title: "数据科学家 docker 使用指南"
 author: ZERO
 date: '2020-09-11'
 slug: how-docker-can-help-you-become-a-more-effective-data-scientist.en-us
@@ -11,16 +11,19 @@ keywords:
   - tech
 thumbnailImage: https://tva1.sinaimg.cn/large/007S8ZIlgy1gilm7sa11sj310u0gzq7l.jpg
 thumbnailImagePosition: left
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_width: 6
 ---
 
 <!--more-->
 
-
-在过去的几年中，我听到了很多有关Docker容器怎么厉害的声音。似乎我所有的软件工程朋友都在使用它们来开发应用程序。我想弄清楚这种技术如何能帮到我更有效的分析数据，但是我发现在线教程要么太详细:阐明了我永远不会用作数据科学家的功能，要么太肤浅了:没有给我足够的信息来帮助我理解如何有效快速使用Docker。
+在过去的一段时间里，我听到了很多有关Docker容器怎么厉害的声音。似乎所有的软件工程师都在使用 🐳 来开发应用程序。我很想弄清楚docker如何能帮我更有效的分析数据，但是在找寻了一堆资料后, 我发现现有的教程要么是太详细:说了一些作为数据科学家永远不会用到的功能，要么就是太浅显了:没有给足够的信息来帮助我如何有效快速的使用Docker。
 
 这个快速入门，可以帮您不必了解所有关于 🐳 的信息，而是快速入门数据分析使用docker所需的知识。
-
-这篇文章写于2017年。大多数信息仍然是正确的，只在少数地方进行了注释。我仍然鼓励您阅读这篇文章。[detailed notes I have taken on Docker](https://notes.hamel.dev/docs/docker/Docker-In-Action.html)_ that I wrote recently._
 
 #  🐳 是何方神圣?
 
@@ -212,7 +215,7 @@ Docker容器的设计理念是短暂的，并且只对你想要运行的应用�
 这将构建一个docker image（不是容器，如果您已经不记得有什么区别了，请阅读本文开头的术语！），然后可以稍后运行。
 
 
-# 从Docker image创建并运行container
+# 从Docker image创建运行container
 
 现在，您已经可以使用所有这些魔法了。我们可以通过执行以下命令来启动此环境：
 
@@ -229,7 +232,7 @@ Dockerfile末尾的命令。现在，您可以在其服务的端口上访问jupy
 在本示例中，应该可以使用密码 _tutorial_ 从[http://localhost:7745/](http://localhost:7654/)）访问该笔记本。如果要远程运行此Docker容器，则必须设置[local port forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) ，以便可以从浏览器访问jupyter服务器。
 
 
-# 与容器交互
+# 与Container交互
 
 一旦容器启动并运行，这些命令将派上用场：
 
@@ -294,7 +297,7 @@ Now that you know how to operate Docker, you can perform the following tasks:
 
 但是，要正确封装所有依赖项，例如Nvidia GPU的驱动程序，您将需要使用[Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker) 而不是Docker。与使用普通的Docker相比，这需要更多的工作，但是一旦您了解Docker，就可以直接进行。
 
-## links
+# links
 
 本文仅涉及Docker的入门内容，docker还有很多很多事情可以做。我将专注于Docker对于数据科学家来说一些最常遇到的功能。以下是一些对我的Docker旅程有帮助的资源
 

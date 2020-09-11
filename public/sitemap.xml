@@ -8,17 +8,17 @@
   </url>
   
   <url>
+    <loc>/tags/clinical/</loc>
+    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/data-science/</loc>
     <lastmod>2020-09-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/docker/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</loc>
     <lastmod>2020-09-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -34,6 +34,16 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/09/how-to-do-clinical-model-research.en-us/</loc>
+    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</loc>
     <lastmod>2020-09-11T00:00:00+00:00</lastmod>
   </url>
   

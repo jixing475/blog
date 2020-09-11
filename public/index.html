@@ -228,8 +228,8 @@
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/">
-          How To Use Docker For Data Scientist
+        <a class="link-unstyled" href="/2020/09/how-to-do-clinical-model-research.en-us/">
+          临床研究应该怎么做?
         </a>
       </h1>
       
@@ -257,6 +257,95 @@
       
         
 
+<div id="TOC">
+<ul>
+<li><a href="#介绍"><span class="toc-section-number">1</span> 介绍</a></li>
+<li><a href="#多元回归"><span class="toc-section-number">2</span> 多元回归</a></li>
+<li><a href="#logistics-nomogram-c-index-决策曲线-评估"><span class="toc-section-number">3</span> logistics: Nomogram + C-index + 决策曲线 + 评估</a></li>
+<li><a href="#cox-回归-nomogram-c-index-决策曲线-评估"><span class="toc-section-number">4</span> Cox 回归: Nomogram + C-index + 决策曲线 + 评估</a></li>
+<li><a href="#异常值和缺失值"><span class="toc-section-number">5</span> 异常值和缺失值</a></li>
+<li><a href="#变量选择"><span class="toc-section-number">6</span> 变量选择</a></li>
+<li><a href="#使用r的净重分类指数nri的原理和计算方法"><span class="toc-section-number">7</span> 使用R的净重分类指数(NRI)的原理和计算方法</a></li>
+<li><a href="#原理和计算方法"><span class="toc-section-number">8</span> 原理和计算方法</a></li>
+<li><a href="#links"><span class="toc-section-number">9</span> links</a></li>
+</ul>
+</div>
+
+
+      
+      <p>
+        <a href="/2020/09/how-to-do-clinical-model-research.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="/2020/09/how-to-do-clinical-model-research.en-us/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimi68tcg4j309e069tbn.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/">
+          数据科学家 docker 使用指南
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-09-11T00:00:00Z">
+        
+  September 11, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/data-science">data science</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        
+
+<div id="TOC">
+<ul>
+<li><a href="#是何方神圣"><span class="toc-section-number">1</span> 🐳 是何方神圣?</a></li>
+<li><a href="#为什么应该使用"><span class="toc-section-number">2</span> 为什么应该使用 🐳 ?</a></li>
+<li><a href="#术语"><span class="toc-section-number">3</span> 🐳 术语</a></li>
+<li><a href="#安装"><span class="toc-section-number">4</span> 🐳 安装</a></li>
+<li><a href="#创建第一个-docker-image"><span class="toc-section-number">5</span> 创建第一个 Docker image</a></li>
+<li><a href="#构建自己的docker-image"><span class="toc-section-number">6</span> 构建自己的Docker image</a></li>
+<li><a href="#从docker-image创建运行container"><span class="toc-section-number">7</span> 从Docker image创建运行container</a></li>
+<li><a href="#与container交互"><span class="toc-section-number">8</span> 与Container交互</a></li>
+<li><a href="#见证奇迹的时刻来了"><span class="toc-section-number">9</span> 见证奇迹的时刻来了</a></li>
+<li><a href="#nvidia-docker"><span class="toc-section-number">10</span> Nvidia-Docker</a></li>
+<li><a href="#links"><span class="toc-section-number">11</span> links</a></li>
+</ul>
+</div>
 
 
       
@@ -568,66 +657,6 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     <a href="/2015/05/cover-image-showcase/">
       <div class="postShorten-thumbnailimg">
         <img alt="" itemprop="image" src="//d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/2015/03/highlighted-code-showcase/">
-          highlighted code showcase
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2015-03-23T00:00:00Z">
-        
-  March 23, 2015
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/tranquilpeak">tranquilpeak</a>, 
-    
-      <a class="category-link" href="/categories/features">features</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>Tranquilpeak Hugo theme have its own theme to highlight source code. It&rsquo;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.</p>
-      
-      <p>
-        <a href="/2015/03/highlighted-code-showcase/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/2015/03/highlighted-code-showcase/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//d1u9biwaxjngwg.cloudfront.net/highlighted-code-showcase/peak-140.jpg"/>
       </div>
     </a>
   

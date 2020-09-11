@@ -1,0 +1,164 @@
+---
+title: 临床研究应该怎么做?
+author: ZERO
+date: '2020-09-11'
+slug: how-to-do-clinical-model-research.en-us
+categories:
+  - data science
+tags:
+  - Clinical
+keywords:
+  - tech
+thumbnailImage: https://tva1.sinaimg.cn/large/007S8ZIlgy1gimi68tcg4j309e069tbn.jpg
+thumbnailImagePosition: left
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_width: 6
+bibliography: ./../../references.bib
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#介绍"><span class="toc-section-number">1</span> 介绍</a></li>
+<li><a href="#多元回归"><span class="toc-section-number">2</span> 多元回归</a></li>
+<li><a href="#logistics-nomogram-c-index-决策曲线-评估"><span class="toc-section-number">3</span> logistics: Nomogram + C-index + 决策曲线 + 评估</a></li>
+<li><a href="#cox-回归-nomogram-c-index-决策曲线-评估"><span class="toc-section-number">4</span> Cox 回归: Nomogram + C-index + 决策曲线 + 评估</a></li>
+<li><a href="#异常值和缺失值"><span class="toc-section-number">5</span> 异常值和缺失值</a></li>
+<li><a href="#变量选择"><span class="toc-section-number">6</span> 变量选择</a></li>
+<li><a href="#使用r的净重分类指数nri的原理和计算方法"><span class="toc-section-number">7</span> 使用R的净重分类指数(NRI)的原理和计算方法</a></li>
+<li><a href="#原理和计算方法"><span class="toc-section-number">8</span> 原理和计算方法</a></li>
+<li><a href="#links"><span class="toc-section-number">9</span> links</a></li>
+</ul>
+</div>
+
+<!--more-->
+<p>本文是临床预测模型构建的方法论介绍系列(此方法论系列共16节):</p>
+<div id="介绍" class="section level1">
+<h1><span class="header-section-number">1</span> 介绍</h1>
+<blockquote>
+<p>概念, 当前应用现状, 构建方法和过程, 临床预测模型的分类以及进行此类研究的必要条件和当前面临的问题</p>
+</blockquote>
+<div id="背景介绍" class="section level2">
+<h2><span class="header-section-number">1.1</span> 背景介绍</h2>
+<p>对于医生来说，如果有某种“超能力”来预测患者是否会有未知结局，那么许多医疗实践模式或临床决策都将会改变。这种需求是如此强烈，以至于几乎每天我们都会听到这样的叹息：“如果我能提前知道结果是这样，我当然不会这样做！”。例如，如果我们可以预测患有恶性肿瘤的患者对某种化学疗法药物有抗药性，那么我们将不会选择给患者服用该药物。如果我们可以预测患者在手术过程中可能会有大出血，我们将谨慎操作并为患者准备足够的血液制品；如果我们可以预测高脂血症患者不会从某些降脂药中受益，那么我们也可以避免许多无意义的医学干预。</p>
+<p>作为一种评估风险和收益的定量工具，临床预测模型可以为医生，患者和卫生管理员的决策提供更客观，准确的信息，因此其应用也越来越普遍。在这种刚性需求下，临床预测模型的研究方兴未艾。</p>
+<p>当前的医学实践模式已经从经验医学发展到循证医学，再到精确医学。数据的价值从未如此重要。在大数据时代，<strong>数据采集，数据存储和分析</strong>以及预测技术的飞速发展使得个性化医疗的愿景变得越来越可能。从医学实践模型的演变的角度来看，<strong>准确预测某种临床结果的可能性</strong>也是当前精确医学模型的固有要求。</p>
+<p>本文将从概念，目前的应用现状，构建方法和过程，临床预测模型的分类，进行此类研究的必要条件和当前问题等方面总结临床预测模型的研究。</p>
+</div>
+<div id="临床预测模型的概念" class="section level2">
+<h2><span class="header-section-number">1.2</span> 临床预测模型的概念</h2>
+<p>临床预测模型是指使用参数/半参数/非参数数学模型来估计受试者当前患有某种疾病的可能性或未来有某种后果的可能性。可以看出，临床预测模型是通过已知数据来预测未知结局，并且该模型是一个数学公式，也就是说，已知特征用于通过该模型来计算发生未知结局的可能性。通常通过各种回归分析方法对临床预测模型进行建模，回归分析的统计性质是寻找“定量因果关系”。简单来说，回归分析是X对Y的影响程度的定量表征。常用的方法包括<strong>multiple linear回归模型，logistic回归模型和Cox回归模型</strong>。<strong>预测模型有效性的评估和验证</strong>是统计分析，数据分析的关键 部分，它也是数据分析技术中最苛刻的部分。</p>
+<p>基于我们研究的临床问题，临床预测模型包括<strong>诊断模型，预后模型和疾病发生模型</strong>。从统计学的角度来看，只要可以通过特征（X）量化临床问题（Y）的结果，就可以构建预测模型。</p>
+<ol style="list-style-type: decimal">
+<li>诊断模型在横断面研究中很常见，侧重于研究对象的临床症状和特征以及诊断某种疾病的可能性。</li>
+<li>预后模型关注特定疾病在特定时期内诸如复发，死亡，残疾和并发症等结局的可能性。该模型在队列研究中很常见。</li>
+<li>疾病发生预测模型，可以根据受试者的一般特征来预测将来是否会发生特定疾病，这在同类研究中也很常见。</li>
+</ol>
+<p>诊断模型，预后模型和疾病发生模型之间有许多相似之处 。其结果通常是二分数据，其效果指标是结果发生的绝对风险，即发生的可能性，而不是相对风险的效果指标，例如相对风险（RR），优势比（OR）或危险比（HR）。在模型的技术层面，研究人员将面对所有这些模型中预测变量的选择，建模策略的建立以及模型性能的评估和验证。</p>
+</div>
+<div id="临床预测模型的应用" class="section level2">
+<h2><span class="header-section-number">1.3</span> 临床预测模型的应用</h2>
+<p>如背景部分所述，临床预测模型已广泛用于医学研究和实践中。借助临床预测模型，临床研究人员可以更准确地选择合适的研究课题，患者可以做出对自己更有益的选择，医生可以做出更好的临床决策，卫生管理部门可以更好地监控和管理医疗服务的质量并分配医疗资源更加合理。临床预测模型的效果几乎反映在以下三级疾病预防体系中：</p>
+<div id="疾病的初级预防" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> 疾病的初级预防</h3>
+<p>临床预测模型可以为患者和医生提供基于当前健康状况诊断在将来得特定疾病的定量风险值（概率），从而为健康教育和行为干预提供更加直观和强大的科学工具。例如，根据弗雷明汉（Framingham）对心脏的研究得出的弗雷明汉（Framingham）心血管疾病危险评分表明，降低血脂和血压可以预防心肌梗塞.</p>
+</div>
+<div id="疾病的二级预防" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> 疾病的二级预防</h3>
+<p>诊断模型通常使用<strong>无创，低成本和易于获取的指标</strong>(non-invasive, low-cost and easy-to-acquire indicators)来构建具有高灵敏度和特异性的诊断手段，并实践“及早发现，早期诊断，早期治疗”的思想，这对健康经济具有重要的意义。</p>
+</div>
+<div id="疾病的三级预防" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> 疾病的三级预防</h3>
+<p>预后模型为疾病复发，死亡，残疾和并发症的可能性提供定量估计，指导对症治疗和康复计划，预防疾病复发，降低死亡率和残疾, 并促进功能恢复和生活质量提高。</p>
+<p>在临床实践中有几种成熟的预测模型。例如，Framingham，QRISK，PROCAM和ASSIGN分数都是众所周知的预测模型。恶性肿瘤的TNM分期系统是其中最具代表性的预测模型。 TNM的最大优点是它简单，快速，最大的问题是预测不够准确，这与临床医生的期望相去甚远。</p>
+<p>在临床实践中使用预测工具的需求不仅仅是<strong>预测疾病的发生</strong>或<strong>预测患者的预后</strong>这么简单。如果我们可以预先<strong>预测患者的疾病状况</strong>，例如对于肝癌患者，如果我们可以预先预测是否存在微血管浸润，则可能有助于外科医生在完全切除和标准切除之间进行选择。术前新辅助放化疗是T1-4N中低位直肠癌的标准治疗方法。但是，这是 在临床实践中发现，根据术前影像学检查估计的淋巴结状况不够准确，假阳性或假阴性的比例很高。是否可以根据放疗和化疗之前的已知特征准确预测患者的淋巴结状况？</p>
+<p>通过构建合适的预测模型是可以解决这些临床问题的。</p>
+</div>
+</div>
+<div id="临床预测模型的研究方法" class="section level2">
+<h2><span class="header-section-number">1.4</span> 临床预测模型的研究方法</h2>
+<p>建立临床预测模型并不像拟合统计模型那么简单。从模型的建立，验证，评估和应用开始，就有一个完整的临床预测模型研究过程。许多学者之前都讨论过临床预测模型的各种研究方法。 《心脏杂志》（Heart Magazine）最近发表了一篇综述，其中作者以心血管疾病（CVD）的风险评分为例，探讨了如何借助视觉图形构建疾病的预测模型，并提出了六个重要步骤<span class="citation">(Woodward, Tunstall-Pedoe, and Peters 2017)</span>：</p>
+<ol style="list-style-type: decimal">
+<li>Select a data set of predictors as potential CVD influencing factors to be included in the risk score;</li>
+<li>Choose a suitable statistical model to analyze the relationship between the predictors and CVD;</li>
+<li>Select the variables from the existing predictors that are significant enough to be included in the risk score;</li>
+<li>Construct the risk score model;</li>
+<li>Evaluate the risk score model;</li>
+<li>Explain the applications of the risk score in clinical practice.</li>
+</ol>
+</div>
+</div>
+<div id="多元回归" class="section level1">
+<h1><span class="header-section-number">2</span> 多元回归</h1>
+<blockquote>
+<p>多元回归分析中的筛选方法</p>
+</blockquote>
+</div>
+<div id="logistics-nomogram-c-index-决策曲线-评估" class="section level1">
+<h1><span class="header-section-number">3</span> logistics: Nomogram + C-index + 决策曲线 + 评估</h1>
+<div id="基于logistic回归和nomogram绘图的预测模型的构建方法" class="section level2">
+<h2><span class="header-section-number">3.1</span> 基于Logistic回归和Nomogram绘图的预测模型的构建方法</h2>
+</div>
+<div id="logistic回归模型中c统计量的计算方法" class="section level2">
+<h2><span class="header-section-number">3.2</span> Logistic回归模型中C统计量的计算方法</h2>
+</div>
+<div id="建立预测模型后的临床效用评估方法决策曲线分析" class="section level2">
+<h2><span class="header-section-number">3.3</span> 建立预测模型后的临床效用评估方法：决策曲线分析</h2>
+</div>
+<div id="logistic回归模型的外部验证方法" class="section level2">
+<h2><span class="header-section-number">3.4</span> Logistic回归模型的外部验证方法</h2>
+</div>
+</div>
+<div id="cox-回归-nomogram-c-index-决策曲线-评估" class="section level1">
+<h1><span class="header-section-number">4</span> Cox 回归: Nomogram + C-index + 决策曲线 + 评估</h1>
+<div id="cox比例风险回归模型和nomogram图上" class="section level2">
+<h2><span class="header-section-number">4.1</span> Cox比例风险回归模型和Nomogram图上</h2>
+</div>
+<div id="基于r的cox回归中c-index的两种常用计算方法" class="section level2">
+<h2><span class="header-section-number">4.2</span> 基于R的Cox回归中C-Index的两种常用计算方法</h2>
+</div>
+<div id="生存结果数据的决策曲线分析" class="section level2">
+<h2><span class="header-section-number">4.3</span> 生存结果数据的决策曲线分析</h2>
+</div>
+<div id="基于r的cox回归模型的深入评估-包括计算验证数据集中的鉴别一致性指标c-index并绘制校准曲线" class="section level2">
+<h2><span class="header-section-number">4.4</span> 基于R的Cox回归模型的深入评估, 包括计算验证数据集中的鉴别一致性指标(C-index)并绘制校准曲线</h2>
+</div>
+<div id="使用带有r的竞争风险模型来处理生存数据结果" class="section level2">
+<h2><span class="header-section-number">4.5</span> 使用带有R的竞争风险模型来处理生存数据结果</h2>
+</div>
+<div id="使用r绘制竞争风险模型的列线图" class="section level2">
+<h2><span class="header-section-number">4.6</span> 使用R绘制竞争风险模型的列线图</h2>
+</div>
+</div>
+<div id="异常值和缺失值" class="section level1">
+<h1><span class="header-section-number">5</span> 异常值和缺失值</h1>
+<blockquote>
+<p>离群值的识别以及缺失值的插值</p>
+</blockquote>
+</div>
+<div id="变量选择" class="section level1">
+<h1><span class="header-section-number">6</span> 变量选择</h1>
+<blockquote>
+<p>线性模型中的高级变量选择方法, 例如Ridge回归和LASSO回归</p>
+</blockquote>
+</div>
+<div id="使用r的净重分类指数nri的原理和计算方法" class="section level1">
+<h1><span class="header-section-number">7</span> 使用R的净重分类指数(NRI)的原理和计算方法</h1>
+</div>
+<div id="原理和计算方法" class="section level1">
+<h1><span class="header-section-number">8</span> 原理和计算方法</h1>
+</div>
+<div id="links" class="section level1">
+<h1><span class="header-section-number">9</span> links</h1>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6989986/">In-depth mining of clinical data: the construction of clinical prediction model with R</a></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5529956/">Graphics and statistics for cardiology: clinical prediction rules</a></p>
+<div id="refs" class="references">
+<div id="ref-woodwardGraphicsStatisticsCardiology2017">
+<p>Woodward, Mark, Hugh Tunstall-Pedoe, and Sanne AE Peters. 2017. “Graphics and Statistics for Cardiology: Clinical Prediction Rules.” <em>Heart</em> 103 (7): 538–45. <a href="https://doi.org/10.1136/heartjnl-2016-310210">https://doi.org/10.1136/heartjnl-2016-310210</a>.</p>
+</div>
+</div>
+</div>
