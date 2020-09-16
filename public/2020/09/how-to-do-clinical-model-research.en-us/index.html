@@ -12,15 +12,20 @@
 
 
 
-1 介绍
-2 多元回归
-3 logistics: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-4 Cox 回归: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-5 异常值和缺失值
-6 变量选择
-7 使用R的净重分类指数(NRI)的原理和计算方法
-8 原理和计算方法
-9 links
+背景
+临床预测模型的概念
+临床预测模型的研究方法
+临床问题决定研究类型
+研究设计实, 实施方案, 数据收集和质量控制
+临床预测模型的建立和评估
+临床预测模型的验证
+临床预测模型的临床有效性评估
+更新临床预测模型
+临床预测模型分类
+临床模型研究的必要条件
+临床预测模型开发中面临的问题
+总结
+参考文献
 
 
 
@@ -31,22 +36,27 @@
 
 
 
-1 介绍
-2 多元回归
-3 logistics: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-4 Cox 回归: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-5 异常值和缺失值
-6 变量选择
-7 使用R的净重分类指数(NRI)的原理和计算方法
-8 原理和计算方法
-9 links
+背景
+临床预测模型的概念
+临床预测模型的研究方法
+临床问题决定研究类型
+研究设计实, 实施方案, 数据收集和质量控制
+临床预测模型的建立和评估
+临床预测模型的验证
+临床预测模型的临床有效性评估
+更新临床预测模型
+临床预测模型分类
+临床模型研究的必要条件
+临床预测模型开发中面临的问题
+总结
+参考文献
 
 
 
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="临床研究应该怎么做?">
-<meta name="twitter:title" content="临床研究应该怎么做?">
+<meta property="og:title" content="优秀临床研究养成记 (1)">
+<meta name="twitter:title" content="优秀临床研究养成记 (1)">
 <meta property="og:url" content="/2020/09/how-to-do-clinical-model-research.en-us/">
 <meta property="twitter:url" content="/2020/09/how-to-do-clinical-model-research.en-us/">
 <meta property="og:site_name" content="Student Zero">
@@ -54,15 +64,20 @@
 
 
 
-1 介绍
-2 多元回归
-3 logistics: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-4 Cox 回归: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-5 异常值和缺失值
-6 变量选择
-7 使用R的净重分类指数(NRI)的原理和计算方法
-8 原理和计算方法
-9 links
+背景
+临床预测模型的概念
+临床预测模型的研究方法
+临床问题决定研究类型
+研究设计实, 实施方案, 数据收集和质量控制
+临床预测模型的建立和评估
+临床预测模型的验证
+临床预测模型的临床有效性评估
+更新临床预测模型
+临床预测模型分类
+临床模型研究的必要条件
+临床预测模型开发中面临的问题
+总结
+参考文献
 
 
 
@@ -71,15 +86,20 @@
 
 
 
-1 介绍
-2 多元回归
-3 logistics: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-4 Cox 回归: Nomogram &#43; C-index &#43; 决策曲线 &#43; 评估
-5 异常值和缺失值
-6 变量选择
-7 使用R的净重分类指数(NRI)的原理和计算方法
-8 原理和计算方法
-9 links
+背景
+临床预测模型的概念
+临床预测模型的研究方法
+临床问题决定研究类型
+研究设计实, 实施方案, 数据收集和质量控制
+临床预测模型的建立和评估
+临床预测模型的验证
+临床预测模型的临床有效性评估
+更新临床预测模型
+临床预测模型分类
+临床模型研究的必要条件
+临床预测模型开发中面临的问题
+总结
+参考文献
 
 
 
@@ -124,7 +144,7 @@
   <meta property="twitter:image" content="https://i.loli.net/2018/02/26/5a937bb148b02.jpg">
 
 
-    <title>临床研究应该怎么做?</title>
+    <title>优秀临床研究养成记 (1)</title>
 
     <link rel="icon" href="/favicon.png">
     
@@ -242,7 +262,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/kakawait">
+      <a class="sidebar-button-link " href="https://github.com/jixing475">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -252,21 +272,11 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
-      
-      <span class="sidebar-button-desc">Stack Overflow</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.r-bloggers.com/">
+      <a class="sidebar-button-link " href="https://jixing.netlify.app/">
     
       <i class="sidebar-button-icon fa fa-lg fa-book"></i>
       
-      <span class="sidebar-button-desc">R-bloggers</span>
+      <span class="sidebar-button-desc">My old blog</span>
     </a>
   </li>
 
@@ -301,7 +311,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      临床研究应该怎么做?
+      优秀临床研究养成记 (1)
     </h1>
   
   
@@ -328,124 +338,179 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>本文是临床预测模型构建的方法论介绍系列(此方法论系列共16节):</p>
-<div id="介绍" class="section level1">
-<h1><span class="header-section-number">1</span> 介绍</h1>
-<blockquote>
-<p>概念, 当前应用现状, 构建方法和过程, 临床预测模型的分类以及进行此类研究的必要条件和当前面临的问题</p>
-</blockquote>
-<div id="背景介绍" class="section level2">
-<h2><span class="header-section-number">1.1</span> 背景介绍</h2>
-<p>对于医生来说，如果有某种“超能力”来预测患者是否会有未知结局，那么许多医疗实践模式或临床决策都将会改变。这种需求是如此强烈，以至于几乎每天我们都会听到这样的叹息：“如果我能提前知道结果是这样，我当然不会这样做！”。例如，如果我们可以预测患有恶性肿瘤的患者对某种化学疗法药物有抗药性，那么我们将不会选择给患者服用该药物。如果我们可以预测患者在手术过程中可能会有大出血，我们将谨慎操作并为患者准备足够的血液制品；如果我们可以预测高脂血症患者不会从某些降脂药中受益，那么我们也可以避免许多无意义的医学干预。</p>
-<p>作为一种评估风险和收益的定量工具，临床预测模型可以为医生，患者和卫生管理员的决策提供更客观，准确的信息，因此其应用也越来越普遍。在这种刚性需求下，临床预测模型的研究方兴未艾。</p>
-<p>当前的医学实践模式已经从经验医学发展到循证医学，再到精确医学。数据的价值从未如此重要。在大数据时代，<strong>数据采集，数据存储和分析</strong>以及预测技术的飞速发展使得个性化医疗的愿景变得越来越可能。从医学实践模型的演变的角度来看，<strong>准确预测某种临床结果的可能性</strong>也是当前精确医学模型的固有要求。</p>
-<p>本文将从概念，目前的应用现状，构建方法和过程，临床预测模型的分类，进行此类研究的必要条件和当前问题等方面总结临床预测模型的研究。</p>
+              <!-- # 介绍 -->
+<!-- > 概念, 当前应用现状, 构建方法和过程, 临床预测模型的分类以及进行此类研究的必要条件和当前面临的问题 -->
+<div id="背景" class="section level2">
+<h2>背景</h2>
+<ul>
+<li>如果我早知道他对此化疗药有抗药性, 我就不会选这个药了.</li>
+<li>如果我早知道此次手术过可能会出现大出血, 我就会提前备好.</li>
+<li>如果我早知道这个降脂药对他没有用, 我也不会白费力气的做这么多无效的治疗.</li>
+</ul>
+<p>真是千金难买早知道! 如果临床医生拥有预测患者结局的“超能力”, 那么结果将是另外一幅场景.</p>
+<p>预测模型作为一种评估风险和收益的定量工具应用越来越广泛. 临床预测模型可以为医生, 患者和卫生管理员的决策提供更客观准确的信息, 因此临床预测模型研究的开展也是如火如荼.</p>
+<p>目前的医学实践模式已经从经验医学发展到循证医学, 再到精准医学, <strong>准确预测某种临床结果的可能性</strong>也是当前精确医学模型的固有要求. 在大数据时代, <strong>数据采集, 数据存储和分析以及预测技术</strong>的飞速发展使得个性化医疗的愿景变得越来越清晰.</p>
+<p>下面将从临床预测模型概念, 应用现状, 构建方法和过程, 临床预测模型的分类, 研究的必要条件和会遇到的问题等方面总结临床预测模型研究.</p>
 </div>
 <div id="临床预测模型的概念" class="section level2">
-<h2><span class="header-section-number">1.2</span> 临床预测模型的概念</h2>
-<p>临床预测模型是指使用参数/半参数/非参数数学模型来估计受试者当前患有某种疾病的可能性或未来有某种后果的可能性。可以看出，临床预测模型是通过已知数据来预测未知结局，并且该模型是一个数学公式，也就是说，已知特征用于通过该模型来计算发生未知结局的可能性。通常通过各种回归分析方法对临床预测模型进行建模，回归分析的统计性质是寻找“定量因果关系”。简单来说，回归分析是X对Y的影响程度的定量表征。常用的方法包括<strong>multiple linear回归模型，logistic回归模型和Cox回归模型</strong>。<strong>预测模型有效性的评估和验证</strong>是统计分析，数据分析的关键 部分，它也是数据分析技术中最苛刻的部分。</p>
-<p>基于我们研究的临床问题，临床预测模型包括<strong>诊断模型，预后模型和疾病发生模型</strong>。从统计学的角度来看，只要可以通过特征（X）量化临床问题（Y）的结果，就可以构建预测模型。</p>
+<h2>临床预测模型的概念</h2>
+<blockquote>
+<p>临床预测模型是指使用参数/半参数/非参数数学模型来估计受试者当前患有某种疾病的可能性或未来有某种后果的可能性.</p>
+</blockquote>
+<p>简单说, 临床预测模型是通过已知数据来预测未知结局, 并且该模型是一个数学公式, 也就是说, 模型通过已知特征来计算发生未知结局的可能性. 临床研究中常见的各种回归分析就是临床预测模型建模, 从统计角度来看, 回归分析是在寻找“定量因果关系”, 也就是说, 回归分析是X对Y的影响程度的定量表征. 常见方法包括<strong>多元线性回归模型, logistic回归模型和Cox回归模型</strong>.</p>
+<p>从临床角度来看, 临床预测模型分: <strong>诊断模型, 预后模型和疾病发生模型</strong>.
+从统计角度来看, 只要可以通过特征(X)量化临床问题(Y)的结果, 都可以构建预测模型:</p>
 <ol style="list-style-type: decimal">
-<li>诊断模型在横断面研究中很常见，侧重于研究对象的临床症状和特征以及诊断某种疾病的可能性。</li>
-<li>预后模型关注特定疾病在特定时期内诸如复发，死亡，残疾和并发症等结局的可能性。该模型在队列研究中很常见。</li>
-<li>疾病发生预测模型，可以根据受试者的一般特征来预测将来是否会发生特定疾病，这在同类研究中也很常见。</li>
+<li>诊断模型常见与横断面研究中, 侧重于研究对象的临床症状和特征以及诊断某种疾病的可能性.</li>
+<li>预后模型常见于队列研究中, 关注特定疾病在特定时期内诸如复发, 死亡, 残疾和并发症等结局的可能性.</li>
+<li>疾病发生预测模型常见于队列研究中, 可以根据受试者的一般特征来预测将来是否会发生特定疾病.</li>
 </ol>
-<p>诊断模型，预后模型和疾病发生模型之间有许多相似之处 。其结果通常是二分数据，其效果指标是结果发生的绝对风险，即发生的可能性，而不是相对风险的效果指标，例如相对风险（RR），优势比（OR）或危险比（HR）。在模型的技术层面，研究人员将面对所有这些模型中预测变量的选择，建模策略的建立以及模型性能的评估和验证。</p>
-</div>
-<div id="临床预测模型的应用" class="section level2">
-<h2><span class="header-section-number">1.3</span> 临床预测模型的应用</h2>
-<p>如背景部分所述，临床预测模型已广泛用于医学研究和实践中。借助临床预测模型，临床研究人员可以更准确地选择合适的研究课题，患者可以做出对自己更有益的选择，医生可以做出更好的临床决策，卫生管理部门可以更好地监控和管理医疗服务的质量并分配医疗资源更加合理。临床预测模型的效果几乎反映在以下三级疾病预防体系中：</p>
+<p>诊断模型, 预后模型和疾病发生模型之间有许多相似之处:</p>
+<ol style="list-style-type: decimal">
+<li>结果通常是二分数据, 其效果指标是结果发生的绝对风险, 即发生的可能性, 而不是相对风险的效果指标, 例如相对风险(RR), 优势比(OR)或危险比(HR).</li>
+<li>在构建模型的技术层面, 研究者都将面对模型预测变量的选择, 建模策略的建立以及模型性能的评估和验证等过程.<br />
+## 临床预测模型的应用</li>
+</ol>
+<p>临床预测模型的效果通常反映在以下三级疾病预防体系中:</p>
 <div id="疾病的初级预防" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> 疾病的初级预防</h3>
-<p>临床预测模型可以为患者和医生提供基于当前健康状况诊断在将来得特定疾病的定量风险值（概率），从而为健康教育和行为干预提供更加直观和强大的科学工具。例如，根据弗雷明汉（Framingham）对心脏的研究得出的弗雷明汉（Framingham）心血管疾病危险评分表明，降低血脂和血压可以预防心肌梗塞.</p>
+<h3>疾病的初级预防</h3>
+<p>临床预测模型可以提供基于当前健康状况诊断预测患者未来得特定疾病的定量风险值(概率), 医生可以以此提前对患者进行健康教育和行为干预. 例如, 根据弗雷明汉(Framingham)对心脏的研究得出的弗雷明汉(Framingham)心血管疾病危险评分, 表明 降低血脂和血压可以预防心肌梗塞.</p>
 </div>
 <div id="疾病的二级预防" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> 疾病的二级预防</h3>
-<p>诊断模型通常使用<strong>无创，低成本和易于获取的指标</strong>(non-invasive, low-cost and easy-to-acquire indicators)来构建具有高灵敏度和特异性的诊断手段，并实践“及早发现，早期诊断，早期治疗”的思想，这对健康经济具有重要的意义。</p>
+<h3>疾病的二级预防</h3>
+<p>研究者通常使用<strong>无创, 低成本和易于获取的指标</strong>(non-invasive, low-cost and easy-to-acquire indicators)来构建具有高灵敏度和特异性的诊断模型, 以此来实践“早发现, 早诊断, 早治疗”的思想.</p>
 </div>
 <div id="疾病的三级预防" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> 疾病的三级预防</h3>
-<p>预后模型为疾病复发，死亡，残疾和并发症的可能性提供定量估计，指导对症治疗和康复计划，预防疾病复发，降低死亡率和残疾, 并促进功能恢复和生活质量提高。</p>
-<p>在临床实践中有几种成熟的预测模型。例如，Framingham，QRISK，PROCAM和ASSIGN分数都是众所周知的预测模型。恶性肿瘤的TNM分期系统是其中最具代表性的预测模型。 TNM的最大优点是它简单，快速，最大的问题是预测不够准确，这与临床医生的期望相去甚远。</p>
-<p>在临床实践中使用预测工具的需求不仅仅是<strong>预测疾病的发生</strong>或<strong>预测患者的预后</strong>这么简单。如果我们可以预先<strong>预测患者的疾病状况</strong>，例如对于肝癌患者，如果我们可以预先预测是否存在微血管浸润，则可能有助于外科医生在完全切除和标准切除之间进行选择。术前新辅助放化疗是T1-4N中低位直肠癌的标准治疗方法。但是，这是 在临床实践中发现，根据术前影像学检查估计的淋巴结状况不够准确，假阳性或假阴性的比例很高。是否可以根据放疗和化疗之前的已知特征准确预测患者的淋巴结状况？</p>
-<p>通过构建合适的预测模型是可以解决这些临床问题的。</p>
+<h3>疾病的三级预防</h3>
+<p>预后模型为疾病复发, 死亡, 残疾和并发症的可能性提供定量估计, 指导对症治疗和康复计划, 预防疾病复发, 降低死亡率和残疾, 促进功能恢复和生活质量提高.</p>
+<p>在临床实践中有几种成熟的预测模型. 例如, Framingham, QRISK, PROCAM和ASSIGN分数都是众所周知的预测模型. 最常见的就是恶性肿瘤的TNM分期, 他最大优点是简单, 快速, 最大的缺点就是预测不够准确, 与临床医生的期望相去甚远.</p>
+<p>临床实践中对预测模型要求不仅仅是<strong>预测疾病的发生</strong>或<strong>预测患者的预后</strong>这么简单. 例如</p>
+<ul>
+<li>对于肝癌患者, 如果医生可以预先预测是否存在微血管浸润, 外科医生就知道是选完全切除还是标准切除.</li>
+<li>术前新辅助放化疗是T1-4N中低位直肠癌的标准治疗方法. 但是, 临床实践中发现, 根据术前影像学检查估计的淋巴结状况不够准确, 假阳性或假阴性的比例特别高. 预测模型是否可以根据放疗和化疗之前的已知特征准确估计患者的淋巴结状况？</li>
+</ul>
+<p>合适的临床预测模型是可以解决这些问题的.</p>
 </div>
 </div>
 <div id="临床预测模型的研究方法" class="section level2">
-<h2><span class="header-section-number">1.4</span> 临床预测模型的研究方法</h2>
-<p>建立临床预测模型并不像拟合统计模型那么简单。从模型的建立，验证，评估和应用开始，就有一个完整的临床预测模型研究过程。许多学者之前都讨论过临床预测模型的各种研究方法。 《心脏杂志》（Heart Magazine）最近发表了一篇综述，其中作者以心血管疾病（CVD）的风险评分为例，探讨了如何借助视觉图形构建疾病的预测模型，并提出了六个重要步骤<span class="citation">(Woodward, Tunstall-Pedoe, and Peters 2017)</span>：</p>
+<h2>临床预测模型的研究方法</h2>
+<p>构建临床预测模型并不像拟合统计模型那么简单. 一个完整的临床预测模型研究过程包括: 模型的建立, 验证, 评估和应用. Heart Magazine 之前发表了一篇综述, 作者以心血管疾病(CVD)的风险评分为例, 探讨了如何构建疾病预测模型的六个步骤<span class="citation">(Woodward, Tunstall-Pedoe, and Peters 2017)</span>:</p>
+<p>1.选择一组预测因子数据作的CVD的潜在影响因素, 纳入风险评分
+2.选择合适的<strong>统计模型</strong>来分析预测因子与CVD之间的关系
+3.从现有预测变量中选择<strong>重要的变量</strong>纳入风险评分
+4.构建风险评分模型
+5.评估风险评分模型
+6.解释风险评分在临床实践中的应用</p>
+</div>
+<div id="临床问题决定研究类型" class="section level2">
+<h2>临床问题决定研究类型</h2>
+<p>临床预测模型可以回答有关病因, 诊断, 治疗反应以及疾病预后的相关问题. 对于不同的临床问题, 需要进行不同类的研究设计. 例如:</p>
+<ul>
+<li><strong>病因学研究问题适合于队列研究设计</strong>, 根据潜在原因预测疾病是否发生. 队列研究评估病因需要合理选择研究对象并控制混杂因素.</li>
+<li><strong>诊断准确性问题适合于横断面研究设计</strong>, 因为预测因素和结果会同时发生或先后发生在很短的时间内. 在诊断模型的研究中, 需要“黄金标准”或参考标准来独立诊断疾病, 参考标准诊断应采用盲法进行. 换句话说, <strong>参考标准诊断不能依靠预测模型中的预测变量信息, 不然会造成诊断偏差</strong>.</li>
+<li><strong>患者对治疗反应的问题适合于队列研究或随机对照试验(RCT)</strong>. 评估患者对治疗的反应是一种干预研究, 所以有必要合理选择研究对象并控制非测试因素的干扰.</li>
+<li><strong>预后问题适合于队列研究</strong>, 因为预测因素和结果存在纵向时间逻辑. 由于预测因素和结果之间存在这种垂直关系, 研究人员通常期望在自然状态下获得疾病的结果, 因此前瞻性队列研究是最常见的预后模型和最佳研究设计类型.</li>
+</ul>
+</div>
+<div id="研究设计实-实施方案-数据收集和质量控制" class="section level2">
+<h2>研究设计实, 实施方案, 数据收集和质量控制</h2>
+<p>良好的研究设计和实施方案需要我们回顾文献来确定要构建的预测模型的种类和数量:</p>
+<p>1.<strong>对于特定临床问题, 目前尚无预测模型的研究</strong>. 需要从头构建新模型, 通常要收集<strong>训练集来构建模型</strong>, 并且需要<strong>验证集来验证模型的预测能力</strong>
+2.<strong>目前已有预测模型的研究</strong>. 用相同训练集另外构建新模型, 并<strong>使用相同的验证集数据集分别验证现有模型和新模型的预测能力</strong>
+3.<strong>更新现有模型</strong>, 使用相同的验证集来验证两个模型的预测能力</p>
+<p><strong>关于数据集的收集:</strong></p>
 <ol style="list-style-type: decimal">
-<li>Select a data set of predictors as potential CVD influencing factors to be included in the risk score;</li>
-<li>Choose a suitable statistical model to analyze the relationship between the predictors and CVD;</li>
-<li>Select the variables from the existing predictors that are significant enough to be included in the risk score;</li>
-<li>Construct the risk score model;</li>
-<li>Evaluate the risk score model;</li>
-<li>Explain the applications of the risk score in clinical practice.</li>
+<li>前瞻性或回顾性地收集数据都可以</li>
+<li>前瞻性收集的数据集具有较高的质量</li>
+<li>对于建模来说, <strong>样本量应尽可能大</strong></li>
+<li>对于前瞻性临床研究, 相关文件的准备包括: 研究方案, 研究人员的操作手册, 病例报告表和伦理批准文件. 还应进行数据收集的质量控制和管理</li>
+<li>如果是回顾性地收集数据, 则还应评估数据质量, 识别异常值, 并正确处理缺失值(例如填充或删除)</li>
+<li>根据实际情况确定建模的训练集和验证集. 有时由于现实原因, 我们只能在同一数据集中进行建模和验证, 这也是可以的, 但是该模型的通用性将在一定程度上受到影响.</li>
 </ol>
 </div>
+<div id="临床预测模型的建立和评估" class="section level2">
+<h2>临床预测模型的建立和评估</h2>
+<p>在建立预测模型之前, 非常有必要弄清之前相关研究文献中报道的<strong>预测变量</strong>, 确定选择预测变量的原理和方法, 并选择数学模型的类型. 通常使用参数或半参数模型, 例如<strong>逻辑回归模型或Cox回归模型</strong>. 然后拟合模型并估计模型的参数.</p>
+<p>有时, <strong>机器学习算法</strong>也用于构建临床预测模型, 但机器学习模型<strong>大多数都是非参数模型</strong>. 由于没有像回归系数这样的参数, 所以<strong>这种机器学习模型的临床解释很成问题</strong>.</p>
+<p>当前, 临床预测模型通常使用以下四种形式:</p>
+<p>1.公式: 直接使用数学公式作为预测模型</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqd9b0cxj30j8081dh9.jpg" /></p>
+<p>2.<code>Nomogram</code>: 通过适当的数学转换, 将回归模型的<strong>回归系数转换为分数</strong>, 并把预测模型绘制为列线图(<code>Nomogram</code>)</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqdtls6ij30ih08w40r.jpg" /></p>
+<p>3.在线计算工具: 其本质还是通过适当的数学运算将回归模型的回归系数转换为分数, 并使其成为可在线使用的网站</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqea1p16j30jg082acs.jpg" /></p>
+<p>4.评分系统: 通过适当的数学运算, 将回归模型的回归系数转换为可量化的评分系统</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimqemb8s3j30jg0iggsk.jpg" /></p>
+<p>第一种形式主要用于线性回归模型. 后三种(列线图、在线计算、评分系统)形式基于参数或半参数模型, 其本质是模型参数的可视化表示. 研究人员可以根据实际情况做出选择.</p>
+<p>建立模型后, 如何评估模型的优劣？模型的评估和验证均采用了高级统计分析技术. 例如, 评估预测模型的区分度, 校准度, 临床有效性和其他指标, 以此评估模型的性能.</p>
 </div>
-<div id="多元回归" class="section level1">
-<h1><span class="header-section-number">2</span> 多元回归</h1>
-<blockquote>
-<p>多元回归分析中的筛选方法</p>
-</blockquote>
+<div id="临床预测模型的验证" class="section level2">
+<h2>临床预测模型的验证</h2>
+<p>预测模型的效果容易随场景和数据量改变而变化. 因此, 对预测模型的完整研究应包括对模型的验证. 验证的内容包括模型的内部有效性和外部有效性. <strong>内部有效性反映了模型的可复制性</strong>, 可以通过交叉验证和Bootstrap抽样与研究本身的数据进行验证. <strong>外部有效性反映了模型的通用性</strong>, 需要使用在时间和空间上完全独立的外部数据集来进行验证.</p>
+<p>模型的内部和外部验证是评估模型的稳定性和适用性的必要步骤. 用于内部验证和外部验证的数据集应该是不一样的, 但有时候, 将原始研究的数据的一部分用作训练集以构建模型, 并将剩下的另一部分内部数据作为内部验证. 选择来自其他机构的数据作为外部验证. 当然有条件, 最好还是进行外部验证, 模型通用性更强.</p>
+<p>下面将介绍几种内部验证有效方法:</p>
+<p>1.对半分割数据: 将现有数据随机分为两部分, 一部分用于构建模型, 另一部分用于验证模型. 通过“内部验证”的半划分方法将数据分为两部分. 由于只有一半的数据用于构建模型, 因此模型相对不稳定. 小样本量的研究不适用于此方法.</p>
+<p>2.交叉验证(cross-validation)方法: 该方法是对对半分割法的进一步扩展. 通常使用二折交叉验证和十折交叉验证. 二折交叉验证方法是将原始数据分为两部分, 一部分用于建立, 另一部分用于验证模型. 然后交换两部分的卷, 并相互验证. 十折交叉验证是将数据分为十个部分, 并使用其中九个部分建立模型, 剩下一部分用于验证模型. 通过这种方式来构建和验证模型十次, 可以构建相对稳定的模型.</p>
+<p>3.自助抽样: Bootstrap内部有效性分析的常规方法. 在原始数据集中随机抽取一定数量可返回案例以建立模型, 然后使用原始数据集来验证模型. 通过随机抽样, 建立和验证500–1,000次, 可以获得500–1,000个模型, 然后得到模型的参数分布. 以此来确定模型的最终参数值. 自助抽样是近年来发展发展迅猛. 这和计算机数量和能力提升有关. 实践证明, 该方法获得的模型比前两种方法具有更高的稳定性. 可以推测, Bootstrap方法将越来越多地应用于<strong>内部有效性预测模型的分析</strong>. 当然, 如果条件允许, 研究者应该尽可能采用预测模型的外部验证, 以提高模型的通用性.</p>
 </div>
-<div id="logistics-nomogram-c-index-决策曲线-评估" class="section level1">
-<h1><span class="header-section-number">3</span> logistics: Nomogram + C-index + 决策曲线 + 评估</h1>
-<div id="基于logistic回归和nomogram绘图的预测模型的构建方法" class="section level2">
-<h2><span class="header-section-number">3.1</span> 基于Logistic回归和Nomogram绘图的预测模型的构建方法</h2>
+<div id="临床预测模型的临床有效性评估" class="section level2">
+<h2>临床预测模型的临床有效性评估</h2>
+<p>临床预测模型的最终目标是临床预测模型是否会改变医生/患者的行为, 改善患者的预后或成本效应, 这是临床预测模型的临床效应研究. 从方法论的角度来看, 通常根据新的预测模型对训练集和验证集进行划分. 例如:</p>
+<ul>
+<li>对于预测<strong>二分结果</strong>, 我们可以通过评估<strong>模型的敏感性和特异性</strong>来评估临床有效性.</li>
+<li>为了预测<strong>生存结果</strong>, 我们通常根据预测模型评估患者是否可以分为好预后. 例如, 通过<strong>Nomogram</strong>计算每个受试者的得分, 并且根据一定的临界值将患者分为预后良好组和预后不良组, 然后绘制<strong>Kaplan-Meier</strong>生存曲线.</li>
+<li><strong>决策曲线分析</strong>也是临床预测的常用方法 模型的有效性.</li>
+</ul>
+<p>从预测模型构建和研究设计的最终目的来看, 最好的临床有效性评估是设计随机对照试验, 并且通常使用整群随机对照试验来评估应用预测模型是否可以改善患者预后并减少患者医疗费用.</p>
 </div>
-<div id="logistic回归模型中c统计量的计算方法" class="section level2">
-<h2><span class="header-section-number">3.2</span> Logistic回归模型中C统计量的计算方法</h2>
+<div id="更新临床预测模型" class="section level2">
+<h2>更新临床预测模型</h2>
+<p>即使是那些经过充分验证的临床预测模型, 由于<strong>疾病风险因素, 无法测量的风险因素, 治疗措施和治疗背景的变化, 模型预测性能也会随着时间的增加而有所下调</strong>. 因此, 临床预测模型需要动态发展和更新. 例如, 所以你会看到最常用的恶性肿瘤TNM分期系统频繁更新.</p>
 </div>
-<div id="建立预测模型后的临床效用评估方法决策曲线分析" class="section level2">
-<h2><span class="header-section-number">3.3</span> 建立预测模型后的临床效用评估方法：决策曲线分析</h2>
+<div id="临床预测模型分类" class="section level2">
+<h2>临床预测模型分类</h2>
+<p>从临床医生的角度来看, 目前临床预测模型研究大致可分为三类:</p>
+<ol style="list-style-type: decimal">
+<li>构建具有传统<strong>临床特征, 病理特征, 体格检查结果, 实验室检查结果</strong>等的预测模型. 此类模型的预测变量易于从临床上获取, 所以构建这些模型的可行性更高.</li>
+<li>随着放射学研究方法的成熟, 越来越多的研究人员意识到影像学的某些表现形式或参数代表了特定的生物学特征. 使用彩色多普勒超声, CT, MR或PET的大量成像参数结合临床特征来构建预测模型, 通常可以进一步提高预测模型的准确性. 这种类型的前期工作量比第一种方法大得多, 并且需要临床部门和影像部门之间的紧密合作.</li>
+<li>随着基因组学和蛋白质组学等高通量生物技术的广泛应用, 临床研究人员正在尝试<strong>探索特色生物标志物</strong>, 来构建预测模型. 这种预测模型是将<strong>基础医学转变为临床医学的良好切入点</strong>, 但是由于需要对临床样本进行各种组学测试, 因此此类研究需要大量资金支持. 俗话说: “舍不得孩子套不着狼”, 科学研究的投入和产出是成正比的. 一旦愿意在组学分析上投入资金的研究可以很好地转化为临床, 这些研究通常能发高分文章.</li>
+</ol>
 </div>
-<div id="logistic回归模型的外部验证方法" class="section level2">
-<h2><span class="header-section-number">3.4</span> Logistic回归模型的外部验证方法</h2>
+<div id="临床模型研究的必要条件" class="section level2">
+<h2>临床模型研究的必要条件</h2>
+<p>从临床医生的角度来看, 进行临床预测模型的必要条件包括:</p>
+<ol style="list-style-type: decimal">
+<li>建立<strong>单一疾病的随访数据库</strong>, 并尽可能完整地收集患者信息, 包括但不限于以下各项: <strong>人口统计学特征, 既往史, 家族史, 个人史, 以及疾病相关信息</strong>.</li>
+</ol>
+<p>例如治疗前重要的体格检查和实验室检查结果, 疾病严重程度, 临床阶段, 病理阶段, 组织学等级; 治疗信息: 如手术方法, 放疗和化疗方案, 剂量和强度; 患者的结局: 对于癌症患者, 需要进行持续的随访才能获得其结果, 这是一项极其困难和复杂的任务. 其他信息: 例如遗传信息. <strong>所以说数据库建设是一项核心应用能力</strong>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>混杂因素矫正</strong>. 临床预测模型研究大多数都是基于<strong>回顾性数据集</strong>, 只有一部分是基于前瞻性数据集. 过去, <strong>我们过分强调RCT的重要性, 而忽略了实际数据的巨大价值</strong>. 毫无疑问, RCT数据具有最高的质量, 但是由于对数据进行了严格筛选, 造成证据的推断受到限制. 实际数据来自日常临床实践, 它更全面地反映了临床干预的有效性, 并且具有更好的外部适用性. 但是, 现实世界研究的最大问题是数据质量变化很大, 并且存在太多难以识别的混淆因素. 因此, 有必要使用更复杂的统计方法从复杂的混杂因素中找出真相. 可靠的统计学基础就像沙里淘金的筛子, 虽然这并不容易. 我们需要了解混杂因素是客观存在的, 因为任何临床结果的发生都不是单一因素作用的结果. 对于混杂因素, 有两个校正级别. 一种是在实验设计阶段进行的校正, 这是顶层校正, 例如通过随机化和足够的样本量来均衡组之间的混淆因素. 这也是RCT受欢迎的原因: 只要样本量足够大且随机化正确, 混杂因素的问题就可以一劳永逸地解决. 第二种是通过统计学方法进行的后效矫正, 显然这种做法不如RCT矫正那么彻底, 但第二种情况更接近于我们临床的实际情况.<br />
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimr9ybo4rj30jg08d769.jpg" /></p></li>
+<li><p><strong>样本量</strong>: 因为在现实世界的研究中有各种各样隐藏的混杂因素, 所以足够的样本量可以让模型获得充足的统计功效来矫正混杂因素. 多变量分析筛选变量的一种简单原则是: 如果在多变量分析中增加一个变量, 则总样本数需新增20个样本, 这称为“1:20 principle”.</p></li>
+<li><p>临床研究洞察力: 建立临床预测模型是为了解决临床问题. 通过广泛阅读和临床实践可以提升我们发现有价值的临床问题的能力.</p></li>
+</ol>
 </div>
+<div id="临床预测模型开发中面临的问题" class="section level2">
+<h2>临床预测模型开发中面临的问题</h2>
+<ol style="list-style-type: decimal">
+<li><strong>临床转化率低</strong>: 主要原因是预测模型的临床应用需要在模型的准确性和简便性之间取得平衡. 想象一下, 如果有一个模型可以像TNM分级一样易于使用, 而且TNM分级更准确, 你会不知道怎么选吗？</li>
+<li>由于大多数临床预测模型都是根据回顾性数据集构建和验证的, 而在前瞻性数据中很少进行验证. 所以模型预测结果的稳定性相对较差.</li>
+<li>大多数临床预测模型的验证均基于内部数据. 绝大多数研究只有一个数据集. 即使有两个数据集, 一个训练模型, 一个验证模型, 但通常两个数据集来自同一研究中心. 如果预测模型的验证可以进一步扩展到另一个研究中心的数据集, 则该模型的应用价值将大大提升. 这项工作非常困难需要多中心合作. 另外, 大多数国内研究中心没有用于验证的完整数据库, 可见搭建数据库多么重要.</li>
+</ol>
 </div>
-<div id="cox-回归-nomogram-c-index-决策曲线-评估" class="section level1">
-<h1><span class="header-section-number">4</span> Cox 回归: Nomogram + C-index + 决策曲线 + 评估</h1>
-<div id="cox比例风险回归模型和nomogram图上" class="section level2">
-<h2><span class="header-section-number">4.1</span> Cox比例风险回归模型和Nomogram图上</h2>
+<div id="总结" class="section level2">
+<h2>总结</h2>
+<p>临床预测模型的初衷是<strong>通过少量易于收集的低成本预测变量来预测疾病的状态和预后</strong>, 因此, 大多数预测模型都很简单. 在信息技术不发达且数据收集, 存储和分析成本高昂的时代, 这是合乎逻辑且合理的. 但是, 随着经济的发展和技术的进步, 数据收集和存储的成本已大大降低, 数据分析技术也在不断进步. 在这种环境下, 临床预测模型应突破固有局限, 应用大数据加复杂的模型算法(比如机器学习和人工智能)构建模型, 为临床医生, 患者以及医疗决策者提供更准确的预测结果.</p>
+<p>另外, 作为临床医生在进行临床预测模型研究时应把握以下四个原则:</p>
+<ol style="list-style-type: decimal">
+<li>建立更好的临床预测模型是精准医疗的内在需求</li>
+<li>如何获得高质量的数据？数据库建设是核心竞争力, 而预测模型只是一种技术方法</li>
+<li>要知道RCT与现实世界研究是同等重要的, 两者都是提供可靠临床证据的有效方法</li>
+<li>模型的构建和验证需要内部和外部数据集, 所以应该加强科研的内部合作, 提高对多中心科研合作的认识</li>
+</ol>
 </div>
-<div id="基于r的cox回归中c-index的两种常用计算方法" class="section level2">
-<h2><span class="header-section-number">4.2</span> 基于R的Cox回归中C-Index的两种常用计算方法</h2>
-</div>
-<div id="生存结果数据的决策曲线分析" class="section level2">
-<h2><span class="header-section-number">4.3</span> 生存结果数据的决策曲线分析</h2>
-</div>
-<div id="基于r的cox回归模型的深入评估-包括计算验证数据集中的鉴别一致性指标c-index并绘制校准曲线" class="section level2">
-<h2><span class="header-section-number">4.4</span> 基于R的Cox回归模型的深入评估, 包括计算验证数据集中的鉴别一致性指标(C-index)并绘制校准曲线</h2>
-</div>
-<div id="使用带有r的竞争风险模型来处理生存数据结果" class="section level2">
-<h2><span class="header-section-number">4.5</span> 使用带有R的竞争风险模型来处理生存数据结果</h2>
-</div>
-<div id="使用r绘制竞争风险模型的列线图" class="section level2">
-<h2><span class="header-section-number">4.6</span> 使用R绘制竞争风险模型的列线图</h2>
-</div>
-</div>
-<div id="异常值和缺失值" class="section level1">
-<h1><span class="header-section-number">5</span> 异常值和缺失值</h1>
-<blockquote>
-<p>离群值的识别以及缺失值的插值</p>
-</blockquote>
-</div>
-<div id="变量选择" class="section level1">
-<h1><span class="header-section-number">6</span> 变量选择</h1>
-<blockquote>
-<p>线性模型中的高级变量选择方法, 例如Ridge回归和LASSO回归</p>
-</blockquote>
-</div>
-<div id="使用r的净重分类指数nri的原理和计算方法" class="section level1">
-<h1><span class="header-section-number">7</span> 使用R的净重分类指数(NRI)的原理和计算方法</h1>
-</div>
-<div id="原理和计算方法" class="section level1">
-<h1><span class="header-section-number">8</span> 原理和计算方法</h1>
-</div>
-<div id="links" class="section level1">
-<h1><span class="header-section-number">9</span> links</h1>
+<div id="参考文献" class="section level2">
+<h2>参考文献</h2>
 <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6989986/">In-depth mining of clinical data: the construction of clinical prediction model with R</a></p>
 <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5529956/">Graphics and statistics for cardiology: clinical prediction rules</a></p>
 <div id="refs" class="references">
@@ -479,7 +544,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/" data-tooltip="Docker 从入门到干活, 就这么简单">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -487,7 +552,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/" data-tooltip="数据科学家 docker 使用指南">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -565,7 +630,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/" data-tooltip="Docker 从入门到干活, 就这么简单">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -573,7 +638,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/" data-tooltip="数据科学家 docker 使用指南">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>

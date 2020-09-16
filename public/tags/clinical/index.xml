@@ -6,13 +6,58 @@
     <description>Recent content in Clinical on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/clinical/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>临床研究应该怎么做?</title>
+      <title>优秀临床研究养成记(3)</title>
+      <link>/2020/09/you-xiu-lin-chuang-yan-jiu-yang-cheng-ji-3.en-us/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/you-xiu-lin-chuang-yan-jiu-yang-cheng-ji-3.en-us/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>优秀临床研究养成记(2): 多元回归分析</title>
+      <link>/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>实用临床研究结构</title>
+      <link>/2020/09/three-practical-clinical-research-structures.en-us/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/three-practical-clinical-research-structures.en-us/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#临床研究的基本要素因素.-对象.-指标&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;0.1&lt;/span&gt; 临床研究的基本要素:因素. 对象. 指标&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#预测模型类研究影响因素研究类似&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;0.2&lt;/span&gt; 预测模型类研究（影响因素研究类似）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#干预疗效类研究&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;0.3&lt;/span&gt; 干预/疗效类研究&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#诊断学研究&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;0.4&lt;/span&gt; 诊断学研究&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#链接&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;0.5&lt;/span&gt; 链接&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>优秀临床研究养成记 (1)</title>
       <link>/2020/09/how-to-do-clinical-model-research.en-us/</link>
       <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -21,15 +66,20 @@
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#介绍&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; 介绍&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#多元回归&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; 多元回归&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#logistics-nomogram-c-index-决策曲线-评估&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3&lt;/span&gt; logistics: Nomogram + C-index + 决策曲线 + 评估&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#cox-回归-nomogram-c-index-决策曲线-评估&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4&lt;/span&gt; Cox 回归: Nomogram + C-index + 决策曲线 + 评估&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#异常值和缺失值&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5&lt;/span&gt; 异常值和缺失值&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#变量选择&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; 变量选择&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#使用r的净重分类指数nri的原理和计算方法&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; 使用R的净重分类指数(NRI)的原理和计算方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#原理和计算方法&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8&lt;/span&gt; 原理和计算方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#links&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;9&lt;/span&gt; links&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#背景&#34;&gt;背景&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型的概念&#34;&gt;临床预测模型的概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型的研究方法&#34;&gt;临床预测模型的研究方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床问题决定研究类型&#34;&gt;临床问题决定研究类型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#研究设计实-实施方案-数据收集和质量控制&#34;&gt;研究设计实, 实施方案, 数据收集和质量控制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型的建立和评估&#34;&gt;临床预测模型的建立和评估&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型的验证&#34;&gt;临床预测模型的验证&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型的临床有效性评估&#34;&gt;临床预测模型的临床有效性评估&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#更新临床预测模型&#34;&gt;更新临床预测模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型分类&#34;&gt;临床预测模型分类&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床模型研究的必要条件&#34;&gt;临床模型研究的必要条件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#临床预测模型开发中面临的问题&#34;&gt;临床预测模型开发中面临的问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#总结&#34;&gt;总结&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#参考文献&#34;&gt;参考文献&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 

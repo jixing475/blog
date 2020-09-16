@@ -22,7 +22,7 @@
 8 与Container交互
 9 见证奇迹的时刻来了
 10 Nvidia-Docker
-11 links
+11 参考链接
 
 
 
@@ -43,14 +43,14 @@
 8 与Container交互
 9 见证奇迹的时刻来了
 10 Nvidia-Docker
-11 links
+11 参考链接
 
 
 
 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据科学家 docker 使用指南">
-<meta name="twitter:title" content="数据科学家 docker 使用指南">
+<meta property="og:title" content="Docker 从入门到干活, 就这么简单">
+<meta name="twitter:title" content="Docker 从入门到干活, 就这么简单">
 <meta property="og:url" content="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/">
 <meta property="twitter:url" content="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/">
 <meta property="og:site_name" content="Student Zero">
@@ -68,7 +68,7 @@
 8 与Container交互
 9 见证奇迹的时刻来了
 10 Nvidia-Docker
-11 links
+11 参考链接
 
 
 
@@ -87,7 +87,7 @@
 8 与Container交互
 9 见证奇迹的时刻来了
 10 Nvidia-Docker
-11 links
+11 参考链接
 
 
 
@@ -132,7 +132,7 @@
   <meta property="twitter:image" content="https://i.loli.net/2018/02/26/5a937bb148b02.jpg">
 
 
-    <title>数据科学家 docker 使用指南</title>
+    <title>Docker 从入门到干活, 就这么简单</title>
 
     <link rel="icon" href="/favicon.png">
     
@@ -250,7 +250,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/kakawait">
+      <a class="sidebar-button-link " href="https://github.com/jixing475">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -260,21 +260,11 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
-      
-      <span class="sidebar-button-desc">Stack Overflow</span>
-    </a>
-  </li>
-
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://www.r-bloggers.com/">
+      <a class="sidebar-button-link " href="https://jixing.netlify.app/">
     
       <i class="sidebar-button-icon fa fa-lg fa-book"></i>
       
-      <span class="sidebar-button-desc">R-bloggers</span>
+      <span class="sidebar-button-desc">My old blog</span>
     </a>
   </li>
 
@@ -309,7 +299,7 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      数据科学家 docker 使用指南
+      Docker 从入门到干活, 就这么简单
     </h1>
   
   
@@ -336,39 +326,39 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>在过去的一段时间里，我听到了很多有关Docker容器怎么厉害的声音。似乎所有的软件工程师都在使用 🐳 来开发应用程序。我很想弄清楚docker如何能帮我更有效的分析数据，但是在找寻了一堆资料后, 我发现现有的教程要么是太详细:说了一些作为数据科学家永远不会用到的功能，要么就是太浅显了:没有给足够的信息来帮助我如何有效快速的使用Docker。</p>
+              <p>在过去的一段时间里，我听到了很多有关Docker容器怎么厉害的声音。似乎所有的软件工程师都在使用 🐳 开发应用程序。我很想弄清楚docker如何能帮我更有效的分析数据，但是在找寻了一堆资料后, 我发现现有的教程要么就是太详细:说了一些作为数据科学家永远不会用到的功能，要么就是太浅显了:没法帮助我如快速有效的使用Docker。</p>
 <p>这个快速入门，可以帮您不必了解所有关于 🐳 的信息，而是快速入门数据分析使用docker所需的知识。</p>
 <div id="是何方神圣" class="section level1">
 <h1><span class="header-section-number">1</span> 🐳 是何方神圣?</h1>
-<p>您可以将Docker视为轻量级虚拟机，其中包含运行应用程序所需的一切依赖环境。 🐳容器可以捕获系统状态的快照，以便其他人可以快速重新创建您的计算环境。这就是您需要了解的所有信息，但是如果您想了解更多信息，可以前往<a href="https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b">这里</a>.</p>
+<p>您可以将Docker视为轻量级虚拟机，其中包含运行应用程序所需的一切依赖环境。 🐳 容器可以捕获系统状态的快照，以便其他人可以快速重新创建您构建的计算环境。</p>
 </div>
 <div id="为什么应该使用" class="section level1">
 <h1><span class="header-section-number">2</span> 为什么应该使用 🐳 ?</h1>
 <ol style="list-style-type: decimal">
-<li><strong>可重复性</strong>:作为专业的数据科学家，您的分析工作是否具有可重复性非常重要。可重复性不仅促进了同行评审，而且确保您构建的模型，应用程序或分析流程可以完美地运行，这使您的交付物更加强大并且能经受时间的考验。</li>
+<li><strong>可重复性</strong>:作为数据科学家，您的分析工作是否具有可重复性非常重要。可重复性不仅促进了同行评审，而且确保您构建的模型，应用程序或分析流程可以完美地运行，这使您的交付产品能经受时间的考验。</li>
 </ol>
-<p>📌例如，如果您使用python构建模型，仅运行<code>pip-freeze</code>并将生成的<code>requirements.txt</code>文件发送给您的同事通常是不够的，因为这只会封装python特定的依赖关系-而通常存在<code>python</code>外部依赖关系，例如操作系统，编译器，驱动程序，配置文件或其他代码成功运行所必需的数据。即使您只需要共享python依赖关系就可以摆脱困境，将所有内容包装在Docker容器中也可以减轻其他人重新创建环境的负担，并使您的工作更易于访问。</p>
+<p>📌 例如，如果您使用python搭建模型，仅仅运行<code>pip-freeze</code>并将生成相应的<code>requirements.txt</code>文件发送给您的同事通常是不够的，因为这只会封装python特定的依赖关系. 而计算环境通常存在<code>python</code>外部依赖关系，例如操作系统，编译器，驱动程序，配置文件或其他代码成功运行所必需的数据。即使您只需要共享python依赖关系就可以摆脱这个麻烦，将所有内容包装在Docker容器中也可以减轻其他人重新搭建环境的负担，并使您的工作更易于访问。</p>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>计算环境的可移植性</strong>:作为一名数据科学家，尤其是在机器学习方面，能够快速更改您的计算环境会极大地提高您的生产力。数据科学工作通常始于原型设计，探索和研究，而这些工作并不一定马上需要专门的计算资源。这项工作通常发生在笔记本电脑或个人计算机上。</li>
+<li><strong>计算环境的可移植性</strong>: 作为一名数据科学家，尤其是在机器学习领域，能够快速转换您的计算环境会极大地提高您的生产力。数据科学工作通常始于原型设计，探索和研究，而这些工作一般不需要立刻使用专门的计算资源。所以这项工作通常始于个人笔记本电脑或计算机。</li>
 </ol>
-<p>但是，有个时刻会反复出现，不同的计算资源会极大地加快您的工作流程-例如，具有更多CPU或功能更强大的GPU的计算机，可用于诸如深度学习之类的事情。我看到许多数据科学家将自己限制在本地计算环境中，这是因为在远程计算机上工作需要重新创建本地环境, 而这个过程将非常痛苦。 Docker使移植环境（所有库，文件等）的过程非常容易。在Kaggle竞赛中，快速移植计算环境也是一项巨大的竞争优势，因为您可以以经济高效的方式利用AWS上的宝贵计算资源。</p>
-<p>最后，创建docker文件可让您移植许多您习惯的本地环境的内容，例如bash别名或vim插件。</p>
+<p>但是, 不同的计算资源会极大地加快您的工作流程. 例如，具有更多CPU或功能更强大的GPU的计算机，可用于诸如深度学习之类的建模工作。我看到许多数据科学家将自己限制在本地计算环境中，仅仅是因为在远程计算机上工作需要重新创建本地环境, 而这个过程将非常痛苦。 Docker使移植计算环境（所有库，文件等）的过程非常容易。在Kaggle竞赛中，快速移植计算环境也是一项巨大的竞争优势，因为您可以高效的利用AWS上的宝贵云计算资源。</p>
+<p>最后，创建docker文件可移植许多您已经习惯的本地环境内容，例如bash别名或vim插件。</p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>工程设计提升</strong>:熟悉Docker可以使您将你的模型或分析部署为应用程序（例如，作为可以提供预测的REST API端点），使其他人可以访问您的工作。此外，作为数据科学工作流一部分，您可能需要与之交互的其他应用程序也可能存在于Docker容器中，(例如数据库或其他应用程序)。</li>
 </ol>
 </div>
 <div id="术语" class="section level1">
 <h1><span class="header-section-number">3</span> 🐳 术语</h1>
-<p>在深入探讨 🐳 之前，熟悉Docker术语对后面的学习会有所帮助:</p>
+<p>在深入探讨 🐳 之前，熟悉Docker常用术语对后面的学习会有所帮助:</p>
 <ul>
-<li><strong>Image</strong>: 是您要构建的蓝图。例如:带有<code>Nvidia</code>驱动程序和正在运行的<code>Jupyter Server</code>的<code>Ubuntu TensorFlow</code>。</li>
-<li><strong>Container</strong>: 您可以运行同一蓝图(image)的多个副本。掌握image和container之间的差异非常重要，因为这是新手经常感到困惑的原因。如果image和container之间的区别不清楚，请停下来仔细阅读理解。</li>
-<li><strong>Dockerfile</strong>: 创建图像的配方。 Dockerfile包含特殊的Docker语法。根据官方文档描述:<code>Dockerfile</code>是一个文本文档，其中包含用户在终端(shell)上调用以组装Image的所有命令。</li>
+<li><strong>Image</strong>: 是您要构建的设计图。例如:带有<code>Nvidia</code>驱动程序和正在运行的<code>Jupyter Server</code>的<code>Ubuntu TensorFlow</code>。</li>
+<li><strong>Container</strong>: 您可以运行同一设计图(image)的多个副本。掌握image和container之间的差异非常重要，因为这是新手经常感到困惑的地方。如果image和container之间的区别不清楚，请停下来品一品。</li>
+<li><strong>Dockerfile</strong>: 创建image的配方。 Dockerfile包含特殊的Docker语法。根据官方文档描述:<code>Dockerfile</code>是一个文本文档，其中包含用户在终端(shell)上调用以组装Image的所有命令。</li>
 <li><strong>Commit</strong>: 像<code>git</code>一样，<code>Docker</code>容器提供版本控制。您可以随时通过提交更改将Docker容器的状态保存为新的<code>image</code>。</li>
-<li><strong>DockerHub/Image Registry</strong>: 大家可以发布公共（或私人）docker image的地方，以促进协作和共享, 有点像git之余GitHub。</li>
+<li><strong>DockerHub/Image Registry</strong>: 是大家可以发布公共（或私人）docker image的地方，以促进协作和共享, 有点像git之余GitHub。</li>
 <li><strong>Layer</strong>: 对现有image的修改，由<code>Dockerfile</code>中的指令表示。依次将图层应用于基础image以创建最终image。</li>
 </ul>
-<p>整个帖子的其余部分都讲使用这些术语，因此如果不记得或者混淆了了，请参考此列表！这些术语之间容易混淆，尤其是image和container之间的混淆-因此在阅读时请时刻保持警惕！</p>
+<p>整个帖子的其余部分都讲将使用这些术语，因此如果不记得或者混淆了了，请参考此列表！这些术语之间容易混淆，尤其是image和container之间的混淆. 因此在阅读时请时刻保持警惕！</p>
 </div>
 <div id="安装" class="section level1">
 <h1><span class="header-section-number">4</span> 🐳 安装</h1>
@@ -377,27 +367,76 @@
 <div id="创建第一个-docker-image" class="section level1">
 <h1><span class="header-section-number">5</span> 创建第一个 Docker image</h1>
 <p>在创建 Docker 容器之前，创建定义 image 的 Dockerfile 会很有用。让我们慢慢地浏览下面的示例 Dockerfile。</p>
+<pre class="bash"><code># reference: https://hub.docker.com/_/ubuntu/
+FROM ubuntu:16.04
+
+# Adds metadata to the image as a key value pair example LABEL version=&quot;1.0&quot;
+LABEL maintainer=&quot;Hamel Husain &lt;youremail@gmail.com&gt;&quot;
+
+##Set environment variables
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+RUN apt-get update --fix-missing &amp;&amp; apt-get install -y wget bzip2 ca-certificates \
+    build-essential \
+    byobu \
+    curl \
+    git-core \
+    htop \
+    pkg-config \
+    python3-dev \
+    python-pip \
+    python-setuptools \
+    python-virtualenv \
+    unzip \
+    &amp;&amp; \
+apt-get clean &amp;&amp; \
+rm -rf /var/lib/apt/lists/*
+
+RUN echo &#39;export PATH=/opt/conda/bin:$PATH&#39; &gt; /etc/profile.d/conda.sh &amp;&amp; \
+    wget --quiet https://repo.continuum.io/archive/Anaconda3-5.0.0.1-Linux-x86_64.sh -O ~/anaconda.sh &amp;&amp; \
+    /bin/bash ~/anaconda.sh -b -p /opt/conda &amp;&amp; \
+    rm ~/anaconda.sh
+
+ENV PATH /opt/conda/bin:$PATH
+
+RUN pip --no-cache-dir install --upgrade \
+        altair \
+        sklearn-pandas
+
+# Open Ports for Jupyter
+EXPOSE 7745
+
+#Setup File System
+RUN mkdir ds
+ENV HOME=/ds
+ENV SHELL=/bin/bash
+VOLUME /ds
+WORKDIR /ds
+ADD run_jupyter.sh /ds/run_jupyter.sh
+RUN chmod +x /ds/run_jupyter.sh
+
+# Run a shell script
+CMD  [&quot;./run_jupyter.sh&quot;]</code></pre>
 <div id="from-语句" class="section level2">
 <h2><span class="header-section-number">5.1</span> FROM 语句</h2>
 <pre class="bash"><code>    FROM ubuntu:16.04</code></pre>
-<p><strong>FROM</strong> 语句封装了Docker中最神奇的部分。此语句指定要在其基础上构建的基础 image。</p>
-<p>在使用<strong>FROM指定基本image后</strong> Docker将在您的本地环境中查找名为 <strong>ubuntu:16.04 </strong>的image-如果找不到本地image，它将搜索您指定的Docker注册表，默认情况下为<a href="https://hub.docker.com/explore/">DockerHub</a>.</p>
-<p>这种分层机制很方便，因为您通常希望将程序安装在Linux操作系统（例如Ubuntu）上。您不必担心如何从头开始安装Ubuntu，而只需在正式的Ubuntu image之上构建即可！ Dockerhub上托管着各种各样的Docker image，包括提供了更多操作系统的Docker image，例如，如果您希望使用已安装Anaconda的容器，则可以在<a href="https://hub.docker.com/r/continuumio/anaconda3/">official anaconda docker image</a>。最重要的是，您也可以随时发布自己构建的image，即使该image是通过在另一image之上分层来创建的！可能性是无穷无尽的。真是牛逼!!!</p>
-<p>在这个例子中，我们指定基本映像为ubuntu:16.04，它将查找DockerHub <a href="https://hub.docker.com/_/ubuntu/">repo called ubuntu</a>。冒号后面的映像名称部分— 16.04是 <strong>tag </strong>，它使您可以指定要安装的基本image的版本。如果导航到<a href="https://hub.docker.com/_/ubuntu/">the Ubuntu DockerHub repo</a>，您会注意到不同版本的Ubuntu对应于不同的标签:</p>
+<p><strong>FROM</strong> 语句封装了Docker中最为神奇的部分。此语句指定要在其基础上构建 layer 的基础 image。</p>
+<p>在使用<strong>FROM 指定基础 image后</strong> Docker将在您的本地环境中查找名为 <strong>ubuntu:16.04 </strong>的image, 如果找不到本地image，它将搜索您指定的Docker注册表，默认情况下为<a href="https://hub.docker.com/explore/">DockerHub</a>.</p>
+<p>这种分层机制很方便，因为您通常希望将程序安装在Linux操作系统（例如Ubuntu）上。您不必担心如何从头开始安装Ubuntu，而只需在正式的Ubuntu image之上构建即可！ Dockerhub上托管着各种各样的Docker image，包括提供了更多操作系统的Docker image，例如，如果您希望使用已安装Anaconda的容器，则可以在<a href="https://hub.docker.com/r/continuumio/anaconda3/">official anaconda docker image</a>上下载。最重要的是，您也可以随时发布自己构建的image，即使该image是通过在另一image之上添加层来创建的！可能性是无穷无尽的。真是牛逼!!!</p>
+<p>在这个例子中，我们指定基本 image 为ubuntu:16.04，它将查找DockerHub <a href="https://hub.docker.com/_/ubuntu/">repo called ubuntu</a>。冒号后面的 image 名称部分— 16.04是 <strong>tag </strong>，它使您可以指定要安装的基础image的版本。如果导航到<a href="https://hub.docker.com/_/ubuntu/">the Ubuntu DockerHub repo</a>，您会注意到不同版本的Ubuntu对应于不同的标签:</p>
 <div class="figure">
 <img src="https://miro.medium.com/max/544/1*bGQguuXv3RyKXWLGi8Nxzg.png" alt="" />
 <p class="caption">Image for post</p>
 </div>
 <p>截图于 <a href="https://hub.docker.com/_/ubuntu/">Ubuntu DockerHub repo</a> .</p>
-<p>例如，在撰写本文时，ubuntu:16.04, <strong>ubuntu:xenial-20171201 </strong>，ubuntu:xenial <strong>和ubuntu:latest </strong>均指的是Ubuntu 16.04版本。并且都是同一张图片的别名。此外，此存储库中提供的链接将您链接到用于为每个版本构建映像的相应Dockerfile。您不会总能在DockerHub存储库上找到Dockerfile，因为维护者可以选择将Dockerfile包括在它们如何制作的映像中。我发现查看了解这些Dockerfile很有用（但是请先完成本教程！）</p>
-<p>有一个标签值得特别提及-<strong>:latest </strong>标签。如果您未在<strong>FROM </strong>语句中指定标签，则此标签指定默认情况下将提取的内容, 也就是会提取最新的版本。例如，如果您的FROM语句如下所示：</p>
+<p>有一个标签值得特别提及<strong>:latest </strong>标签。如果您未在<strong>FROM </strong>语句中指定标签，则此标签指定默认情况下将提取的内容, 也就是会提取最新的版本。例如，如果您的FROM语句如下所示：</p>
 <pre class="bash"><code>    FROM ubuntu</code></pre>
-<p>然后，您将最终得到ubuntu：16.04image。为什么？ —如果仔细看一下上面的屏幕截图，您会发现：latest标记与16.04相关联</p>
-<p>关于Docker映像的最后一点说明：从DockerHub中提取随机Docker image时要做一些判断。恶意作者创建的Docker映像可能包含恶意流氓软件。</p>
+<p>然后，您将最终得到ubuntu：16.04 image。为什么？ —如果仔细看一下上面的屏幕截图，您会发现：latest标记与16.04相关联</p>
+<p>关于Docker image 的最后一点说明：从DockerHub中提取随机Docker image时要做一些判断。恶意作者创建的Docker image 可能包含恶意流氓软件。</p>
 </div>
 <div id="label-声明" class="section level2">
 <h2><span class="header-section-number">5.2</span> LABEL 声明</h2>
-<p>此语句将元数据添加到image， 这一步是非必须的。添加此内容是为了使其他人知道如何联系 image 的维护者，并且可以搜索我的其他Docker容器。</p>
+<p>此语句将元数据添加到 image， 这一步是非必须的。添加此内容是为了使其他人知道如何联系 image 的维护者，并且可以搜索作者的其他 Docker容器。</p>
 <pre class="bash"><code>    LABEL maintainer=&quot;Hamel Husain &lt;youremail&gt;&quot;</code></pre>
 </div>
 <div id="env-声明" class="section level2">
@@ -431,9 +470,9 @@
 <p>该语句允许您在Docker容器和宿主机之间共享数据。 VOLUME语句允许您安装外部安装的盘文件。仅在运行容器时声明宿主机目录（因为您可能在不同计算机上运行此容器），而在定义image时则不用声明。目前，您仅指定要与宿主机共享的docker容器中的文件夹名称。</p>
 <p>Docker用户指南中是这样说的：</p>
 <blockquote>
-<p>*<strong>The host directory is declared at container run-time</strong>: The host directory (the mountpoint) is, by its nature, host-dependent. This is to preserve image portability. since a given host directory can’t be guaranteed to be available on all hosts.For this reason, you can’t mount a host directory from within the Dockerfile. The <code>_VOLUME_</code> instruction does not support specifying a <code>_host-dir_</code>parameter. You must specify the mountpoint when you create or run the container.</p>
+<p>*<strong>The host directory is declared at container run-time</strong>: The host directory (the mountpoint) is, by its nature, host-dependent. This is to preserve image portability. since a given host directory can’t be guaranteed to be available on all hosts.For this reason, you can’t mount a host directory from within the Dockerfile. The <code>VOLUME</code> instruction does not support specifying a <code>host-dir</code>parameter. You must specify the mountpoint when you create or run the container.</p>
 </blockquote>
-<p>此外，这些卷用于将数据持久保存在容器的文件系统之外，如果您要使用了大量数据不希望使Docker image 膨胀，则这通常很有用。保存docker映像时，此<code>VOLUME</code>目录中的任何数据都不会保存为映像的一部分，但是该目录之外的数据将保存在容器中。</p>
+<p>此外，这些卷用于将数据持久保存在容器的文件系统之外，如果您要使用了大量数据不希望使Docker image 膨胀，则这通常很有用。保存docker image 时，此<code>VOLUME</code>目录中的任何数据都不会保存为 image 的一部分，但是该目录之外的数据将保存在容器中。</p>
 </div>
 <div id="workdir-语句" class="section level2">
 <h2><span class="header-section-number">5.7</span> WORKDIR 语句</h2>
@@ -464,15 +503,15 @@
 <p>用户指南:</p>
 <blockquote>
 <p>There can only be one <code>CMD</code> instruction in a <code>Dockerfile</code>. If you list more than one <code>CMD</code> then only the last <code>CMD</code> will take effect.</p>
-<p><strong>The main purpose of a </strong><code>**CMD**</code>** is to provide defaults for an executing container.** These defaults can include an executable, or they can omit the executable, in which case you must specify an <code>ENTRYPOINT</code> instruction as well.</p>
+<p>The main purpose of a <code>CMD</code> is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an <code>ENTRYPOINT</code> instruction as well.</p>
 </blockquote>
 </div>
 </div>
 <div id="构建自己的docker-image" class="section level1">
 <h1><span class="header-section-number">6</span> 构建自己的Docker image</h1>
-<p>😱，关于Dockerfile的信息也太多了吧。别担心，从这里开始，其他一切都非常简单。现在，我们已经以<code>DockerFile</code>的形式创建了配方，现在该构建镜像了。您可以通过以下命令完成此操作：</p>
+<p>😱，关于Dockerfile的信息也太多了吧。别担心，一步步来，其其实非常简单。现在，我们已经以<code>DockerFile</code>的形式创建了配方，现在该构建 image 了。您可以通过以下命令完成此操作：</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimaokl06dj30j40aa0vg.jpg" /></p>
-<p>这将构建一个docker image（不是容器，如果您已经不记得有什么区别了，请阅读本文开头的术语！），然后可以稍后运行。</p>
+<p>这将构建一个docker image（不是容器，如果您已经不记得有什么区别了，请阅读本文开头的术语！），稍后再运行。</p>
 </div>
 <div id="从docker-image创建运行container" class="section level1">
 <h1><span class="header-section-number">7</span> 从Docker image创建运行container</h1>
@@ -481,42 +520,41 @@
 <p>运行此命令后，您的容器将启动并运行！由于以下命令，jupyter服务器将处于运行状态：</p>
 <pre class="bash"><code>    CMD [&quot;./run_jupyter.sh&quot;]</code></pre>
 <p>Dockerfile末尾的命令。现在，您可以在其服务的端口上访问jupyter笔记本</p>
-<p>在本示例中，应该可以使用密码 <em>tutorial</em> 从<a href="http://localhost:7654/">http://localhost:7745/</a>）访问该笔记本。如果要远程运行此Docker容器，则必须设置<a href="https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding">local port forwarding</a> ，以便可以从浏览器访问jupyter服务器。</p>
+<p>在本示例中，应该可以使用密码 tutorial, 从<a href="http://localhost:7654/">http://localhost:7745/</a>）访问该笔记本。如果要远程运行此Docker容器，则必须设置<a href="https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding">local port forwarding</a> ，以便可以从浏览器访问jupyter服务器。</p>
 </div>
 <div id="与container交互" class="section level1">
 <h1><span class="header-section-number">8</span> 与Container交互</h1>
 <p>一旦容器启动并运行，这些命令将派上用场：</p>
 <ul>
-<li><strong>Attach a new terminal session to a container</strong>. 如果您需要安装某些软件或使用shell 终端，这将很有用。</li>
+<li><strong>将新的终端会话附加到容器</strong>. 如果您需要安装某些软件或使用shell 终端，这将很有用。</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimb19n31fj30j40aawf6.jpg" /></p>
 <ul>
-<li><strong>Save the state of your container as a new image</strong>. 即使您最开始使用包含所有要安装库的Dockerfile进行构建的 imager，随着时间的流逝，您仍可以通过交互式添加更多库和包来更改容器的状态。将容器的状态另存为image，以后可以共享或在其上分层将很有用。您可以使用<code>docker commit</code> CLI命令来完成此操作：</li>
+<li><strong>将容器的状态另存为new image</strong>. 即使您最开始使用包含所有要安装库的Dockerfile进行构建的 imager，随着时间的流逝，您仍可以通过交互式添加更多库和包来更改容器的状态。将容器的状态另存为image，以后可以共享或在其上分层将很有用。您可以使用<code>docker commit</code> CLI命令来完成此操作：</li>
 </ul>
 <pre class="bash"><code>    docker commit &lt;container_name&gt; new_image_name:tag_name(optional)</code></pre>
 <p>例如，如果我想将名为 <em>container1</em> 的容器的状态另存为名为 jixing/tutorial:v2 的image，则只需运行以下命令：</p>
 <pre class="bash"><code>docker commit container_1 jixing/tutorial:v2</code></pre>
-<p>您可能想知道为什么 <em>jixing/</em> 会在image名称的前面, 因为这使我们以后更容易将此容器推送到DockerHub，因为jixing是我在DockerHub的用户名（稍后会详细介绍）。如果您在工作中使用Docker，则可能存在一个内部私有Docker存储库，您可以将其推送到Docker image中。</p>
+<p>您可能想知道为什么 <em>jixing/</em> 会在image名称的前面, 因为这使我们以后更容易将此容器推送到DockerHub，因为jixing是我在DockerHub的用户名。如果您在工作中使用Docker，则可能存在一个内部私有Docker存储库，您可以将其推送到Docker image中。</p>
 <ul>
-<li><strong>List running containers</strong>. 当我忘记了当前正在运行的容器的名称时，我经常使用它。</li>
+<li><strong>列出正在运行的容器</strong>. 当我忘记了当前正在运行的容器的名称时，我经常使用它。</li>
 </ul>
 <pre class="bash"><code>    docker ps -a -f status=running</code></pre>
 <p>如果运行上面的命令时不带 <code>status=running</code> 标志，那么您将看到系统上所有容器的列表（即使它们不再运行）。这对于跟踪旧容器很有用。</p>
 <ul>
-<li><strong>List all images</strong>: 你所有本地保存的 image.</li>
+<li><strong>列出所有 image</strong>: 你所有本地保存的 image.</li>
 </ul>
 <pre class="bash"><code>    docker images</code></pre>
 <ul>
-<li><strong>Push your image to DockerHub (or another registry)</strong>: 如果您想与他人共享您的image，或方便地将image保存在云中，那么这个功能你一定非常喜欢。请注意，在执行此操作时不要共享任何私有信息（DockerHub上也有私有存储库）</li>
+<li><strong>将您的image推送到DockerHub（或其他注册表）</strong>: 如果您想与他人共享您的image，或方便地将image保存在云中，那么这个功能你一定非常喜欢。请注意，在执行此操作时不要共享任何私有信息（DockerHub上也有私有存储库）</li>
 </ul>
-<p>First create a DockerHub repository and name your image appropriately, <a href="https://docs.docker.com/docker-hub/repos/">as described here</a>. This will involve running the command <strong>docker login</strong> to first connect to your account on DockerHub or other registry. For example, to push an image to <a href="https://hub.docker.com/r/jixing/tutorial/">this container</a>, I first have to name my local image as jixing/tutorial (I can choose any tag name) For example, the CLI command:</p>
 <p>首先创建一个DockerHub存储库并适当命名您的image，<a href="https://docs.docker.com/docker-hub/repos/">像这样</a>。这将涉及运行命令 <code>docker login</code> 以首先连接到您在DockerHub或其他注册表上的帐户。例如，要将image推送到<a href="https://hub.docker.com/r/jixing/tutorial/">这个账户下</a>，我首先必须将本地图像命名为jixing/tutorial（我可以选择任何标签名称），例如，CLI命令：</p>
 <pre class="bash"><code>    docker push jixing/tutorial:v2</code></pre>
-<p>将带有标签** v2 <strong>的上述docker镜像推送到<a href="https://hub.docker.com/r/jixing/tutorial/tags/">此仓库</a>。应该注意的是，如果您公开发布image，</strong>其他人可以简单地在你的 image之上添加层<strong>，就像我们在本教程的ubuntu </strong>image中添加了层一样。这对于寻求复制或扩展您的研究的其他人非常有用。</p>
+<p>将带有标签 <strong>v2</strong> 的上述docker image 推送到<a href="https://hub.docker.com/r/jixing/tutorial/tags/">此仓库</a>。应该注意的是，如果您公开发布image，<strong>其他人可以简单地在你的 image之上添加层</strong>，就像我们在本教程的ubuntu **image中添加了层一样。这对于寻求复制或扩展您的研究的其他人非常有用。</p>
 </div>
 <div id="见证奇迹的时刻来了" class="section level1">
 <h1><span class="header-section-number">9</span> 见证奇迹的时刻来了</h1>
-<p>Now that you know how to operate Docker, you can perform the following tasks:</p>
+<p>现在您知道如何操作Docker，您可以执行以下任务:</p>
 <ul>
 <li>与同事和朋友共享可重复的研究.</li>
 <li>通过将代码根据临时需要移动到较大的计算环境中，从而赢得Kaggle竞赛而不会中断原来的工作.</li>
@@ -530,8 +568,8 @@
 <p>首先，我学习Docker的最初动机是在单个GPU上构建深度学习模型的原型，并在需要更多功能时将计算移至AWS。我也参加了很棒的课程<a href="http://www.fast.ai/">Fast.AI by Jeremy Howard</a>，并想与他人共享原型。</p>
 <p>但是，要正确封装所有依赖项，例如Nvidia GPU的驱动程序，您将需要使用<a href="https://github.com/NVIDIA/nvidia-docker">Nvidia-Docker</a> 而不是Docker。与使用普通的Docker相比，这需要更多的工作，但是一旦您了解Docker，就可以直接进行。</p>
 </div>
-<div id="links" class="section level1">
-<h1><span class="header-section-number">11</span> links</h1>
+<div id="参考链接" class="section level1">
+<h1><span class="header-section-number">11</span> 参考链接</h1>
 <p>本文仅涉及Docker的入门内容，docker还有很多很多事情可以做。我将专注于Docker对于数据科学家来说一些最常遇到的功能。以下是一些对我的Docker旅程有帮助的资源</p>
 <ol style="list-style-type: decimal">
 <li><em>EDIT 8/24/2020: Here are </em><a href="https://notes.hamel.dev/docs/docker/Docker-In-Action.html"><em>some more detailed notes I recently made on Docker</em></a>._</li>
@@ -568,7 +606,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-to-do-clinical-model-research.en-us/" data-tooltip="临床研究应该怎么做?">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/three-practical-clinical-research-structures.en-us/" data-tooltip="实用临床研究结构">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -576,7 +614,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-to-do-clinical-model-research.en-us/" data-tooltip="优秀临床研究养成记 (1)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -654,7 +692,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-to-do-clinical-model-research.en-us/" data-tooltip="临床研究应该怎么做?">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/three-practical-clinical-research-structures.en-us/" data-tooltip="实用临床研究结构">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -662,7 +700,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2015/07/hello-r-markdown/" data-tooltip="Hello R Markdown">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/how-to-do-clinical-model-research.en-us/" data-tooltip="优秀临床研究养成记 (1)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>

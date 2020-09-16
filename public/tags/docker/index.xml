@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>数据科学家 docker 使用指南</title>
+      <title>Docker 从入门到干活, 就这么简单</title>
       <link>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</link>
       <pubDate>Fri, 11 Sep 2020 00:00:00 +0000</pubDate>
       
@@ -31,7 +31,7 @@
 &lt;li&gt;&lt;a href=&#34;#与container交互&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;8&lt;/span&gt; 与Container交互&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#见证奇迹的时刻来了&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;9&lt;/span&gt; 见证奇迹的时刻来了&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#nvidia-docker&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;10&lt;/span&gt; Nvidia-Docker&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#links&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11&lt;/span&gt; links&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#参考链接&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;11&lt;/span&gt; 参考链接&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 

@@ -4,17 +4,57 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/clinical/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/data-science/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/09/research-trend-by-pubmed.en-us/</loc>
+    <lastmod>2020-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/clinical/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/09/you-xiu-lin-chuang-yan-jiu-yang-cheng-ji-3.en-us/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/</loc>
+    <lastmod>2020-09-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/09/three-practical-clinical-research-structures.en-us/</loc>
+    <lastmod>2020-09-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -23,27 +63,12 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</loc>
     <lastmod>2020-09-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/2020/09/how-to-do-clinical-model-research.en-us/</loc>
-    <lastmod>2020-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/</loc>
     <lastmod>2020-09-11T00:00:00+00:00</lastmod>
   </url>
   

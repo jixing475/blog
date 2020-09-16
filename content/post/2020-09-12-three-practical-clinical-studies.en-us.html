@@ -1,0 +1,84 @@
+---
+title: "实用临床研究结构"
+author: Jixing Liu
+date: '2020-09-12'
+slug: three-practical-clinical-research-structures.en-us
+categories:
+  - data science
+tags:
+  - Clinical
+keywords:
+  - tech
+thumbnailImage: https://tva1.sinaimg.cn/large/007S8ZIlgy1gilm7sa11sj310u0gzq7l.jpg
+thumbnailImagePosition: left
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    fig_width: 6
+#bibliography: ./../../references.bib
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#临床研究的基本要素因素.-对象.-指标"><span class="toc-section-number">0.1</span> 临床研究的基本要素:因素. 对象. 指标</a></li>
+<li><a href="#预测模型类研究影响因素研究类似"><span class="toc-section-number">0.2</span> 预测模型类研究（影响因素研究类似）</a></li>
+<li><a href="#干预疗效类研究"><span class="toc-section-number">0.3</span> 干预/疗效类研究</a></li>
+<li><a href="#诊断学研究"><span class="toc-section-number">0.4</span> 诊断学研究</a></li>
+<li><a href="#链接"><span class="toc-section-number">0.5</span> 链接</a></li>
+</ul>
+</div>
+
+<!--more-->
+<p>先了解下临床研究，临床研究的基本要素包括：因素. 对象和指标，根据基本要素，可将临床研究分为：影响因素研究. 预测研究. 干预/疗效研究和诊断学研究</p>
+<div id="临床研究的基本要素因素.-对象.-指标" class="section level2">
+<h2><span class="header-section-number">0.1</span> 临床研究的基本要素:因素. 对象. 指标</h2>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gio8w9ap4vj30gy08aq6s.jpg" /></p>
+</div>
+<div id="预测模型类研究影响因素研究类似" class="section level2">
+<h2><span class="header-section-number">0.2</span> 预测模型类研究（影响因素研究类似）</h2>
+<p>首先，收集病历资料。纳入. 排除标准以及结局指标等因素要在研究设计阶段就确定好。数据收集完毕，就可以先进行单因素分析，剔除不相关的指标后，进行多因素回归，找出独立影响因素。最后，构建预测模型，再进行外部验证。</p>
+<p>通常套路:</p>
+<ol style="list-style-type: decimal">
+<li>收集病例资料数据(病例数尽可能多，与结局相关的指标尽量全面)</li>
+<li>结局诊断要有公认. 权威. 可靠的依据. 有恰当的纳入排除标准</li>
+<li>单因素分析，剔除明显不相关的指标</li>
+<li>多因素回归，筛选出独立影响因素(若只是研究影响因素，到这一步就可以了)</li>
+<li>构建数学预测模型</li>
+<li>外部验证(用建模之外的病例资料进行)</li>
+</ol>
+<p>例文:肝癌根治性切除术后肝癌复发影响因素的临床研究及预测系统的初步探索</p>
+</div>
+<div id="干预疗效类研究" class="section level2">
+<h2><span class="header-section-number">0.3</span> 干预/疗效类研究</h2>
+<p>此类研究，确定研究对象后，进行随机/非随机分组，然后观察记录干预组以及对照组的各项检测指标，通过统计学分析，对比两组间的差异，最后分析干预措施的影响。</p>
+<p>通常套路:</p>
+<ol style="list-style-type: decimal">
+<li>选取研究对象(注意纳入排除标准)</li>
+<li>分组(随机. 非随机)</li>
+<li>观察记录检测指标(指标要紧紧围绕研究目的. 要能说明研究问题)</li>
+<li>对比(统计学方法. 假设检验)</li>
+<li>分析讨论</li>
+</ol>
+<p>例文:体外膜肺氧合技术在心死亡供体肝脏维护中的应用探索</p>
+</div>
+<div id="诊断学研究" class="section level2">
+<h2><span class="header-section-number">0.4</span> 诊断学研究</h2>
+<p>首先，依然是确定研究对象，然后按照金标准诊断结果进行分组，比如，根据肺部 CT 诊断结果将两组患者分为社区获得性肺炎组和非肺炎组。</p>
+<p>然后，比较拟研究的诊断方法与金标准的诊断结果，通过一系列诊断学指标（敏感性. 特异性等）来评价拟研究的诊断方法的效能。</p>
+<p>通常套路:</p>
+<ol style="list-style-type: decimal">
+<li>选取研究对象(可以前瞻性设计纳入病例，也可回顾既往病例)</li>
+<li>分组(按照金标准诊断结果分组)</li>
+<li>比较拟研究的诊断方法与金标准的诊断结果</li>
+<li>用一系列诊断学指标(敏感性. 特异性. 阳性预测值. 阴性预测…. )评价拟研究的诊断方法的效能</li>
+<li>分析讨论</li>
+</ol>
+<p>例文:肺超声在成人社区获得性肺炎诊断和随访中的应用价值</p>
+</div>
+<div id="链接" class="section level2">
+<h2><span class="header-section-number">0.5</span> 链接</h2>
+<p><a href="https://mp.weixin.qq.com/s/Ah2cZMF_zlF1Vj7f-467yg">🐘 3 种实用临床研究结构，搞定一篇中文核心期刊论文</a></p>
+</div>

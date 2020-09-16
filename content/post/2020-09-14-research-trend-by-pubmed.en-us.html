@@ -1,0 +1,50 @@
+---
+title: "在 Pubmed 中查看关注研究的发文趋势"
+author: ZERO
+date: '2020-09-14'
+slug: research-trend-by-pubmed.en-us
+categories:
+  - data science
+tags:
+  - R
+keywords:
+  - tech
+---
+
+
+
+<!--more-->
+<pre class="r"><code># install.packages(&quot;devtools&quot;)
+# devtools::install_github(&quot;GuangchuangYu/yyplot&quot;)</code></pre>
+<pre class="r"><code>library(yyplot)
+library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.2</code></pre>
+<pre class="r"><code>term &lt;- c(&quot;Pancreatic cancer&quot;, &quot;CKD&quot;)
+pm   &lt;- pubmed_trend(term, year=2015:2020)</code></pre>
+<pre><code>## search term: Pancreatic cancer</code></pre>
+<pre><code>## -&gt; querying year 2015</code></pre>
+<pre><code>## -&gt; querying year 2016</code></pre>
+<pre><code>## -&gt; querying year 2017</code></pre>
+<pre><code>## -&gt; querying year 2018</code></pre>
+<pre><code>## -&gt; querying year 2019</code></pre>
+<pre><code>## -&gt; querying year 2020</code></pre>
+<pre><code>## search term: CKD</code></pre>
+<pre><code>## -&gt; querying year 2015</code></pre>
+<pre><code>## -&gt; querying year 2016</code></pre>
+<pre><code>## -&gt; querying year 2017</code></pre>
+<pre><code>## -&gt; querying year 2018</code></pre>
+<pre><code>## -&gt; querying year 2019</code></pre>
+<pre><code>## -&gt; querying year 2020</code></pre>
+<pre><code>## Warning: `rename_()` is deprecated as of dplyr 0.7.0.
+## Please use `rename()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre class="r"><code>plot(pm) + theme_bw()</code></pre>
+<p><img src="/post/2020-09-14-research-trend-by-pubmed.en-us_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>pm %&gt;%
+  ggplot(aes(x = year, y = number, color = TERM)) +
+  geom_point() + 
+  geom_line() + 
+  xlab(&quot;Year&quot;) + ylab(&quot;Number of Publication per Year&quot;) +
+  theme_bw() </code></pre>
+<p><img src="/post/2020-09-14-research-trend-by-pubmed.en-us_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>

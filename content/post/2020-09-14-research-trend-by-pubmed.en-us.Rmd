@@ -1,0 +1,52 @@
+---
+title: "在 Pubmed 中查看关注研究的发文趋势"
+author: ZERO
+date: '2020-09-14'
+slug: research-trend-by-pubmed.en-us
+categories:
+  - data science
+tags:
+  - R
+keywords:
+  - tech
+---
+
+<!--more-->
+
+```{r eval=FALSE, echo=TRUE}
+# install.packages("devtools")
+# devtools::install_github("GuangchuangYu/yyplot")
+```
+
+
+
+```{r}
+library(yyplot)
+library(ggplot2)
+
+term <- c("Pancreatic cancer", "CKD")
+pm   <- pubmed_trend(term, year=2015:2020)
+
+```
+
+
+```{r}
+
+plot(pm) + theme_bw()
+
+pm %>%
+  ggplot(aes(x = year, y = number, color = TERM)) +
+  geom_point() + 
+  geom_line() + 
+  xlab("Year") + ylab("Number of Publication per Year") +
+  theme_bw() 
+```
+
+
+
+
+
+
+
+
+
