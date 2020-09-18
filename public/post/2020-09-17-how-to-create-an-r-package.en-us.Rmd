@@ -1,0 +1,162 @@
+---
+title: "创建 R 包"
+author: ZERO
+date: '2020-09-17'
+slug: how-to-create-an-r-package.en-us
+categories:
+  - R
+tags:
+  - package
+keywords:
+  - tech
+thumbnailImage: https://tva1.sinaimg.cn/large/007S8ZIlgy1gitmgr5gulj30ac070ac8.jpg
+thumbnailImagePosition: left
+output:
+  blogdown::html_page:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gitmdmjm0rj30aw03k745.jpg)
+
+
+你可能觉得创建R包很难(Don't worry be happy), 本教程会提供多种工具来帮助你轻松的一步步创建属于你自己的 R 包。每种方法都有一系列优点和缺点，使用过程中根据各自需求和喜好进行选择(教程会不断完善, 用不完结)。学完这个教程，您将拥有一个功能强大且文档齐全的R 程序包，适用于更高级的操作，比如持续集成和高级测试。
+
+`amitFuncs::packageMakerList()`有要遵循的步骤清单, 使用以下命令安装该软件包：`remotes::install_github("DataStrategist/amitFuncs")`。
+
+```{r}
+amitFuncs::packageMakerList()
+```
+## 设置(一次设定永久使用)
+
+写 R 包之前，您需要设置一些基础环境。这些步骤只需要做一次（除非更换笔记本电脑）。这些步骤包括：
+
+ 1. 下载R和Rstudio
+ 2. 下载安装git并进行设置, 通过github进行版本控制。在终端(shell)键入：
+ 
+```{bash eval=FALSE, echo=TRUE}
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+
+3. 确保将默认分支更改为您的电子邮件和名称。这些将用于追踪谁做了什么，即使是你一个人的项目, 也最好这样设置。
+
+4. 下载Rtools(帮助构建软件包)
+
+5. 接下来，我们将使用`usethis`来使写包的过程变得更容易。使用`sinew`，它可以帮助我们更加容易的添加文档。
+
+## 创建一个新R包！
+
+1. 创建之前，请先给 R 包找个好名字。这样一方面在提交包的时候不会和别的包起冲突, 另外好的名字可以让别人更加方便的找到你. 使用 `available`📦 使这个过程变得更加容易.
+
+2. 使用Rstudio菜单引导创建R包。`File >> new project >> new directory >> R package` 并确保启用了git：
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1giteb1g13vj30ts0l4tda.jpg)
+
+## 常规设置
+
+1. 从`/R`文件夹中删除`hello.R`, 以及`/man`文件夹中删除`hello.Rd`
+2. 修改`DESCRIPTION`文档: 用来说明该软件包是什么以及如何使用它
+3. 加载 `usethis` 和 `sinew`
+4. `Initial Commit`: 初始化提交 R包到 GitHub
+
+  + `use_github(protocol = "https")`: 链接本地 repo 和 GitHub
+  + `private = TRUE`: 决定 repo 公开还是私有
+  
+5. `use_readme_rmd()`可以轻松的创建 R 包网站首页.
+6. `usethis::use_lifecycle_badge(stage = "Experimental")`: 说明这个崭新R包的生命周期.
+7. `use_cran_badge()`: 告诉大家这个 R 包是否出现在 R 的 CRAN 库中(这些信息都会自动复制到 Readme 文档中)
+8. `usethis::use_mit_license("YOUR NAME")`: 添加许可证
+9. `use_pkgdown()`: 为R 包创建网站
+10. `usethis::use_news_md()`: 创建一个`NEWS`文件，用来跟踪项目的修改
+11. `usethis::use_pipe()`: 创建管道函数`%>%`
+
+## 开始开发你的 R包
+
+1. 在`/R`中创建`funcs.R`文件（其实文件名叫什么并不重要，把所有的函数贴到这个文件夹中, 尽管每个函数都应该对应一个文件, 但是目前先把他们全部放到一个文件中）。`sinew::untangle()` 和 `sinew::pretty_namespace()`, 可以帮你整理代码的格式问题, 不用太担心这方面的问题.
+
+2. 你的自定义函数很可能使用了其他 R包的函数, 这个就是依赖包，你需要明确它们的含义。一个节约时间的做法是，每个函数至少使用一次显式调用的`package::function`.(例如dplyr::select），因为后面可以使用`sinew`来调取依赖项。
+
+3. 现在为每个函数创建对应的文档: 
+
+  * 选择函数, 并运行(这样这个函数将会存储在当前全局环境中)
+  * 选择函数, 并运行`sinew::createOxygen`插件, 这将自动创建函数的定义文档模板. 依赖包会自动以`@importFrom`进行注释
+
+4. 为了确保`DESCRIPTION`文件知道您需要的所有依赖软件包。`sinew::makeImport("R", format = "description")`会将所有依赖函数转到`DESCRIPTION`文件.
+
+5. 在构建菜单下，设置每次安装和重新启动时(`Install and Restart`)生成文档。
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gitg6vdebsj30js0ey0uc.jpg)
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gitg7ypqlxj31460s0gtp.jpg)
+
+6. 单元测试这个很重要，需要单独成文来介绍这部分工作. 
+  
+##增加函数并重复以上过程
+
+使用`devtools::document`记录您的R包
+
+创建 R 包的最好的方法是单击"构建"选项卡上的`Install and Restart`, 也可以键入`devtools::build()`，但是不会自动生成文档。
+
+C。检查一切是否正常`devtools::check()`（很有可能会发现一堆问题, 但是别紧张！请仔细阅读检查结果并查看所有解决办法）。
+
+**每次对 R 包进行修改后，都必须重复这些步骤**。
+
+## 质量控制:
+
+ 1. 以下报错你可能看到了千万次:
+
+> no visible binding for global variable blah
+
+2. 出现的愿意可能是以下两种：
+
+  * 在使用依赖包函数时, 忘记添加`@importFrom`到函数定义文档。
+  * `tidyeval` 问题
+  
+3. 忘记在`DESCRIPTION`文件中增添一些依赖包名，这非常常见典型, 只需对其进行修复即可。
+
+4. 在尝试检查您的R包时，R会生成一些有时不会被删除的工件。这是一个`.Rcheck`文件夹和一个`.tar`文件。确保每次尝试检查软件包时都将其删除。如果发生一些奇怪的事情, 你无法理解，请使用以下命令：`amitFuncs::pleaseForTheLoveOfGodLetMeBuild()`
+
+
+## 最后:
+
+a. 基本差不多了!!!! 激不激动! 最后注意检查一些文档, 主要是以下四个地方:
+
+  * 每个函数的定义文档
+  * **`README.Rmd`**文档
+  * **DESCRIPTION**文档
+  * `NEWS`文档
+
+确保你在每次更改代码的时候都要更新它们
+
+`goodpractice::gp()` 将检查在技术上没有错误但可能不是很好的地方. [lovely person](https://twitter.com/hfcfrick)
+
+`pkgdown::build_site()` 将为R 包建立网站。请记住，每次要向站点添加新文本时都要重新运行！
+
+`Git commit and push`
+
+帮助用户找到您的网站。进入GitHub库的设置页面，然后在`Github Pages`下，将`Master Branch-docs`文件标记为网站源。接着会弹出一个`URL`（您必须向下滚动才能看到它, 好烦）。[`github.io`](/post/2020-01-07-how-to-create-an-r-package-my-way_files/Settings.PNG), 这个就是你的 R包网点.
+
+## 后期更新 R 包
+
+在将来的某个时候，您将需要添加某些函数或更改R包中的某些内容。修改完成后，请继续在`DESCRIPTION`文件中增加版本。第一次键入`usethis::use_dev_version()`来推进该软件包的开发版本（这将有助于确定您的一个版本是否存在问题）。
+
+
+如果您认为自己对该软件包进行了重大改进和升级，请使用`usethis::use_version()`更改**Major**版本。确保在`NEWS`记录文档中的更改内容。
+
+随着您的R包经过更多测试和下载安装，这些可以衡量包的成熟度。然后从"实验"变为"成熟"，最终变为"稳定"。这个时候，就可以提交CRAN了！
+
+## 一些要注意的东西
+
+解释如何是使用 R包的各种功函数的最佳方法是使用扩展示例或案例研究文档。使用`use_this::use_vignette`为您构建备份文件
+
+如果你对单元测试感兴趣的话[点这里](https://youtu.be/MxW0EfgD_wo?t=3490)
+
+[cheatsheet]](https://raw.githubusercontent.com/DataStrategist/amitkohli.com/master/static/post/2020-01-07-how-to-create-an-r-package-my-way_files/create%20R%20package.png)
+
+
+## 参考链接
+
+[How to create an R package, easy mode · Amit](https://www.amitkohli.com/2020/01/07/2020-01-07-how-to-create-an-r-package-my-way/)

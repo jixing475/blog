@@ -1,0 +1,65 @@
+---
+title: Deploying flexdashboard on Github Pages
+author: ZERO
+date: '2020-09-18'
+slug: deploying-flexdashboard-on-github-pages.en-us
+categories:
+  - R
+tags:
+  - GitHub
+keywords:
+  - tech
+---
+
+<!--more-->
+Github最酷的功能之一就是[Github Pages](https://pages.github.com/)，可以免费在`github.com`下创建和部署网站。` Github Pages`最常见的用法是部署项目文档。 R社区广泛使用它来部署不同的[R Markdown](https://rmarkdown.rstudio.com/)格式:
+
+1. [pkgdown](https://pkgdown.r-lib.org/)的软件包文档
+2. [blogdown](https://bookdown.org/yihui/blogdown/)的博客
+3. [bookdown](https://bookdown.org/)的图书等。
+
+那么在Github Pages上部署[flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/)应该也是可行的, 因为 flexdashboard 也是Rmd 的一种形式.
+
+怎么做呢?
+
+前期准备:
+
+1. git 和 GitHub 账户(Done!)
+2. flexdashboard 的项目文件[https://github.com/jixing475/flexdashboard_example](https://github.com/RamiKrispin/flexdashboard_example)
+
+  + 创建 `flexdashboard` 的 `index.Rmd` 文件
+  + 创建`_site.yml`文件: '`name: "flexdashboard-example"`, `output_dir: docs`'
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1giuk2kjlm8j30ku06s3zn.jpg)
+
+3. 同步到 GitHub 并设置 GitHubpage
+
+
+
+
+
+## links
+
+  * Deployment code - [https://github.com/RamiKrispin/flexdashboard_example](https://github.com/RamiKrispin/flexdashboard_example)
+  * Flexdashboard - [https://rmarkdown.rstudio.com/flexdashboard/](https://rmarkdown.rstudio.com/flexdashboard/)
+  * R Markdown: The Definitive Guide - [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/), and in particular [chapter 10.5](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) for setting the `_site.yml` file
+  * Github Pages - [https://pages.github.com/](https://pages.github.com/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  * [US Wildfire](https://ramikrispin.github.io/uswildfire/) dashboard, tracking the ongoing wildfire in the US

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Jixing Liu">
+<meta name="keywords" content="tech">
+<meta name="description" content="0.1 设置(一次设定永久使用) 0.2 创建一个新R包！ 0.3 常规设置 0.4 开始开发你的 R包 0.5 质量控制: 0.6 最后: 0.7 后期更新 R 包 0.8 一些要注意的东西 0.9 参考链接   你可能觉得创建R包很难(Don’t worry be happy), 本教程会提供多种工具来帮助你轻松的一步步创建属于你自己的 R 包。每种方法都有一系列优点和缺点，使用过程中根据各自需求和喜好进行选择(教程会不断完善, 用不完结)。学完这个教程，您将拥有一个功能强大且文档齐全的R 程序包，适用于更高级的操作，比如持续集成和高级测试。
+amitFuncs::packageMakerList()有要遵循的步骤清单, 使用以下命令安装该软件包：remotes::install_github(&#34;DataStrategist/amitFuncs&#34;)。
+amitFuncs::packageMakerList() ## ------------------------------------------------------------- ## Lets create a package!!! These are the cliffnotes, ## for a full description, check the blog-post or youtube video (in the help file) ## ------------------------------------------------------------------------- ## available::available(&quot;PKGNAME&quot;) ## - File &gt;&gt; new project &gt;&gt; new directory &gt;&gt; R package` (enable git) ## - Delete `hello.">
+
+
+<meta property="og:description" content="0.1 设置(一次设定永久使用) 0.2 创建一个新R包！ 0.3 常规设置 0.4 开始开发你的 R包 0.5 质量控制: 0.6 最后: 0.7 后期更新 R 包 0.8 一些要注意的东西 0.9 参考链接   你可能觉得创建R包很难(Don’t worry be happy), 本教程会提供多种工具来帮助你轻松的一步步创建属于你自己的 R 包。每种方法都有一系列优点和缺点，使用过程中根据各自需求和喜好进行选择(教程会不断完善, 用不完结)。学完这个教程，您将拥有一个功能强大且文档齐全的R 程序包，适用于更高级的操作，比如持续集成和高级测试。
+amitFuncs::packageMakerList()有要遵循的步骤清单, 使用以下命令安装该软件包：remotes::install_github(&#34;DataStrategist/amitFuncs&#34;)。
+amitFuncs::packageMakerList() ## ------------------------------------------------------------- ## Lets create a package!!! These are the cliffnotes, ## for a full description, check the blog-post or youtube video (in the help file) ## ------------------------------------------------------------------------- ## available::available(&quot;PKGNAME&quot;) ## - File &gt;&gt; new project &gt;&gt; new directory &gt;&gt; R package` (enable git) ## - Delete `hello.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建 R 包">
+<meta name="twitter:title" content="创建 R 包">
+<meta property="og:url" content="/2020/09/how-to-create-an-r-package.en-us/">
+<meta property="twitter:url" content="/2020/09/how-to-create-an-r-package.en-us/">
+<meta property="og:site_name" content="Student Zero">
+<meta property="og:description" content="0.1 设置(一次设定永久使用) 0.2 创建一个新R包！ 0.3 常规设置 0.4 开始开发你的 R包 0.5 质量控制: 0.6 最后: 0.7 后期更新 R 包 0.8 一些要注意的东西 0.9 参考链接   你可能觉得创建R包很难(Don’t worry be happy), 本教程会提供多种工具来帮助你轻松的一步步创建属于你自己的 R 包。每种方法都有一系列优点和缺点，使用过程中根据各自需求和喜好进行选择(教程会不断完善, 用不完结)。学完这个教程，您将拥有一个功能强大且文档齐全的R 程序包，适用于更高级的操作，比如持续集成和高级测试。
+amitFuncs::packageMakerList()有要遵循的步骤清单, 使用以下命令安装该软件包：remotes::install_github(&#34;DataStrategist/amitFuncs&#34;)。
+amitFuncs::packageMakerList() ## ------------------------------------------------------------- ## Lets create a package!!! These are the cliffnotes, ## for a full description, check the blog-post or youtube video (in the help file) ## ------------------------------------------------------------------------- ## available::available(&quot;PKGNAME&quot;) ## - File &gt;&gt; new project &gt;&gt; new directory &gt;&gt; R package` (enable git) ## - Delete `hello.">
+<meta name="twitter:description" content="0.1 设置(一次设定永久使用) 0.2 创建一个新R包！ 0.3 常规设置 0.4 开始开发你的 R包 0.5 质量控制: 0.6 最后: 0.7 后期更新 R 包 0.8 一些要注意的东西 0.9 参考链接   你可能觉得创建R包很难(Don’t worry be happy), 本教程会提供多种工具来帮助你轻松的一步步创建属于你自己的 R 包。每种方法都有一系列优点和缺点，使用过程中根据各自需求和喜好进行选择(教程会不断完善, 用不完结)。学完这个教程，您将拥有一个功能强大且文档齐全的R 程序包，适用于更高级的操作，比如持续集成和高级测试。
+amitFuncs::packageMakerList()有要遵循的步骤清单, 使用以下命令安装该软件包：remotes::install_github(&#34;DataStrategist/amitFuncs&#34;)。
+amitFuncs::packageMakerList() ## ------------------------------------------------------------- ## Lets create a package!!! These are the cliffnotes, ## for a full description, check the blog-post or youtube video (in the help file) ## ------------------------------------------------------------------------- ## available::available(&quot;PKGNAME&quot;) ## - File &gt;&gt; new project &gt;&gt; new directory &gt;&gt; R package` (enable git) ## - Delete `hello.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-09-17T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2020-09-17T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="R">
+    
+  
+  
+    
+      <meta property="article:tag" content="package">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gitmgr5gulj30ac070ac8.jpg">
+  <meta property="twitter:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1gitmgr5gulj30ac070ac8.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://i.loli.net/2018/02/26/5a937bb148b02.jpg">
+  <meta property="twitter:image" content="https://i.loli.net/2018/02/26/5a937bb148b02.jpg">
+
+
+    <title>创建 R 包</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2020/09/how-to-create-an-r-package.en-us/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Student Zero</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://i.loli.net/2018/02/26/5a937bb148b02.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="https://i.loli.net/2018/02/26/5a937bb148b02.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Jixing Liu</h4>
+        
+          <h5 class="sidebar-profile-bio">Reading And Writing</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/jixing475">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jixing.netlify.app/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-book"></i>
+      
+      <span class="sidebar-button-desc">My old blog</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      创建 R 包
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-09-17T00:00:00Z">
+        
+  September 17, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<div id="TOC">
+<ul>
+<li><a href="#设置一次设定永久使用"><span class="toc-section-number">0.1</span> 设置(一次设定永久使用)</a></li>
+<li><a href="#创建一个新r包"><span class="toc-section-number">0.2</span> 创建一个新R包！</a></li>
+<li><a href="#常规设置"><span class="toc-section-number">0.3</span> 常规设置</a></li>
+<li><a href="#开始开发你的-r包"><span class="toc-section-number">0.4</span> 开始开发你的 R包</a></li>
+<li><a href="#质量控制"><span class="toc-section-number">0.5</span> 质量控制:</a></li>
+<li><a href="#最后"><span class="toc-section-number">0.6</span> 最后:</a></li>
+<li><a href="#后期更新-r-包"><span class="toc-section-number">0.7</span> 后期更新 R 包</a></li>
+<li><a href="#一些要注意的东西"><span class="toc-section-number">0.8</span> 一些要注意的东西</a></li>
+<li><a href="#参考链接"><span class="toc-section-number">0.9</span> 参考链接</a></li>
+</ul>
+</div>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gitmdmjm0rj30aw03k745.jpg" /></p>
+<p>你可能觉得创建R包很难(Don’t worry be happy), 本教程会提供多种工具来帮助你轻松的一步步创建属于你自己的 R 包。每种方法都有一系列优点和缺点，使用过程中根据各自需求和喜好进行选择(教程会不断完善, 用不完结)。学完这个教程，您将拥有一个功能强大且文档齐全的R 程序包，适用于更高级的操作，比如持续集成和高级测试。</p>
+<p><code>amitFuncs::packageMakerList()</code>有要遵循的步骤清单, 使用以下命令安装该软件包：<code>remotes::install_github("DataStrategist/amitFuncs")</code>。</p>
+<pre class="r"><code>amitFuncs::packageMakerList()</code></pre>
+<pre><code>## -------------------------------------------------------------
+## Lets create a package!!! These are the cliffnotes,
+## for a full description, check the blog-post or youtube video (in the help file)
+## -------------------------------------------------------------------------
+## available::available(&quot;PKGNAME&quot;)
+##  - File &gt;&gt; new project &gt;&gt; new directory &gt;&gt; R package` (enable git)
+##  - Delete `hello.R` from the `/R` folder
+##  - Delete `hello.Rd` from the `/man` folder
+##  - Modify the DESCRIPTION
+##   person(&quot;First&quot;, &quot;Last&quot;, email = &quot;first.last@example.com&quot;,role = c(&quot;aut&quot;, &quot;cre&quot;)))
+## library(usethis); library(sinew)
+##  - git commit
+## use_github(protocol = &quot;https&quot;)
+## use_readme_rmd()
+## usethis::use_lifecycle_badge(stage = &quot;Experimental&quot;)
+## use_cran_badge()
+## usethis::use_mit_license(&quot;YOUR NAME&quot;)
+## use_pkgdown()
+## usethis::use_news_md()
+## 
+##  - Create `funcs.R` in the `/R` folder - Copy paste your code inside
+##     (Try to be explicit `package::function` at least once per used function per your function)
+##  - createOxygen for each function - commit function to memory, doubleclick title, run addin
+## sinew::makeImport(&quot;R&quot;, format = &quot;description&quot;) and add to DESCRIPTION
+##  - In Build menu &gt;&gt; More &gt;&gt; Configure Build tools &gt;&gt; Generate Documentation &gt;&gt; Install and Restart
+##  - Delete NAMESPACE
+## 
+## Use Rstudio Build and install, or do:
+##   - devtools::document
+##   - devtools::build()
+##   - devtools::install()
+## 
+## goodpractice::gp()
+## 
+## devtools::check()
+## 
+## REMEMBER TO CHECK DOCUMENTATION:
+##   - Roxygen for each function
+##     - README.Rmd
+##     - DESCRIPTION
+##     - NEWS
+## 
+## pkgdown::build_site()
+## 
+##  - git commit/push
+##  - set master/docs as the Repos webpage
+## 
+##  - To think about:
+## usethis::use_code_of_conduct()
+## use_testthat()
+## amitFuncs::pleaseForTheLoveOfGodLetMeBuild()
+## usethis::use_dev_version()
+## use_vignette()</code></pre>
+<div id="设置一次设定永久使用" class="section level2">
+<h2><span class="header-section-number">0.1</span> 设置(一次设定永久使用)</h2>
+<p>写 R 包之前，您需要设置一些基础环境。这些步骤只需要做一次（除非更换笔记本电脑）。这些步骤包括：</p>
+<ol style="list-style-type: decimal">
+<li>下载R和Rstudio</li>
+<li>下载安装git并进行设置, 通过github进行版本控制。在终端(shell)键入：</li>
+</ol>
+<pre class="bash"><code>git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>确保将默认分支更改为您的电子邮件和名称。这些将用于追踪谁做了什么，即使是你一个人的项目, 也最好这样设置。</p></li>
+<li><p>下载Rtools(帮助构建软件包)</p></li>
+<li><p>接下来，我们将使用<code>usethis</code>来使写包的过程变得更容易。使用<code>sinew</code>，它可以帮助我们更加容易的添加文档。</p></li>
+</ol>
+</div>
+<div id="创建一个新r包" class="section level2">
+<h2><span class="header-section-number">0.2</span> 创建一个新R包！</h2>
+<ol style="list-style-type: decimal">
+<li><p>创建之前，请先给 R 包找个好名字。这样一方面在提交包的时候不会和别的包起冲突, 另外好的名字可以让别人更加方便的找到你. 使用 <code>available</code>📦 使这个过程变得更加容易.</p></li>
+<li><p>使用Rstudio菜单引导创建R包。<code>File &gt;&gt; new project &gt;&gt; new directory &gt;&gt; R package</code> 并确保启用了git：</p></li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giteb1g13vj30ts0l4tda.jpg" /></p>
+</div>
+<div id="常规设置" class="section level2">
+<h2><span class="header-section-number">0.3</span> 常规设置</h2>
+<ol style="list-style-type: decimal">
+<li>从<code>/R</code>文件夹中删除<code>hello.R</code>, 以及<code>/man</code>文件夹中删除<code>hello.Rd</code></li>
+<li>修改<code>DESCRIPTION</code>文档: 用来说明该软件包是什么以及如何使用它</li>
+<li>加载 <code>usethis</code> 和 <code>sinew</code></li>
+<li><code>Initial Commit</code>: 初始化提交 R包到 GitHub</li>
+</ol>
+<ul>
+<li><code>use_github(protocol = "https")</code>: 链接本地 repo 和 GitHub</li>
+<li><code>private = TRUE</code>: 决定 repo 公开还是私有</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><code>use_readme_rmd()</code>可以轻松的创建 R 包网站首页.</li>
+<li><code>usethis::use_lifecycle_badge(stage = "Experimental")</code>: 说明这个崭新R包的生命周期.</li>
+<li><code>use_cran_badge()</code>: 告诉大家这个 R 包是否出现在 R 的 CRAN 库中(这些信息都会自动复制到 Readme 文档中)</li>
+<li><code>usethis::use_mit_license("YOUR NAME")</code>: 添加许可证</li>
+<li><code>use_pkgdown()</code>: 为R 包创建网站</li>
+<li><code>usethis::use_news_md()</code>: 创建一个<code>NEWS</code>文件，用来跟踪项目的修改</li>
+<li><code>usethis::use_pipe()</code>: 创建管道函数<code>%&gt;%</code></li>
+</ol>
+</div>
+<div id="开始开发你的-r包" class="section level2">
+<h2><span class="header-section-number">0.4</span> 开始开发你的 R包</h2>
+<ol style="list-style-type: decimal">
+<li><p>在<code>/R</code>中创建<code>funcs.R</code>文件（其实文件名叫什么并不重要，把所有的函数贴到这个文件夹中, 尽管每个函数都应该对应一个文件, 但是目前先把他们全部放到一个文件中）。<code>sinew::untangle()</code> 和 <code>sinew::pretty_namespace()</code>, 可以帮你整理代码的格式问题, 不用太担心这方面的问题.</p></li>
+<li><p>你的自定义函数很可能使用了其他 R包的函数, 这个就是依赖包，你需要明确它们的含义。一个节约时间的做法是，每个函数至少使用一次显式调用的<code>package::function</code>.(例如dplyr::select），因为后面可以使用<code>sinew</code>来调取依赖项。</p></li>
+<li><p>现在为每个函数创建对应的文档:</p></li>
+</ol>
+<ul>
+<li>选择函数, 并运行(这样这个函数将会存储在当前全局环境中)</li>
+<li>选择函数, 并运行<code>sinew::createOxygen</code>插件, 这将自动创建函数的定义文档模板. 依赖包会自动以<code>@importFrom</code>进行注释</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><p>为了确保<code>DESCRIPTION</code>文件知道您需要的所有依赖软件包。<code>sinew::makeImport("R", format = "description")</code>会将所有依赖函数转到<code>DESCRIPTION</code>文件.</p></li>
+<li><p>在构建菜单下，设置每次安装和重新启动时(<code>Install and Restart</code>)生成文档。</p></li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gitg6vdebsj30js0ey0uc.jpg" /></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gitg7ypqlxj31460s0gtp.jpg" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>单元测试这个很重要，需要单独成文来介绍这部分工作.</li>
+</ol>
+<p>##增加函数并重复以上过程</p>
+<p>使用<code>devtools::document</code>记录您的R包</p>
+<p>创建 R 包的最好的方法是单击“构建”选项卡上的<code>Install and Restart</code>, 也可以键入<code>devtools::build()</code>，但是不会自动生成文档。</p>
+<p>C。检查一切是否正常<code>devtools::check()</code>（很有可能会发现一堆问题, 但是别紧张！请仔细阅读检查结果并查看所有解决办法）。</p>
+<p><strong>每次对 R 包进行修改后，都必须重复这些步骤</strong>。</p>
+</div>
+<div id="质量控制" class="section level2">
+<h2><span class="header-section-number">0.5</span> 质量控制:</h2>
+<ol style="list-style-type: decimal">
+<li>以下报错你可能看到了千万次:</li>
+</ol>
+<blockquote>
+<p>no visible binding for global variable blah</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>出现的愿意可能是以下两种：</li>
+</ol>
+<ul>
+<li>在使用依赖包函数时, 忘记添加<code>@importFrom</code>到函数定义文档。</li>
+<li><code>tidyeval</code> 问题</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><p>忘记在<code>DESCRIPTION</code>文件中增添一些依赖包名，这非常常见典型, 只需对其进行修复即可。</p></li>
+<li><p>在尝试检查您的R包时，R会生成一些有时不会被删除的工件。这是一个<code>.Rcheck</code>文件夹和一个<code>.tar</code>文件。确保每次尝试检查软件包时都将其删除。如果发生一些奇怪的事情, 你无法理解，请使用以下命令：<code>amitFuncs::pleaseForTheLoveOfGodLetMeBuild()</code></p></li>
+</ol>
+</div>
+<div id="最后" class="section level2">
+<h2><span class="header-section-number">0.6</span> 最后:</h2>
+<ol style="list-style-type: lower-alpha">
+<li>基本差不多了!!!! 激不激动! 最后注意检查一些文档, 主要是以下四个地方:</li>
+</ol>
+<ul>
+<li>每个函数的定义文档</li>
+<li><strong><code>README.Rmd</code></strong>文档</li>
+<li><strong>DESCRIPTION</strong>文档</li>
+<li><code>NEWS</code>文档</li>
+</ul>
+<p>确保你在每次更改代码的时候都要更新它们</p>
+<p><code>goodpractice::gp()</code> 将检查在技术上没有错误但可能不是很好的地方. <a href="https://twitter.com/hfcfrick">lovely person</a></p>
+<p><code>pkgdown::build_site()</code> 将为R 包建立网站。请记住，每次要向站点添加新文本时都要重新运行！</p>
+<p><code>Git commit and push</code></p>
+<p>帮助用户找到您的网站。进入GitHub库的设置页面，然后在<code>Github Pages</code>下，将<code>Master Branch-docs</code>文件标记为网站源。接着会弹出一个<code>URL</code>（您必须向下滚动才能看到它, 好烦）。<a href="/post/2020-01-07-how-to-create-an-r-package-my-way_files/Settings.PNG"><code>github.io</code></a>, 这个就是你的 R包网点.</p>
+</div>
+<div id="后期更新-r-包" class="section level2">
+<h2><span class="header-section-number">0.7</span> 后期更新 R 包</h2>
+<p>在将来的某个时候，您将需要添加某些函数或更改R包中的某些内容。修改完成后，请继续在<code>DESCRIPTION</code>文件中增加版本。第一次键入<code>usethis::use_dev_version()</code>来推进该软件包的开发版本（这将有助于确定您的一个版本是否存在问题）。</p>
+<p>如果您认为自己对该软件包进行了重大改进和升级，请使用<code>usethis::use_version()</code>更改<strong>Major</strong>版本。确保在<code>NEWS</code>记录文档中的更改内容。</p>
+<p>随着您的R包经过更多测试和下载安装，这些可以衡量包的成熟度。然后从“实验”变为“成熟”，最终变为“稳定”。这个时候，就可以提交CRAN了！</p>
+</div>
+<div id="一些要注意的东西" class="section level2">
+<h2><span class="header-section-number">0.8</span> 一些要注意的东西</h2>
+<p>解释如何是使用 R包的各种功函数的最佳方法是使用扩展示例或案例研究文档。使用<code>use_this::use_vignette</code>为您构建备份文件</p>
+<p>如果你对单元测试感兴趣的话<a href="https://youtu.be/MxW0EfgD_wo?t=3490">点这里</a></p>
+<p>[cheatsheet]](<a href="https://raw.githubusercontent.com/DataStrategist/amitkohli.com/master/static/post/2020-01-07-how-to-create-an-r-package-my-way_files/create%20R%20package.png" class="uri">https://raw.githubusercontent.com/DataStrategist/amitkohli.com/master/static/post/2020-01-07-how-to-create-an-r-package-my-way_files/create%20R%20package.png</a>)</p>
+</div>
+<div id="参考链接" class="section level2">
+<h2><span class="header-section-number">0.9</span> 参考链接</h2>
+<p><a href="https://www.amitkohli.com/2020/01/07/2020-01-07-how-to-create-an-r-package-my-way/">How to create an R package, easy mode · Amit</a></p>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/package/">package</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/qianzhanxing-linchuang-yanjiu-sanbiao-yitu.en-us/" data-tooltip="前瞻型临床研究的三表一图">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/09/how-to-create-an-r-package.en-us/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/09/how-to-create-an-r-package.en-us/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/2020/09/how-to-create-an-r-package.en-us/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Jixing Liu. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/qianzhanxing-linchuang-yanjiu-sanbiao-yitu.en-us/" data-tooltip="前瞻型临床研究的三表一图">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/09/how-to-create-an-r-package.en-us/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/09/how-to-create-an-r-package.en-us/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/2020/09/how-to-create-an-r-package.en-us/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F09%2Fhow-to-create-an-r-package.en-us%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F09%2Fhow-to-create-an-r-package.en-us%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2F2020%2F09%2Fhow-to-create-an-r-package.en-us%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://i.loli.net/2018/02/26/5a937bb148b02.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Jixing Liu</h4>
+    
+      <div id="about-card-bio">Reading And Writing</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://i.loli.net/2018/02/26/5a9416186c149.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2020\/09\/how-to-create-an-r-package.en-us\/';
+          
+            this.page.identifier = '\/2020\/09\/how-to-create-an-r-package.en-us\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Jixing';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
