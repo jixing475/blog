@@ -408,7 +408,7 @@
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/">
-          优秀临床研究养成记(2): 多元回归分析
+          优秀临床研究养成记(2): 变量选择
         </a>
       </h1>
       
@@ -434,10 +434,13 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        
-
-
-
+        争议共识并存 收集和整理不同类型变量的方法 小结 参考文献   线性回归, Logistic回归和Cox比例风险回归模型是使用非常广泛的多元回归分析方法. 很多资源都对这三者的计算结果进行了详细的阐述解释. 本文旨在阐述自变量筛选方法.
+研究人员在自变量筛选期间遇到问题时会向统计学家求助, 统计学家一般会建议在统计软件中应用自动筛选,例如IBM SPSS中的Logistic回归和Cox回归, 常见有以下7种变量筛选方法:
+条件参数估计似然比检验(Forward: Condition)； 局部最大似然估计的似然比检验(Forward LR)； Wald卡方检验(Forward: Wald)； 条件参数估计似然比检验(Backward: Condition)； 最大局部似然估计的似然比检验(Backward: LR)； Wald卡方检验(Backward: Wald)； 默认方法, 包含所有变量(all variable included, default method).  实际上在临床试验报告中, 许多研究者都采用了这些筛选方法中的一种.
+一般的做法, 首先是对每个变量进行单变量回归分析. P值小于0.1的那些值将包含在回归公式中(此处P值可以小于0.05或0.2, 但在通常情况下, P值的范围可以在0.05-0.2之间). 对于研究人员, 如何选择更好的方法实际上没有标准答案. 但是一些基本的原则还是能更好帮我们进行变量筛选:
+当样本量足够大的时候, 统计检验能力足够, 可以从前面提到的六种筛选方法中任选择一种. 这里介绍一种可以帮助您快速评估测试效率的方法:每个变量对应20个样本(事件). 例如, 在Cox回归检验中, 如果我们包括10个与预后(Y)相关的变量(X), 则至少应招募200名患者以评估终点事件, 例如死亡(应包括200名死亡患者, 而不是总共200名患者). 因为那些没有终点事件的样本不会被视为检验有效样本.
+ 当样本量不符合第一条件或由于其他一些原因统计能力不足时, 应在大多数临床报告中采用广泛使用的筛查方法. 可以首先对每个变量进行单变量回归分析; P值小于0.2的那些将包括在回归公式中.
+ 在实践中第二种筛选方法也有问题. 例如, 我们经常发现一些与预后显着相关的变量在已经首轮进行单变量筛查时没有统计显著性而被排除在模型之外. 例如, 在前列腺癌预后研究中, 作者发现格里森评分(Gleason score)与筛查模型中的预后没有显着相关性, 而格里森评分(Gleason score)是先前研究中确诊前列腺癌预后的因素.
       
       <p>
         <a href="/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -448,7 +451,7 @@
   
     <a href="/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/">
       <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gilm7sa11sj310u0gzq7l.jpg"/>
+        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giw29fqh54j30ej0eoqa0.jpg"/>
       </div>
     </a>
   
@@ -495,19 +498,17 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        
-
-<div id="TOC">
-<ul>
-<li><a href="#临床研究的基本要素因素.-对象.-指标"><span class="toc-section-number">0.1</span> 临床研究的基本要素:因素. 对象. 指标</a></li>
-<li><a href="#预测模型类研究影响因素研究类似"><span class="toc-section-number">0.2</span> 预测模型类研究（影响因素研究类似）</a></li>
-<li><a href="#干预疗效类研究"><span class="toc-section-number">0.3</span> 干预/疗效类研究</a></li>
-<li><a href="#诊断学研究"><span class="toc-section-number">0.4</span> 诊断学研究</a></li>
-<li><a href="#链接"><span class="toc-section-number">0.5</span> 链接</a></li>
-</ul>
-</div>
-
-
+        0.1 临床研究的基本要素:因素. 对象. 指标 0.2 预测模型类研究（影响因素研究类似） 0.3 干预/疗效类研究 0.4 诊断学研究 0.5 链接   临床研究的基本要素包括：因素, 对象和指标. 根据基本要素，可将临床研究分为：影响因素研究, 干预/疗效研究, 预测研究和诊断学研究
+0.1 临床研究的基本要素:因素. 对象. 指标  0.2 预测模型类研究（影响因素研究类似） 首先，收集病历资料。纳入, 排除标准以及结局指标等因素要在研究设计阶段就确定好。数据收集完毕，就可以先进行单因素分析，剔除不相关的指标后，进行多因素回归，找出独立影响因素。最后，构建预测模型，再进行外部验证。
+通常套路:
+收集病例资料数据(病例数尽可能多，与结局相关的指标尽量全面) 结局诊断要有公认. 权威, 可靠的依据, 有恰当的纳入排除标准 单因素分析，剔除明显不相关的指标 多因素回归，筛选出独立影响因素(若只是研究影响因素，到这一步就可以了) 构建数学预测模型 外部验证(用建模之外的病例资料进行)  例文:肝癌根治性切除术后肝癌复发影响因素的临床研究及预测系统的初步探索
+ 0.3 干预/疗效类研究 此类研究，确定研究对象后，进行随机/非随机分组，然后观察记录干预组以及对照组的各项检测指标，通过统计学分析，对比两组间的差异，最后分析干预措施的影响。
+通常套路:
+选取研究对象(注意纳入排除标准) 分组(随机. 非随机) 观察记录检测指标(指标要紧紧围绕研究目的. 要能说明研究问题) 对比(统计学方法. 假设检验) 分析讨论  例文:体外膜肺氧合技术在心死亡供体肝脏维护中的应用探索
+ 0.4 诊断学研究 首先，依然是确定研究对象，然后按照金标准诊断结果进行分组，比如，根据肺部 CT 诊断结果将两组患者分为社区获得性肺炎组和非肺炎组。
+然后，比较拟研究的诊断方法与金标准的诊断结果，通过一系列诊断学指标（敏感性. 特异性等）来评价拟研究的诊断方法的效能。
+通常套路:
+选取研究对象(可以前瞻性设计纳入病例，也可回顾既往病例) 分组(按照金标准诊断结果分组) 比较拟研究的诊断方法与金标准的诊断结果 用一系列诊断学指标(敏感性. 特异性.
       
       <p>
         <a href="/2020/09/three-practical-clinical-research-structures.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -518,7 +519,7 @@
   
     <a href="/2020/09/three-practical-clinical-research-structures.en-us/">
       <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gilm7sa11sj310u0gzq7l.jpg"/>
+        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gius3r3gewj316c0pokjl.jpg"/>
       </div>
     </a>
   
@@ -565,25 +566,13 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        
-
-<div id="TOC">
-<ul>
-<li><a href="#是何方神圣"><span class="toc-section-number">1</span> 🐳 是何方神圣?</a></li>
-<li><a href="#为什么应该使用"><span class="toc-section-number">2</span> 为什么应该使用 🐳 ?</a></li>
-<li><a href="#术语"><span class="toc-section-number">3</span> 🐳 术语</a></li>
-<li><a href="#安装"><span class="toc-section-number">4</span> 🐳 安装</a></li>
-<li><a href="#创建第一个-docker-image"><span class="toc-section-number">5</span> 创建第一个 Docker image</a></li>
-<li><a href="#构建自己的docker-image"><span class="toc-section-number">6</span> 构建自己的Docker image</a></li>
-<li><a href="#从docker-image创建运行container"><span class="toc-section-number">7</span> 从Docker image创建运行container</a></li>
-<li><a href="#与container交互"><span class="toc-section-number">8</span> 与Container交互</a></li>
-<li><a href="#见证奇迹的时刻来了"><span class="toc-section-number">9</span> 见证奇迹的时刻来了</a></li>
-<li><a href="#nvidia-docker"><span class="toc-section-number">10</span> Nvidia-Docker</a></li>
-<li><a href="#参考链接"><span class="toc-section-number">11</span> 参考链接</a></li>
-</ul>
-</div>
-
-
+        1 🐳 是何方神圣? 2 为什么应该使用 🐳 ? 3 🐳 术语 4 🐳 安装 5 创建第一个 Docker image 6 构建自己的Docker image 7 从Docker image创建运行container 8 与Container交互 9 见证奇迹的时刻来了 10 Nvidia-Docker 11 参考链接   在过去的一段时间里，我听到了很多有关Docker容器怎么厉害的声音。似乎所有的软件工程师都在使用 🐳 开发应用程序。我很想弄清楚docker如何能帮我更有效的分析数据，但是在找寻了一堆资料后, 我发现现有的教程要么就是太详细:说了一些作为数据科学家永远不会用到的功能，要么就是太浅显了:没法帮助我如快速有效的使用Docker。
+这个快速入门，可以帮您不必了解所有关于 🐳 的信息，而是快速入门数据分析使用docker所需的知识。
+1 🐳 是何方神圣? 您可以将Docker视为轻量级虚拟机，其中包含运行应用程序所需的一切依赖环境。 🐳 容器可以捕获系统状态的快照，以便其他人可以快速重新创建您构建的计算环境。
+ 2 为什么应该使用 🐳 ? 可重复性:作为数据科学家，您的分析工作是否具有可重复性非常重要。可重复性不仅促进了同行评审，而且确保您构建的模型，应用程序或分析流程可以完美地运行，这使您的交付产品能经受时间的考验。  📌 例如，如果您使用python搭建模型，仅仅运行pip-freeze并将生成相应的requirements.txt文件发送给您的同事通常是不够的，因为这只会封装python特定的依赖关系. 而计算环境通常存在python外部依赖关系，例如操作系统，编译器，驱动程序，配置文件或其他代码成功运行所必需的数据。即使您只需要共享python依赖关系就可以摆脱这个麻烦，将所有内容包装在Docker容器中也可以减轻其他人重新搭建环境的负担，并使您的工作更易于访问。
+计算环境的可移植性: 作为一名数据科学家，尤其是在机器学习领域，能够快速转换您的计算环境会极大地提高您的生产力。数据科学工作通常始于原型设计，探索和研究，而这些工作一般不需要立刻使用专门的计算资源。所以这项工作通常始于个人笔记本电脑或计算机。  但是, 不同的计算资源会极大地加快您的工作流程. 例如，具有更多CPU或功能更强大的GPU的计算机，可用于诸如深度学习之类的建模工作。我看到许多数据科学家将自己限制在本地计算环境中，仅仅是因为在远程计算机上工作需要重新创建本地环境, 而这个过程将非常痛苦。 Docker使移植计算环境（所有库，文件等）的过程非常容易。在Kaggle竞赛中，快速移植计算环境也是一项巨大的竞争优势，因为您可以高效的利用AWS上的宝贵云计算资源。
+最后，创建docker文件可移植许多您已经习惯的本地环境内容，例如bash别名或vim插件。
+工程设计提升:熟悉Docker可以使您将你的模型或分析部署为应用程序（例如，作为可以提供预测的REST API端点），使其他人可以访问您的工作。此外，作为数据科学工作流一部分，您可能需要与之交互的其他应用程序也可能存在于Docker容器中，(例如数据库或其他应用程序)。   3 🐳 术语 在深入探讨 🐳 之前，熟悉Docker常用术语对后面的学习会有所帮助:
       
       <p>
         <a href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -641,28 +630,22 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        
-
-<div id="TOC">
-<ul>
-<li><a href="#背景">背景</a></li>
-<li><a href="#临床预测模型的概念">临床预测模型的概念</a></li>
-<li><a href="#临床预测模型的研究方法">临床预测模型的研究方法</a></li>
-<li><a href="#临床问题决定研究类型">临床问题决定研究类型</a></li>
-<li><a href="#研究设计实-实施方案-数据收集和质量控制">研究设计实, 实施方案, 数据收集和质量控制</a></li>
-<li><a href="#临床预测模型的建立和评估">临床预测模型的建立和评估</a></li>
-<li><a href="#临床预测模型的验证">临床预测模型的验证</a></li>
-<li><a href="#临床预测模型的临床有效性评估">临床预测模型的临床有效性评估</a></li>
-<li><a href="#更新临床预测模型">更新临床预测模型</a></li>
-<li><a href="#临床预测模型分类">临床预测模型分类</a></li>
-<li><a href="#临床模型研究的必要条件">临床模型研究的必要条件</a></li>
-<li><a href="#临床预测模型开发中面临的问题">临床预测模型开发中面临的问题</a></li>
-<li><a href="#总结">总结</a></li>
-<li><a href="#参考文献">参考文献</a></li>
-</ul>
-</div>
-
-
+        背景 临床预测模型的概念 临床预测模型的研究方法 临床问题决定研究类型 研究设计实，实施方案，数据收集和质量控制 临床预测模型的建立和评估 临床预测模型的验证 临床预测模型的临床有效性评估 更新临床预测模型 临床预测模型分类 临床模型研究的必要条件 临床预测模型开发中面临的问题 总结 参考文献   背景  如果我早知道他对此化疗药有抗药性，我就不会选这个药了. 如果我早知道此次手术过可能会出现大出血，我就会提前备好. 如果我早知道这个降脂药对他没有用，我也不会白费力气的做这么多无效的治疗.  真是千金难买早知道! 如果临床医生拥有预测患者结局的“超能力”，那么将是另外一幅场景.
+预测模型作为一种评估风险和收益的定量工具应用越来越广泛. 临床预测模型可以为医生，患者和卫生管理员的决策提供更客观准确的信息，因此临床预测模型的研究也在如火如荼的开展.
+目前的医学实践模式已经从经验医学发展到循证医学，再到精准医学，准确预测某种临床结果的可能性也是当前精确医学模型的固有要求. 在大数据时代，数据采集，数据存储和分析以及预测技术的飞速发展使得个性化医疗的愿景变得越来越清晰.
+ 临床预测模型的概念  临床预测模型是指使用参数/半参数/非参数数学模型来估计受试者当前患有某种疾病的可能性或未来有某种后果的可能性.
+ 简单说，临床预测模型是通过已知数据来预测未知结局，并且该模型是一个数学公式，也就是说，模型通过已知特征来计算发生未知结局的可能性. 临床研究中常见的各种回归分析就是临床预测模型建模，从统计角度来看，回归分析是在寻找“定量因果关系”，也就是说，回归分析是X对Y的影响程度的定量表征. 常见方法包括多元线性回归模型，logistic回归模型和Cox回归模型.
+从临床角度来看，临床预测模型分: 诊断模型，预后模型和疾病发生模型.
+从统计角度来看，只要可以通过特征(X)量化临床问题(Y)的结果，都可以构建预测模型:
+诊断模型常见与横断面研究中，侧重于研究对象的临床症状和特征以及诊断某种疾病的可能性.
+ 预后模型常见于队列研究中，关注特定疾病在特定时期内诸如复发，死亡，残疾和并发症等结局的可能性. 疾病发生预测模型常见于队列研究中，可以根据受试者的一般特征来预测将来是否会发生特定疾病.  诊断模型，预后模型和疾病发生模型之间有许多相似之处:
+结果通常是二分数据，其效果指标是结果发生的绝对风险，即发生的可能性，而不是相对风险的效果指标，例如相对风险(RR)，优势比(OR)或危险比(HR).
+ 在构建模型的技术层面，研究者都将面对模型预测变量的选择，建模策略的建立以及模型性能的评估和验证等过程.
+## 临床预测模型的应用  临床预测模型的效果通常反映在以下三级疾病预防体系中:
+疾病的初级预防  临床预测模型可以提供基于当前健康状况诊断预测患者未来得特定疾病的定量风险值(概率)，医生可以以此提前对患者进行健康教育和行为干预. 例如，根据弗雷明汉(Framingham)对心脏的研究得出的弗雷明汉(Framingham)心血管疾病危险评分，表明 降低血脂和血压可以预防心肌梗塞.
+疾病的二级预防  研究者通常使用无创，低成本和易于获取的指标(non-invasive，low-cost and easy-to-acquire indicators)来构建具有高灵敏度和特异性的诊断模型，以此来实践“早发现，早诊断，早治疗”的思想.
+疾病的三级预防  预后模型为疾病复发，死亡，残疾和并发症的可能性提供定量估计，指导对症治疗和康复计划，预防疾病复发，降低死亡率和残疾，促进功能恢复和生活质量提高.
+在临床实践中有几种成熟的预测模型. 例如，Framingham，QRISK，PROCAM和ASSIGN分数都是众所周知的预测模型. 最常见的就是恶性肿瘤的TNM分期，他最大优点是简单，快速，最大的缺点就是预测不够准确，与临床医生的期望相去甚远.
       
       <p>
         <a href="/2020/09/how-to-do-clinical-model-research.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -673,7 +656,7 @@
   
     <a href="/2020/09/how-to-do-clinical-model-research.en-us/">
       <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gimi68tcg4j309e069tbn.jpg"/>
+        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giumwbqwm4j3096049gli.jpg"/>
       </div>
     </a>
   

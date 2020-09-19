@@ -1,0 +1,51 @@
+---
+title: Deploying flexdashboard on Github Pages
+author: ZERO
+date: '2020-09-18'
+slug: deploying-flexdashboard-on-github-pages.en-us
+categories:
+  - R
+tags:
+  - GitHub
+keywords:
+  - tech
+---
+
+
+
+<!--more-->
+<p>Github最酷的功能之一就是<a href="https://pages.github.com/">Github Pages</a>，可以免费在<code>github.com</code>下创建和部署网站。<code>Github Pages</code>最常见的用法是部署项目文档。 R社区广泛使用它来部署不同的<a href="https://rmarkdown.rstudio.com/">R Markdown</a>格式:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://pkgdown.r-lib.org/">pkgdown</a>的软件包文档</li>
+<li><a href="https://bookdown.org/yihui/blogdown/">blogdown</a>的博客</li>
+<li><a href="https://bookdown.org/">bookdown</a>的图书等。</li>
+</ol>
+<p>那么在Github Pages上部署<a href="https://rmarkdown.rstudio.com/flexdashboard/">flexdashboard</a>应该也是可行的, 因为 flexdashboard 也是Rmd 的一种形式.</p>
+<p>怎么做呢?</p>
+<div id="git-和-github-账户done" class="section level3">
+<h3>1. git 和 GitHub 账户(Done!)</h3>
+</div>
+<div id="flexdashboard-的项目文件httpsgithub.comjixing475flexdashboard_example" class="section level3">
+<h3>2. flexdashboard 的项目文件<a href="https://github.com/RamiKrispin/flexdashboard_example">https://github.com/jixing475/flexdashboard_example</a></h3>
+<ul>
+<li>创建 <code>flexdashboard</code> 的 <code>index.Rmd</code> 文件</li>
+<li>创建<code>_site.yml</code>文件: ‘<code>name: "flexdashboard-example"</code>, <code>output_dir: docs</code>’
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giuk2kjlm8j30ku06s3zn.jpg" />
+关于 <code>_site.yml</code>详细情况: <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">10.5 rmarkdown’s site generator | R Markdown: The Definitive Guide</a></li>
+</ul>
+</div>
+<div id="同步到-github-并设置-github-page" class="section level3">
+<h3>3. 同步到 GitHub 并设置 <code>Github page</code></h3>
+<p>注意生成的网址是: <a href="https://Your_Github_User_Name.github.io/Repository_Name/" class="uri">https://Your_Github_User_Name.github.io/Repository_Name/</a></p>
+</div>
+<div id="links" class="section level2">
+<h2>links</h2>
+<ul>
+<li><p>Deployment code - <a href="https://github.com/RamiKrispin/flexdashboard_example">https://github.com/RamiKrispin/flexdashboard_example</a></p></li>
+<li><p>Flexdashboard - <a href="https://rmarkdown.rstudio.com/flexdashboard/">https://rmarkdown.rstudio.com/flexdashboard/</a></p></li>
+<li><p>R Markdown: The Definitive Guide - <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>, and in particular <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">chapter 10.5</a> for setting the <code>_site.yml</code> file</p></li>
+<li><p>Github Pages - <a href="https://pages.github.com/">https://pages.github.com/</a></p></li>
+<li><p><a href="https://ramikrispin.github.io/2020/09/deploying-flexdashboard-on-github-pages/">Deploying flexdashboard on Github Pages</a></p></li>
+<li><p><a href="https://ramikrispin.github.io/uswildfire/">US Wildfire</a> dashboard, tracking the ongoing wildfire in the US</p></li>
+</ul>
+</div>
