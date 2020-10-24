@@ -14,6 +14,11 @@ thumbnailImagePosition: left
 output:
   blogdown::html_page:
     toc: true
+    toc_depth: 1
+    number_sections: true
+    fig_width: 8
+    # css: "/css/my-style.css"
+#bibliography: ./../../references.bib
 ---
 
 在过去的一段时间里，我听到了很多有关Docker容器怎么厉害的声音。似乎所有的软件工程师都在使用 🐳 开发应用程序。我很想弄清楚docker如何能帮我更有效的分析数据，但是在找寻了一堆资料后, 我发现现有的教程要么就是太详细:说了一些作为数据科学家永远不会用到的功能，要么就是太浅显了:没法帮助我如快速有效的使用Docker。

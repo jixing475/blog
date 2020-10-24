@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tips on Student Zero</title>
+    <link>/categories/tips/</link>
+    <description>Recent content in tips on Student Zero</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>实时分享你的代码</title>
+      <link>/2020/10/how-to-share-your-code.en-us/</link>
+      <pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/10/how-to-share-your-code.en-us/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
