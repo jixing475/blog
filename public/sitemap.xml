@@ -4,12 +4,27 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/10/dropbox-interface-from-r.en-us/</loc>
+    <lastmod>2020-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-10-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-10-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -19,11 +34,6 @@
   
   <url>
     <loc>/tags/rstudio/</loc>
-    <lastmod>2020-10-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2020-10-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -49,11 +59,6 @@
   
   <url>
     <loc>/tags/github/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
     <lastmod>2020-09-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -330,6 +335,10 @@
   <url>
     <loc>/2013/01/japanese-test/</loc>
     <lastmod>2013-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/1/01/</loc>
   </url>
   
   <url>

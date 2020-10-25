@@ -219,6 +219,64 @@
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="/2020/10/dropbox-interface-from-r.en-us/">
+          Dropbox 与 R 的交互
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-10-25T00:00:00Z">
+        
+  October 25, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        
+      
+      <p>
+        <a href="/2020/10/dropbox-interface-from-r.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="/2020/10/dropbox-interface-from-r.en-us/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk19sogooaj307705e0sm.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="/2020/10/how-to-share-your-code.en-us/">
           实时分享你的代码
         </a>
@@ -572,70 +630,6 @@ amitFuncs::packageMakerList() ## -----------------------------------------------
     <a href="/2020/09/you-xiu-lin-chuang-yan-jiu-yang-cheng-ji-3.en-us/">
       <div class="postShorten-thumbnailimg">
         <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giw3ozea7fj30k70f742a.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/">
-          优秀临床研究养成记(2): 变量选择
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-09-12T00:00:00Z">
-        
-  September 12, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/data-science">data science</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        争议共识并存 收集和整理不同类型变量的方法 小结 参考文献   线性回归, Logistic回归和Cox比例风险回归模型是使用非常广泛的多元回归分析方法. 很多资源都对这三者的计算结果进行了详细的阐述解释. 本文旨在阐述自变量筛选方法.
-研究人员在自变量筛选期间遇到问题时会向统计学家求助, 统计学家一般会建议在统计软件中应用自动筛选,例如IBM SPSS中的Logistic回归和Cox回归, 常见有以下7种变量筛选方法:
-条件参数估计似然比检验(Forward: Condition)； 局部最大似然估计的似然比检验(Forward LR)； Wald卡方检验(Forward: Wald)； 条件参数估计似然比检验(Backward: Condition)； 最大局部似然估计的似然比检验(Backward: LR)； Wald卡方检验(Backward: Wald)； 默认方法, 包含所有变量(all variable included, default method).  实际上在临床试验报告中, 许多研究者都采用了这些筛选方法中的一种.
-一般的做法, 首先是对每个变量进行单变量回归分析. P值小于0.1的那些值将包含在回归公式中(此处P值可以小于0.05或0.2, 但在通常情况下, P值的范围可以在0.05-0.2之间). 对于研究人员, 如何选择更好的方法实际上没有标准答案. 但是一些基本的原则还是能更好帮我们进行变量筛选:
-当样本量足够大的时候, 统计检验能力足够, 可以从前面提到的六种筛选方法中任选择一种. 这里介绍一种可以帮助您快速评估测试效率的方法:每个变量对应20个样本(事件). 例如, 在Cox回归检验中, 如果我们包括10个与预后(Y)相关的变量(X), 则至少应招募200名患者以评估终点事件, 例如死亡(应包括200名死亡患者, 而不是总共200名患者). 因为那些没有终点事件的样本不会被视为检验有效样本.
- 当样本量不符合第一条件或由于其他一些原因统计能力不足时, 应在大多数临床报告中采用广泛使用的筛查方法. 可以首先对每个变量进行单变量回归分析; P值小于0.2的那些将包括在回归公式中.
- 在实践中第二种筛选方法也有问题. 例如, 我们经常发现一些与预后显着相关的变量在已经首轮进行单变量筛查时没有统计显著性而被排除在模型之外. 例如, 在前列腺癌预后研究中, 作者发现格里森评分(Gleason score)与筛查模型中的预后没有显着相关性, 而格里森评分(Gleason score)是先前研究中确诊前列腺癌预后的因素.
-      
-      <p>
-        <a href="/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/2020/09/2_youxiu_linchuang_yanjiu_yangchengji_2.en-us/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giw29fqh54j30ej0eoqa0.jpg"/>
       </div>
     </a>
   
