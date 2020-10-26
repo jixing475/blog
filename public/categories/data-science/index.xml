@@ -6,10 +6,19 @@
     <description>Recent content in data science on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>决策树在临床诊断中的应用</title>
+      <link>/2020/10/decision-tree-model.en-us/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/10/decision-tree-model.en-us/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>前瞻型临床研究的三表一图</title>
