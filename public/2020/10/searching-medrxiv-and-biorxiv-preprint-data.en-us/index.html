@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Jixing Liu">
+<meta name="keywords" content="tech">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 R 搜索medRxiv和bioRxiv">
+<meta name="twitter:title" content="使用 R 搜索medRxiv和bioRxiv">
+<meta property="og:url" content="/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+<meta property="twitter:url" content="/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+<meta property="og:site_name" content="Student Zero">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-10-27T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2020-10-27T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="R">
+    
+  
+  
+    
+      <meta property="article:tag" content="academic">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://i.loli.net/2018/08/13/5b70bd4dc9763.jpg">
+  <meta property="twitter:image" content="https://i.loli.net/2018/08/13/5b70bd4dc9763.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://i.loli.net/2018/02/26/5a937bb148b02.jpg">
+  <meta property="twitter:image" content="https://i.loli.net/2018/02/26/5a937bb148b02.jpg">
+
+
+    <title>使用 R 搜索medRxiv和bioRxiv</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">Student Zero</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://i.loli.net/2018/02/26/5a937bb148b02.jpg" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="https://i.loli.net/2018/02/26/5a937bb148b02.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Jixing Liu</h4>
+        
+          <h5 class="sidebar-profile-bio">Reading And Writing</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/jixing475">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://jixing.netlify.app/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-book"></i>
+      
+      <span class="sidebar-button-desc">My old blog</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaOut
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      使用 R 搜索medRxiv和bioRxiv
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-10-27T00:00:00Z">
+        
+  October 27, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>medRxiv，作为医学，临床和相关健康科学领域论文的预印库，成为与COVID-19大流行相关的新研究的主要来源。</p>
+<p>但是, medRxiv网站上提供的本机搜索功能不适合用于系统评价.</p>
+<p>下面介绍R 软件包在这方面的补充<a href="https://github.com/ropensci/medrxivr">ropensci/medrxivr: Access and search medRxiv and bioRxiv preprint data</a>.</p>
+<h2 id="medrxiv网站搜索功能的局限性">medRxiv网站搜索功能的局限性</h2>
+<h3 id="令人困惑的布尔运算">令人困惑的布尔运算</h3>
+<p>“(dementia OR alzheimer) AND (lipid)” 和  “(alzheimer OR dementia) AND lipids” 两个关键词的搜索结果竟然不一样</p>
+<h3 id="缺乏再现性">缺乏再现性</h3>
+<p>“(dementia OR alzheimer) AND lipids” 随着时间的推移, 结果会不一样</p>
+<h3 id="不能批量导出">不能批量导出</h3>
+<p>不能批量导出你检索到的结果</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Load the packages</span>
+<span style="color:#a6e22e">library</span>(medrxivr)
+<span style="color:#a6e22e">library</span>(dplyr)
+<span style="color:#a6e22e">library</span>(ggplot2)
+</code></pre></div><h2 id="例1">例1</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Import the data from medRxiv API endpoint</span>
+mx_data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mx_api_content</span>(from_date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2020-01-01&#34;</span>, 
+                          to_date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2020-01-07&#34;</span>)
+
+<span style="color:#75715e"># Create the graph </span>
+mx_data <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">group_by</span>(category) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">summarise</span>(N <span style="color:#f92672">=</span> <span style="color:#a6e22e">n</span>(), .groups <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;keep&#34;</span>) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(N)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">ggplot</span>(<span style="color:#a6e22e">aes</span>(y <span style="color:#f92672">=</span> <span style="color:#a6e22e">reorder</span>(category,N), x <span style="color:#f92672">=</span> N)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">geom_col</span>(colour <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;black&#34;</span>) <span style="color:#f92672">+</span> 
+  <span style="color:#a6e22e">ylab</span>(<span style="color:#e6db74">&#34;Category&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">xlab</span>(<span style="color:#e6db74">&#34;Number of preprints, 1st week of January 2020&#34;</span>) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">scale_x_continuous</span>(expand <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>), limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10</span>)) <span style="color:#f92672">+</span>
+  <span style="color:#a6e22e">theme_classic</span>() 
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<h2 id="例2">例2</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Use the maintained snapshot to quickly load today&#39;s copy of the medRxiv database</span>
+<span style="color:#75715e"># Note - this `preprint_data` object could be saved as a CSV in your project </span>
+<span style="color:#75715e">#        repository to aid reproducibility</span>
+preprint_data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mx_snapshot</span>()
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Build your search</span>
+topic1  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;dementia&#34;</span>,<span style="color:#e6db74">&#34;vascular&#34;</span>,<span style="color:#e6db74">&#34;alzheimer&#39;s&#34;</span>)  <span style="color:#75715e"># Combined with Boolean OR</span>
+topic2  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lipids&#34;</span>,<span style="color:#e6db74">&#34;statins&#34;</span>,<span style="color:#e6db74">&#34;cholesterol&#34;</span>)     <span style="color:#75715e"># Combined with Boolean OR</span>
+myquery <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(topic1, topic2)                    <span style="color:#75715e"># Combined with Boolean AND</span>
+
+<span style="color:#75715e"># Run your search</span>
+results <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mx_search</span>(data <span style="color:#f92672">=</span> preprint_data,
+                     query <span style="color:#f92672">=</span> myquery)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Let&#39;s have a look at the returned records</span>
+results
+</code></pre></div><pre><code>## # A tibble: 52 x 14
+##       ID title abstract authors date       category doi   version
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;
+##  1   184 Exce… &quot;Object… De Lim… 2019-07-25 Cardiov… 10.1…       1
+##  2   281 Peri… &quot;Introd… Newton… 2019-08-14 Addicti… 10.1…       1
+##  3   284 A co… &quot;Object… Moriar… 2019-08-15 Cardiov… 10.1…       1
+##  4   341 Apol… &quot;Backgr… Richar… 2019-08-29 Cardiov… 10.1…       1
+##  5   307 Comp… &quot;Owing … Batty,… 2019-08-17 Epidemi… 10.1…       1
+##  6   473 Self… &quot;Backgr… Grover… 2019-09-23 Cardiov… 10.1…       1
+##  7   644 Tren… &quot;Object… Curtis… 2019-10-18 Cardiov… 10.1…       1
+##  8   979 Does… &quot;OBJECT… Harber… 2019-11-29 Endocri… 10.1…       1
+##  9  1086 Asse… &quot;Backgr… Finner… 2019-12-14 Cardiov… 10.1…       1
+## 10  1334 Idea… &quot;BACKGR… Mckenz… 2020-01-16 Epidemi… 10.1…       1
+## # … with 42 more rows, and 6 more variables: author_corresponding &lt;chr&gt;,
+## #   author_corresponding_institution &lt;chr&gt;, link_page &lt;chr&gt;, link_pdf &lt;chr&gt;,
+## #   license &lt;chr&gt;, published &lt;chr&gt;
+</code></pre><h2 id="links">links</h2>
+<p><a href="https://ropensci.org/blog/2020/10/20/searching-medrxivr-and-biorxiv-preprint-data/">rOpenSci | Searching medRxiv and bioRxiv Preprint Data</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/academic/">academic</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/add-download-buttons-in-html-output-from-rmarkdown.en-us/" data-tooltip="在RMarkdown编译HTML文件中添加数据下载按钮">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/10/decision-tree-model.en-us/" data-tooltip="决策树在临床诊断中的应用">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Jixing Liu. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/add-download-buttons-in-html-output-from-rmarkdown.en-us/" data-tooltip="在RMarkdown编译HTML文件中添加数据下载按钮">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/10/decision-tree-model.en-us/" data-tooltip="决策树在临床诊断中的应用">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F10%2Fsearching-medrxiv-and-biorxiv-preprint-data.en-us%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F10%2Fsearching-medrxiv-and-biorxiv-preprint-data.en-us%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=%2F2020%2F10%2Fsearching-medrxiv-and-biorxiv-preprint-data.en-us%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://i.loli.net/2018/02/26/5a937bb148b02.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Jixing Liu</h4>
+    
+      <div id="about-card-bio">Reading And Writing</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://i.loli.net/2018/02/26/5a9416186c149.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2020\/10\/searching-medrxiv-and-biorxiv-preprint-data.en-us\/';
+          
+            this.page.identifier = '\/2020\/10\/searching-medrxiv-and-biorxiv-preprint-data.en-us\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Jixing';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

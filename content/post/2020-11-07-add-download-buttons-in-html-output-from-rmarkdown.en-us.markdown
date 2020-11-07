@@ -1,0 +1,154 @@
+---
+title: '在RMarkdown编译HTML文件中添加数据下载按钮'
+author: ZERO
+date: '2020-11-07'
+slug: add-download-buttons-in-html-output-from-rmarkdown.en-us
+categories:
+  - R
+tags:
+  - "\U0001F4E6"
+keywords:
+  - tech
+thumbnailImagePosition: left
+thumbnailImage: https://tva1.sinaimg.cn/large/0081Kckwgy1gkg8yzesnij30dc0dcgm3.jpg
+metaAlignment: center
+coverMeta: out
+---
+
+
+
+<!--more-->
+
+介绍一个工具包, 主要是用来解决我平常写文档时文档和结果分离的问题.
+
+它可以在 RMarkdown 输出的 HTML 文件中添加下载数据的按钮, 而不需要运行 shiny 模式. 
+
+下载的数据的类型包括: 数据框, 列表和任何 R 对象
+
+
+## 安装
+
+```r
+install.packages("downloadthis")
+
+# install.packages("remotes")
+remotes::install_github("fmmattioni/downloadthis")
+```
+
+
+## 使用
+
+### 从全局变量中下载数据框
+
+1. 文件名和路径都可以更改
+2. 文件类型可以是以下三种: 例如 csv, xlsx 和 .rds. 
+
+
+```r
+library(downloadthis)
+
+mtcars %>% 
+  download_this(
+    output_name = "mtcars data set",
+    output_extension = ".csv", # 输出的文件类型
+    csv2 = FALSE,
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+
+```r
+mtcars %>% 
+  download_this(
+    output_name = "mtcars data set",
+    output_extension = ".xlsx", # 输出的文件类型
+    csv2 = FALSE,
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+### 从全局变量中下载其他类型对象
+
+对于非数据框可以保存为 `.rds`, 并且可以多个对象同时保存.
+
+
+```r
+vector_example <- 1:10
+linear_model <- lm(mpg ~ gear, data = mtcars)
+
+list(mtcars, iris, vector_example, linear_model) %>%
+  download_this(
+    output_name = "datasets, vector, and linear model",
+    output_extension = ".rds",
+    button_label = "Download as rds",
+    button_type = "success",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+### 从网上下载
+
+这里是指把下载指向互联网的下载链接.
+这就非常方便了, 你可以把你所有要下载的东西上传到: Dropbox 或者 GitHub 或者其他网盘的下载链接. 当然我喜欢的 Dropbox, 因为我可以在前面对想要下载的文件, 在 Dropbox 进行备份存储, 再把 Dropbox 的下载地址指向这里.
+
+
+```r
+## Link in Github repo
+download_link(
+  link = "https://github.com/fmmattioni/downloadthis/raw/master/inst/example/file_1.pdf",
+  button_label = "Download pdf file",
+  button_type = "danger",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+### 下载本地文件
+
+这个对于大的文件下载非常有效, 你可以把相关文件打包到一起, 增添相对本地路径(工作目录与 HTML 所在的文件地址是一样的), 进行下载.
+
+
+```r
+## One file example
+download_file(
+  path = "untitled folder/all.min.css",
+  output_name = "CSS file from downloadthis",
+  button_label = "Download css file",
+  button_type = "danger",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+### 下载本地文件夹
+
+文件会以打包的形式下载(后缀名为`.zip`)
+
+
+```r
+## Directory path as an example
+download_dir(
+  path = "untitled folder",
+  output_name = "example dir",
+  button_label = "Download directory",
+  button_type = "success",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
+## links
+
+[fmmattioni/downloadthis: Implement Download Buttons in rmarkdown 💾](https://github.com/fmmattioni/downloadthis)
+
+

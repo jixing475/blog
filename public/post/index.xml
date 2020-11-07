@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在RMarkdown编译HTML文件中添加数据下载按钮</title>
+      <link>/2020/11/add-download-buttons-in-html-output-from-rmarkdown.en-us/</link>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/11/add-download-buttons-in-html-output-from-rmarkdown.en-us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>使用 R 搜索medRxiv和bioRxiv</title>
+      <link>/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/10/searching-medrxiv-and-biorxiv-preprint-data.en-us/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>决策树在临床诊断中的应用</title>
