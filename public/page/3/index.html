@@ -208,6 +208,79 @@
             
   
     
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="/2020/09/how-to-do-clinical-model-research.en-us/">
+          优秀临床研究养成记 (1)
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-09-11T00:00:00Z">
+        
+  September 11, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/data-science">data science</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        背景 临床预测模型的概念 临床预测模型的研究方法 临床问题决定研究类型 研究设计实，实施方案，数据收集和质量控制 临床预测模型的建立和评估 临床预测模型的验证 临床预测模型的临床有效性评估 更新临床预测模型 临床预测模型分类 临床模型研究的必要条件 临床预测模型开发中面临的问题 总结 参考文献   背景  如果我早知道他对此化疗药有抗药性，我就不会选这个药了. 如果我早知道此次手术过可能会出现大出血，我就会提前备好. 如果我早知道这个降脂药对他没有用，我也不会白费力气的做这么多无效的治疗.  真是千金难买早知道! 如果临床医生拥有预测患者结局的“超能力”，那么将是另外一幅场景.
+预测模型作为一种评估风险和收益的定量工具应用越来越广泛. 临床预测模型可以为医生，患者和卫生管理员的决策提供更客观准确的信息，因此临床预测模型的研究也在如火如荼的开展.
+目前的医学实践模式已经从经验医学发展到循证医学，再到精准医学，准确预测某种临床结果的可能性也是当前精确医学模型的固有要求. 在大数据时代，数据采集，数据存储和分析以及预测技术的飞速发展使得个性化医疗的愿景变得越来越清晰.
+ 临床预测模型的概念  临床预测模型是指使用参数/半参数/非参数数学模型来估计受试者当前患有某种疾病的可能性或未来有某种后果的可能性.
+ 简单说，临床预测模型是通过已知数据来预测未知结局，并且该模型是一个数学公式，也就是说，模型通过已知特征来计算发生未知结局的可能性. 临床研究中常见的各种回归分析就是临床预测模型建模，从统计角度来看，回归分析是在寻找“定量因果关系”，也就是说，回归分析是X对Y的影响程度的定量表征. 常见方法包括多元线性回归模型，logistic回归模型和Cox回归模型.
+从临床角度来看，临床预测模型分: 诊断模型，预后模型和疾病发生模型.
+从统计角度来看，只要可以通过特征(X)量化临床问题(Y)的结果，都可以构建预测模型:
+诊断模型常见与横断面研究中，侧重于研究对象的临床症状和特征以及诊断某种疾病的可能性.
+ 预后模型常见于队列研究中，关注特定疾病在特定时期内诸如复发，死亡，残疾和并发症等结局的可能性. 疾病发生预测模型常见于队列研究中，可以根据受试者的一般特征来预测将来是否会发生特定疾病.  诊断模型，预后模型和疾病发生模型之间有许多相似之处:
+结果通常是二分数据，其效果指标是结果发生的绝对风险，即发生的可能性，而不是相对风险的效果指标，例如相对风险(RR)，优势比(OR)或危险比(HR).
+ 在构建模型的技术层面，研究者都将面对模型预测变量的选择，建模策略的建立以及模型性能的评估和验证等过程.
+## 临床预测模型的应用  临床预测模型的效果通常反映在以下三级疾病预防体系中:
+疾病的初级预防  临床预测模型可以提供基于当前健康状况诊断预测患者未来得特定疾病的定量风险值(概率)，医生可以以此提前对患者进行健康教育和行为干预. 例如，根据弗雷明汉(Framingham)对心脏的研究得出的弗雷明汉(Framingham)心血管疾病危险评分，表明 降低血脂和血压可以预防心肌梗塞.
+疾病的二级预防  研究者通常使用无创，低成本和易于获取的指标(non-invasive，low-cost and easy-to-acquire indicators)来构建具有高灵敏度和特异性的诊断模型，以此来实践“早发现，早诊断，早治疗”的思想.
+疾病的三级预防  预后模型为疾病复发，死亡，残疾和并发症的可能性提供定量估计，指导对症治疗和康复计划，预防疾病复发，降低死亡率和残疾，促进功能恢复和生活质量提高.
+在临床实践中有几种成熟的预测模型. 例如，Framingham，QRISK，PROCAM和ASSIGN分数都是众所周知的预测模型. 最常见的就是恶性肿瘤的TNM分期，他最大优点是简单，快速，最大的缺点就是预测不够准确，与临床医生的期望相去甚远.
+      
+      <p>
+        <a href="/2020/09/how-to-do-clinical-model-research.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="/2020/09/how-to-do-clinical-model-research.en-us/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giumwbqwm4j3096049gli.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+          
+            
+  
+    
       
         
       
@@ -563,56 +636,6 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/2014/10/tags-plugins-showcase/">
-          Tags plugins showcase
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2014-10-29T00:00:00Z">
-        
-  October 29, 2014
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>This post is used to show how tag plugins are displayed. See <a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags">docs</a> for more info.</p>
-      
-      <p>
-        <a href="/2014/10/tags-plugins-showcase/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/2014/10/tags-plugins-showcase/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//d1u9biwaxjngwg.cloudfront.net/tag-plugins-showcase/car-6-140.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -634,7 +657,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
           </li>
         
       
-      <li class="pagination-number">page 3 of 4</li>
+      <li class="pagination-number">page 3 of 5</li>
     </ul>
   </div>
 
