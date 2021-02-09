@@ -22,6 +22,7 @@ editor_options:
 library(knitr)
 library(tidyverse)
 library(reticulate)
+reticulate::py_config()
 ## Global options
 options(max.print="75")
 opts_chunk$set(echo=TRUE,
