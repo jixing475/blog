@@ -6,19 +6,10 @@
     <description>Recent content in academic on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/academic/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>根据平均值和标准差生成正态分布数据</title>
-      <link>/2020/11/create-data.en-us/</link>
-      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/2020/11/create-data.en-us/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>使用 R 搜索medRxiv和bioRxiv</title>

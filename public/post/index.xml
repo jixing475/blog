@@ -6,17 +6,26 @@
     <description>Recent content in Posts on Student Zero</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>根据平均值和标准差生成正态分布数据</title>
-      <link>/2020/11/create-data.en-us/</link>
-      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      <title>How to take note</title>
+      <link>/2021/02/index.en-us/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/2020/11/create-data.en-us/</guid>
+      <guid>/2021/02/index.en-us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Just for test</title>
+      <link>/2021/02/just-for-test_index.en-us/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/02/just-for-test_index.en-us/</guid>
       <description></description>
     </item>
     

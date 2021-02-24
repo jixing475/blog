@@ -20,9 +20,9 @@ coverMeta: out
 library(knitr)
 library(tidyverse)
 library(reticulate)
-reticulate::py_config()
+# reticulate::py_config()
 
-## Global options
+# Global options
 options(max.print="75")
 opts_chunk$set(echo=TRUE,
 	             cache=TRUE,

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Less is more on Student Zero</title>
+    <link>/categories/less-is-more/</link>
+    <description>Recent content in Less is more on Student Zero</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/less-is-more/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to take note</title>
+      <link>/2021/02/index.en-us/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/02/index.en-us/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Just for test</title>
+      <link>/2021/02/just-for-test_index.en-us/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/02/just-for-test_index.en-us/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

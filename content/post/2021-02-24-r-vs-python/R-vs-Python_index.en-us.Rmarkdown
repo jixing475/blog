@@ -1,0 +1,117 @@
+---
+title: R vs Python
+author: ZERO
+date: '2021-02-24'
+slug: R-vs-Python_index.en-us
+categories:
+  - data science
+tags:
+  - R
+  - Python
+keywords:
+  - tech
+thumbnailImagePosition: left
+thumbnailImage: https://i.loli.net/2018/08/13/5b70bd4dc9763.jpg
+metaAlignment: center
+coverMeta: out
+---
+
+```{r setup, echo=FALSE, cache=FALSE, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(reticulate)
+# reticulate::py_config()
+
+# Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+# R vs Python
+
+> R is for Research, Python is for Production
+
+# R
+
+如果要我用一个词来描述 R，那就是: tidyverse。它使研究任务------处理数据、可视化结果、从一个想法到另一个代码------变成一种乐趣。如果你想学 R，Tidyverse 是一个开启你R旅程理想的地方。
+
+R 拥有许多的软件包可以解决特定的问题，以下是我常用的软件包:
+
+### Dplyr & ggplot2
+
+在 R 中，您可以使用 dplyr 和 ggplot2来进行日常决策，这两个软件包对于数据处理和可视化非常有用。这是数据科学家或数据分析师可以具备的两项最重要的技能。
+
+### Rmarkdown
+
+R 最突出的特点之一是 Rmarkdown，这是一个用于创建可复制的报告、演示、博客、期刊等的框架！想象一下，有一个报告可以自行运行，并创建一个可以轻松共享的 HTML 页面或 PDF 文件与您的团队共享。这绝对是一个比每周一早上在 Excel 中点击几百次更有效率的方法。
+
+### Shiny
+
+Shiny 是 R 中用于创建交互式 web 应用程序的另一个框架。的最佳特性之一就是通过一个简单易用的 GUI (图形用户界面图形用户界面) ，为你的团队中不关注数据的成员提供他们做决策所需的数据科学工具。想象一下，你的团队在周一下午召开计划会议，已经回顾了上周在 Rmarkdown 创建的报告，并使用协作式 Shiny 网络应用程序运行模拟，以确定数据将指引你的下一步。
+
+### 其他
+
+我们可以看到 R 已经扩展到:
+
+-   时间序列与预测:`Modeltime` 及`Timetk`
+-   金融分析(和其他领域) :`Tidyquant`, `Quantmod`
+-   网络分析和可视化:`Tidygraph` and 及`ggraph`
+-   文本分析:`Tidytext,` Text 和 `Recipes`
+-   地理空间分析与可视化: Thematic Maps
+-   机器学习:`H2O`, `Tidymodels`, 及`MLR3`
+
+在做研究的时候， R真的非常棒，因为 Tidyverse，简化了数据的争论和可视化。老实说，一旦你熟练掌握了tidyverse，你在 R 中处理数据的效率会提高3-5倍。
+
+# Python
+
+Python 也很神奇，但原因和 R 有所不同。我是一名数据分析师，与 SQL 数据库一起工作。我更感兴趣的是 Python 如何帮助我更好地挖掘生物医疗数据信息和生产结果。
+
+## Pandas vs Tidyverse
+
+虽然程序员都喜欢用 pandas，但业务分析师最初可能会纠结于面向对象(pythonic)的方法，即使用方法拥有数据框架。
+
+    customer_counts_df = df.group_by(‘customer_id’).value_counts()
+
+Python 中的一切都是一个对象，我们在对象上调用这些方法(例如 group \_ by 和 value \_ counts)。这个看起来还不错。但是我们如果尝试做更多的争吵操作。它就会变得很复杂, 可读性就会变得很差.
+
+相反，在使用 tidyverse 的 R 中，我们对管道使用不同的语法(% \>%)。这非常类似于 SQL 和数据流争论用户如何思考。
+
+    customer_counts_tbl <- df %>%
+        group_by(customer_id) %>%
+        summarize(count = n())
+
+这种冗长的数据处理工作流程使分析人员更容易将操作集扩展为10个或更多的数据处理命令。
+
+> Remember, the challenge isn't typing code, it's turning your thoughts into code. This is where the tidyverse is Really powerful.
+
+## Key Strengths of Python: Production ML
+
+Python 的优势在于机器学习和产品
+
+Python 拥有开发良好的面向产品的 ML工具:
+
+-   自动化: `Airflow`, `Luigi`
+-   Cloud: AWS, Google Cloud, and Azure software development kits Cloud
+-   机器学习: `ScikitLearn`
+-   深度学习与计算机视觉: `PyTorch`, `TensorFlow`, `MXNet`, `OpenCV`
+-   NLP: `spaCy`, `NLTK`
+
+这些面向产品落地的工具和云计算操作交互变得很容易, 因为他们全部在 python 的环境中, 并不需要 R 的依赖包.
+
+### 
+
+# Reticulate
+
+这看起来是个很难的决定, 因为 Python 和 R 都有明显的优势:
+
+-   **R is exceptional for Research R :** 制作可视化效果，讲述故事，制作报告，并使用 Shiny 制作 MVP 应用程序。从概念(想法)到执行(代码) ， R用户往往能够比 Python 用户以3到5倍的速度完成这些任务，这使得他们非常高效地进行研究
+-   **Python is exceptional for Production ML:** 将机器学习模型集成到您的 IT 基础设施生产系统中, 依赖于自动化工具: 如 Airflow 或 Luigi
+
+解决办法就是 📦 Reticulate

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.69.1 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.67.1 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Jixing Liu">
 <meta name="keywords" content="">
 <meta name="description" content="Exploring and playing with data in R and python">
@@ -204,6 +204,65 @@
                ">
         <section class="postShorten-group main-content-wrap">
           
+          
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="/2020/09/deploying-flexdashboard-on-github-pages.en-us/">
+          Deploying flexdashboard on Github Pages
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-09-18T00:00:00Z">
+        
+  September 18, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        
+
+
+
+      
+      <p>
+        <a href="/2020/09/deploying-flexdashboard-on-github-pages.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
           
             
   
@@ -592,70 +651,6 @@ amitFuncs::packageMakerList() ## -----------------------------------------------
 </article>
 
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/">
-          Docker 从入门到干活, 就这么简单
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-09-11T00:00:00Z">
-        
-  September 11, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/data-science">data science</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        1 🐳 是何方神圣? 2 为什么应该使用 🐳 ? 3 🐳 术语 4 🐳 安装 5 创建第一个 Docker image 6 构建自己的Docker image 7 从Docker image创建运行container 8 与Container交互 9 见证奇迹的时刻来了 10 Nvidia-Docker 11 参考链接   在过去的一段时间里，我听到了很多有关Docker容器怎么厉害的声音。似乎所有的软件工程师都在使用 🐳 开发应用程序。我很想弄清楚docker如何能帮我更有效的分析数据，但是在找寻了一堆资料后, 我发现现有的教程要么就是太详细:说了一些作为数据科学家永远不会用到的功能，要么就是太浅显了:没法帮助我如快速有效的使用Docker。
-这个快速入门，可以帮您不必了解所有关于 🐳 的信息，而是快速入门数据分析使用docker所需的知识。
-1 🐳 是何方神圣? 您可以将Docker视为轻量级虚拟机，其中包含运行应用程序所需的一切依赖环境。 🐳 容器可以捕获系统状态的快照，以便其他人可以快速重新创建您构建的计算环境。
- 2 为什么应该使用 🐳 ? 可重复性:作为数据科学家，您的分析工作是否具有可重复性非常重要。可重复性不仅促进了同行评审，而且确保您构建的模型，应用程序或分析流程可以完美地运行，这使您的交付产品能经受时间的考验。  📌 例如，如果您使用python搭建模型，仅仅运行pip-freeze并将生成相应的requirements.txt文件发送给您的同事通常是不够的，因为这只会封装python特定的依赖关系. 而计算环境通常存在python外部依赖关系，例如操作系统，编译器，驱动程序，配置文件或其他代码成功运行所必需的数据。即使您只需要共享python依赖关系就可以摆脱这个麻烦，将所有内容包装在Docker容器中也可以减轻其他人重新搭建环境的负担，并使您的工作更易于访问。
-计算环境的可移植性: 作为一名数据科学家，尤其是在机器学习领域，能够快速转换您的计算环境会极大地提高您的生产力。数据科学工作通常始于原型设计，探索和研究，而这些工作一般不需要立刻使用专门的计算资源。所以这项工作通常始于个人笔记本电脑或计算机。  但是, 不同的计算资源会极大地加快您的工作流程. 例如，具有更多CPU或功能更强大的GPU的计算机，可用于诸如深度学习之类的建模工作。我看到许多数据科学家将自己限制在本地计算环境中，仅仅是因为在远程计算机上工作需要重新创建本地环境, 而这个过程将非常痛苦。 Docker使移植计算环境（所有库，文件等）的过程非常容易。在Kaggle竞赛中，快速移植计算环境也是一项巨大的竞争优势，因为您可以高效的利用AWS上的宝贵云计算资源。
-最后，创建docker文件可移植许多您已经习惯的本地环境内容，例如bash别名或vim插件。
-工程设计提升:熟悉Docker可以使您将你的模型或分析部署为应用程序（例如，作为可以提供预测的REST API端点），使其他人可以访问您的工作。此外，作为数据科学工作流一部分，您可能需要与之交互的其他应用程序也可能存在于Docker容器中，(例如数据库或其他应用程序)。   3 🐳 术语 在深入探讨 🐳 之前，熟悉Docker常用术语对后面的学习会有所帮助:
-      
-      <p>
-        <a href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="/2020/09/how-docker-can-help-you-become-a-more-effective-data-scientist.en-us/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gilm7sa11sj310u0gzq7l.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
           
   <div class="pagination-bar">
     <ul class="pagination">
@@ -685,7 +680,7 @@ amitFuncs::packageMakerList() ## -----------------------------------------------
         </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Jixing Liu. All Rights Reserved
+    &copy; 2021 Jixing Liu. All Rights Reserved
   </span>
 </footer>
 
