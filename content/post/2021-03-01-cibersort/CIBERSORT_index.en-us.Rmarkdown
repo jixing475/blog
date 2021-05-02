@@ -1,0 +1,47 @@
+---
+title: CIBERSORT
+author: ZERO
+date: '2021-03-01'
+slug: CIBERSORT_index.en-us
+categories:
+  - data science
+tags:
+  - bioinformatics
+keywords:
+  - tech
+thumbnailImagePosition: left
+thumbnailImage: https://i.loli.net/2018/08/13/5b70bd4dc9763.jpg
+metaAlignment: center
+coverMeta: out
+---
+
+
+```{r setup, echo=FALSE, cache=FALSE, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(reticulate)
+# reticulate::py_config()
+
+# Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+<!--more-->
+
+
+
+
+
+
+
+## links
+
+[CIBERSORT初探 - 简书](https://www.jianshu.com/p/9179481ed1bf)

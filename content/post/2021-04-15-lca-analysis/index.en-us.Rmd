@@ -1,0 +1,318 @@
+---
+title: LCA analysis
+author: ZERO
+date: '2021-04-15'
+slug: index.en-us
+categories:
+  - data science
+tags:
+  - Clinical
+thumbnailImagePosition: left
+thumbnailImage: https://i.loli.net/2018/08/13/5b70bd4dc9763.jpg
+metaAlignment: center
+coverMeta: out
+---
+
+# depMixS4
+
+Some general resources:    
+[http://www.ats.ucla.edu/stat/mplus/seminars/lca](http://www.ats.ucla.edu/stat/mplus/seminars/lca)     
+[http://www.john-uebersax.com/stat/faq.htm](http://www.john-uebersax.com/stat/faq.htm)
+An excellent chapter explaining LCA (categorical indicators) and LPA (continuous indicators): [http://daob.nl/wp-content/uploads/2015/06/oberski-LCA.pdf](http://daob.nl/wp-content/uploads/2015/06/oberski-LCA.pdf)          
+[http://stats.stackexchange.com/questions/122213/latent-class-analysis-vs-cluster-analysis-differences-in-inferences](http://stats.stackexchange.com/questions/122213/latent-class-analysis-vs-cluster-analysis-differences-in-inferences)     
+
+
+Includes an example (in mplus) of a model with both continuous and categorical indicators:
+[http://www.ats.ucla.edu/stat/mplus/seminars/introMplus_part2/lca.htm](http://www.ats.ucla.edu/stat/mplus/seminars/introMplus_part2/lca.htm)     
+...translating it to r:
+[http://stats.stackexchange.com/questions/47426/latent-class-model-with-both-continuous-and-categorical-indicators-in-r](http://stats.stackexchange.com/questions/47426/latent-class-model-with-both-continuous-and-categorical-indicators-in-r)     
+The r package being used:
+[https://cran.r-project.org/web/packages/depmixS4/vignettes/depmixS4.pdf](https://cran.r-project.org/web/packages/depmixS4/vignettes/depmixS4.pdf)     
+
+Some packages I'm not using:
+
+```{r other_options, eval=FALSE}
+library(mclust)
+library(poLCA) # only categorical indicators
+library(nlsem)
+```
+
+
+From [IDRE (example 2 is most relevant)](http://www.ats.ucla.edu/stat/mplus/seminars/introMplus_part2/lca.htm):     
+The examples on this page use a dataset with information on high school students' academic histories.  In the first example below, a 2 class model is estimated using four dichotomous variables as indicators (category 1 = no, category 2 = yes). The variables are whether the student had taken honors math (hm), honors English (he), or vocational classes (voc); and whether the student reported they were unlikely to go to college (nocol). The expected classes are academically oriented students (i.e. students who took honors classes, did not take vocational classes and reported they were likely to go to college), and students who are less academically oriented. The dataset for this example is [lca.dat](http://www.ats.ucla.edu/stat/mplus/seminars/introMplus_part2/lca.dat).   
+...    
+Above we estimated a specific case of a mixture model, a latent class analysis, in which all of the indicators are categorical, in this example the model contains both categorical and continuous indicators. In addition to the four categorical variables used in the example above, this model includes four continuous variables, the students score on a measure of academic achievement for each of the four years of high school (ach09-ach12). The achievement variables have been centered so that each has a mean of zero.
+
+```{r}
+library(depmixS4)
+```
+
+
+```{r}
+data(sp500)
+
+# fit some models
+msp <- depmix(logret~1,nstates=2,data=sp500)
+set.seed(1)
+fmsp <- fit(msp)	
+
+# plot posterior state sequence for the 2-state model
+plot(ts(posterior(fmsp)[,2], start=c(1950,2),deltat=1/12),ylab="probability",
+main="Posterior probability of state 1 (volatile, negative markets).",
+frame=FALSE)
+
+## Not run: 
+
+# this creates data with a single change point with Poisson data
+set.seed(3)
+y1 <- rpois(50,1)
+y2 <- rpois(50,2)
+ydf <- data.frame(y=c(y1,y2))
+
+# fit models with 1 to 3 states
+m1 <- depmix(y~1,ns=1,family=poisson(),data=ydf)
+set.seed(1)
+fm1 <- fit(m1)
+m2 <- depmix(y~1,ns=2,family=poisson(),data=ydf)
+set.seed(1)
+fm2 <- fit(m2)
+m3 <- depmix(y~1,ns=3,family=poisson(),data=ydf)
+set.seed(1)
+fm3 <- fit(m3,em=em.control(maxit=500))
+
+# plot the BICs to select the proper model
+plot(1:3,c(BIC(fm1),BIC(fm2),BIC(fm3)),ty="b")
+
+
+## End(Not run)
+
+## Not run: 
+# similar to the binomial model, data may also be entered in 
+# multi-column format where the n for each row can be different
+dt <- data.frame(y1=c(0,1,1,2,4,5),y2=c(1,0,1,0,1,0),y3=c(4,4,3,2,1,1))
+# specify a mixture model ...
+m2 <- mix(cbind(y1,y2,y3)~1,data=dt,ns=2,family=multinomial("identity"))
+set.seed(1)
+fm2 <- fit(m2)
+# ... or dependent mixture model
+dm2 <- depmix(cbind(y1,y2,y3)~1,data=dt,ns=2,family=multinomial("identity"))
+set.seed(1)
+fdm2 <- fit(dm2)
+
+## End(Not run)
+```
+
+```{r idre_data}
+lca <- read.table("http://www.ats.ucla.edu/stat/mplus/seminars/introMplus_part2/lca.dat", sep=",")
+names(lca) <- c( "hm", "he", "voc", "nocol" ,"ach09", "ach10", "ach11","ach12")
+summary(lca)
+```
+
+## Example 1: Only categorical indicators
+
+```{r idre_example1}
+mod1 <- mix(list(hm~1, he~1, voc~1, nocol~1), 
+           data=lca, # the dataset to use
+           nstates=2, # the number of latent classes
+           family=list(multinomial("identity"), multinomial("identity"), multinomial("identity"), multinomial("identity")),
+           respstart=runif(16))
+fmod1 <- fit(mod1, verbose=FALSE)
+fmod1 
+summary(fmod1)
+```
+
+For binary indicators, the first parameter for each response varilable (e.g. Re1.1), gives the probability of level 1 for that variable in latent state 1 and latent state 2. The second parameter (e.g. Re1.2) gives the probability of level 2 for that variable in each latent state --- so the two parameters for a response variable should sum to 1 for each state.
+```{r idre_example1_saving_class_assignments}
+posterior.states <- depmixS4::posterior(fmod1) # Saving Class Assignments
+head(round(posterior.states, 3)) # show the first 6 cases, rounded to 3 decimal places to match IDRE output
+posterior.states$state <- as.factor(posterior.states$state)
+summary(posterior.states$state) # how many people in each latent class?
+```
+
+```{r}
+fmod1@npars
+```
+Note about npars: The total number of parameters of the model. This is not the degrees of freedom, ie there are redundancies in the parameters, in particular in the multinomial models for the transitions and prior.    
+
+
+Starting values: "instart for the parameters relating to the prior probabilities, trstart, relating the transition models, and respstart for the parameters of the response models. Note that the starting values for the initial and transition models as well as multinomial logit response models are interpreted as probabilities, and internally converted to multinomial logit parameters (if a logit link function is used)."     
+
+## Example 2: Both categorical and continuous indicators
+
+```{r idre_example2}
+mod2 <- mix(list(hm~1, he~1, voc~1, nocol~1, ach09~1, ach10~1, ach11~1, ach12~1), 
+           data=lca, # the dataset to use
+           nstates=2, # the number of latent classes
+           family=list(multinomial(),multinomial(),multinomial(),multinomial(), gaussian(),gaussian(),gaussian(),gaussian()),
+           respstart=runif(32))
+fmod2 <- fit(mod2, verbose=FALSE)
+fmod2
+summary(fmod2)
+posterior.states <- depmixS4::posterior(fmod2)
+posterior.states$state <- as.factor(posterior.states$state)
+```
+
+Plotting, to understand the latent classes
+```{r plotting1}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+plot.data <- cbind(lca, posterior.states) %>% 
+  gather(key="measure", value="value", hm:ach12)
+max_lca_probs <- cbind(lca, posterior.states) %>% 
+  mutate(id=1:nrow(.)) %>% 
+  gather("state_prob", "value", starts_with("S", ignore.case=FALSE)) %>% 
+  group_by(id) %>% 
+  summarize(max_prob=max(value))
+summary(max_lca_probs)  # with what probability are cases assigned to classes?
+plot.data$var_type <- ifelse(plot.data$measure == "hm" | 
+                               plot.data$measure == "he" | 
+                               plot.data$measure == "voc" | 
+                               plot.data$measure == "nocol", "categorical", 
+                             ifelse(grepl(pattern="ach", x=plot.data$measure), "continuous", NA))
+ggplot(filter(plot.data, var_type=="continuous"), aes(y=value, x=state)) + 
+  geom_boxplot() + 
+  facet_wrap(~ measure)
+ggplot(filter(plot.data, var_type=="categorical"), aes(x=state, fill=as.factor(value))) + 
+  geom_bar() + 
+  facet_wrap(~ measure) +
+  ggtitle("displayed as counts")
+ggplot(filter(plot.data, var_type=="categorical"), aes(x=state, fill=as.factor(value))) + 
+  geom_bar(position="fill") + 
+  facet_wrap(~ measure) +
+  ggtitle("displayed as proportion")
+summary.plot.data <- plot.data %>% 
+  group_by(state, measure) %>% 
+  summarize(z=mean(value)/sd(value))
+ggplot(summary.plot.data, aes(y=z, x=measure, group=state, color=state)) + 
+  geom_point() + 
+  geom_line() + 
+  ggtitle("typical LCA plot")
+```
+
+## Example 3: Using a predictor for class (a prior)
+
+```{r balance_example}
+data("balance")
+head(balance)
+balance$age_c <- balance$agedays - mean(balance$agedays, na.rm=TRUE) #centering age
+mod3 <- mix(list(d1 ~ 1, d2 ~ 1, d3 ~ 1, d4 ~ 1), 
+            prior = ~ age_c, # a predictor for class membership (probability of being in each class depends on age)
+            data=balance,
+            nstates = 3, 
+            family = list(multinomial("identity"), multinomial("identity"), multinomial("identity"), multinomial("identity")), 
+            respstart = runif(24))
+fmod3 <- fit(mod3, verbose=FALSE)
+fmod3
+summary(fmod3)
+summary(fmod3, which="response")
+posterior.states <- depmixS4::posterior(fmod3) # Returns a data.frame with the number of latent states + 1 columns; the first column has the viterbi states, the other columns have the delta probabilities, see Rabiner (1989)
+posterior.states$state <- as.factor(posterior.states$state)
+```
+
+```{r plots}
+balance <- cbind(balance, posterior.states)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+ggplot(tidyr::gather(balance, key="key", value="value", S1:S3), aes(x=agedays, y=value, color=key)) + 
+  geom_point(alpha=.6) + 
+  ggtitle("estimated probability of membership in each class by age")
+probs <- balance %>% 
+  group_by(age) %>% 
+  summarize_each(funs(mean), S1, S2, S3)
+  
+ggplot(tidyr::gather(probs, key="key", value="value", -age), aes(y=value, x=age, color=key)) + 
+  geom_line() + 
+  ggtitle("mean probability of being in each class by age")
+```
+
+
+"The intercept values of the multinomial logistic parameters provide the prior probabilities of each class when the covariate has value zero (note that in this case the value zero does not have much significance, scaling and/or centering of covariates may be useful in such cases). The summary function prints these values. As can be seen from those values, at age zero, the prior probability is overwhelmingly at the second class."     
+
+## Example 4: More classes
+
+```{r more_classes}
+mod4 <- mix(list(hm~1, he~1, voc~1, nocol~1, ach09~1, ach10~1, ach11~1, ach12~1), 
+           data=lca, # the dataset to use
+           nstates=6, # the number of latent classes
+           family=list(multinomial(),multinomial(),multinomial(),multinomial(), gaussian(),gaussian(),gaussian(),gaussian()),
+           respstart=runif(96))
+fmod4 <- fit(mod4, verbose=FALSE)
+fmod4
+summary(fmod4)
+posterior.states <- depmixS4::posterior(fmod4)
+posterior.states$state <- as.factor(posterior.states$state)
+summary(posterior.states$state) # how many cases assigned to each class?
+```
+
+
+## Example 5: mclust package
+Only works with continuous predictors: finite normal (aka Gaussian) mixture modelling. 
+```{r mclust}
+library(mclust)
+cont_data <- dplyr::select(lca, ach09:ach12) # continuous variables only
+# shows model fit (BIC) on y-axis and number of latent classes on x-axis
+BIC = mclustBIC(cont_data, 
+              G=1:9) # G tells it how many latent classes to try 
+plot(BIC) # different lines represent different assumptions about the covariance structure
+summary(BIC) # the best models
+mod1 = Mclust(cont_data, 
+              G=1:9, # the number of latent classes to try (it will select the best one)
+              x = BIC) # giving it this BIC object we made before means it won't have to recalculate it
+summary(mod1, parameters = TRUE)
+summary(as.factor(mod1$classification))
+head(round(mod1$uncertainty, 3)) # uncertainty associated with each classification
+```
+
+```{r mclust_get_classes}
+# add class assignment and uncertainty to data
+cont_data$class <- as.factor(mod1$classification)
+cont_data$uncertainty <- mod1$uncertainty
+summary(cont_data$uncertainty)
+```
+
+```{r mclust_plotting}
+plot.data <- cont_data %>% 
+  gather(key="measure", value="value", ach09:ach12)
+ggplot(plot.data, aes(y=value, x=class)) + 
+  geom_boxplot() + 
+  facet_wrap(~ measure)
+ggplot(plot.data, aes(x=value, fill=class)) + 
+  geom_histogram(position = "identity", alpha=.5) + 
+  facet_wrap(~ measure)
+summary.plot.data <- plot.data %>% 
+  group_by(class, measure) %>% 
+  summarize(z=mean(value)/sd(value))
+ggplot(summary.plot.data, aes(y=z, x=measure, group=class, color=class)) + 
+  geom_point() + 
+  geom_line() + 
+  ggtitle("typical LCA plot")
+```
+
+# Follow-up analyses
+Compare the assigned latent classes to some other categorical variable.
+
+```{r compare_to_cat_outcome}
+lca$class <- as.factor(mod1$classification)
+# how does the latent class assignment based on academic acheivement in grades 9 through 12 compare to whether or not students took vocational classes?
+xtabs(~ class + voc, data=lca)
+lcaxtabs <- xtabs(~ class + voc, data=lca)
+summary(lcaxtabs)
+library(vcd)
+assocstats(lcaxtabs)
+```
+
+## 数据长什么样?
+
+## 结果有哪些怎么呈现
+
+## 原理和结果解读
+[疾病亚型如何定义？潜类别分析（LCA）在呼吸科研究中的应用（更新）](https://mp.weixin.qq.com/s?__biz=MzU0NDczNjU3MA==&mid=2247485594&idx=2&sn=3e3b77802f1a63e50495a55aa21f3f25&chksm=fb76dccfcc0155d9830832c9fe285c6fe66369786c7ca087c6be90865d476122645626c51dd0&mpshare=1&scene=1&srcid=0415qwQBz4SuFZ5methk7kUe&sharer_sharetime=1618496812242&sharer_shareid=92d575265a1637eaffa2ba3a2d0d8b39#rd)
+[动态变化的类型如何定义？潜类别分析（LAC）对随时间变化的指标归类](https://mp.weixin.qq.com/s?__biz=MzU0NDczNjU3MA==&mid=2247485594&idx=1&sn=c03b208caa6f5fc9cdef162a2dfdb9d2&chksm=fb76dccfcc0155d99214165f51b96658d0d29c12de6f9e64a51592034356161e3658585a322c&mpshare=1&scene=1&srcid=0415OEuEeXlp8FgEqGxdVz0O&sharer_sharetime=1618496827029&sharer_shareid=92d575265a1637eaffa2ba3a2d0d8b39#rd)
+## 模板论文
+
+[](https://www.youtube.com/watch?v=eRQnSYhhhNw)
+
+[rosemm/rexamples: handy examples of stuff in r](https://github.com/rosemm/rexamples)
+[RPubs - latent class analysis](https://rpubs.com/rosemm/lca)
